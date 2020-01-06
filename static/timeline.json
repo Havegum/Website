@@ -1,0 +1,85 @@
+{
+  "work": [
+    {
+      "place": "Bergens Tidende",
+      "title": "Redaksjonell utvikler (ringevikar)",
+      "start": "2019-08-10",
+      "end": null
+    },
+    {
+      "place": "Aftenposten",
+      "title": "Redaksjonell utvikler (ringevikar)",
+      "start": "2019-08",
+      "end": null,
+      "hidden": true
+    },
+    {
+      "place": "Aftenposten",
+      "title": "Redaksjonell utvikler (sommervikar)",
+      "start": "2019-06",
+      "end": "2019-08"
+    },
+    {
+      "place": "Aqua & Care",
+      "title": "IT-konsulent",
+      "start": "2018-08",
+      "end": "2019-06",
+      "hidden": true
+    },
+    {
+      "place": "Studvest",
+      "title": "Utvikler",
+      "start": "2018-01",
+      "end": "2019-06"
+    },
+    {
+      "place": "Studvest",
+      "title": "Layoutdesigner",
+      "start": "2017-08",
+      "end": "2018-01",
+      "hidden": true
+    },
+    {
+      "place": "Aleris Omsorg Bergen",
+      "title": "Frilans grafiker",
+      "start": "2015-10",
+      "end": "2015-11",
+      "hidden": true
+    },
+    {
+      "place": "Forsvaret",
+      "title": "Mediegrafikerlærling",
+      "start": "2014-06",
+      "end": "2016-07"
+    },
+    {
+      "place": "Forsvaret",
+      "title": "Grafisk assistent",
+      "start": "2014-01",
+      "end": "2014-06",
+      "hidden": true
+    }
+  ],
+
+  "education": [
+    {
+      "place": "Universitetet i Bergen",
+      "title": "Medie- og interaksjonsdesign",
+      "start": "2017-08",
+      "end": null
+    },
+    {
+      "place": "Trøndelag fylkeskommune",
+      "title": "Privatist",
+      "start": "2015-08",
+      "end": "2016-08",
+      "hidden": true
+    },
+    {
+      "place": "Forsvaret",
+      "title": "Mediegrafikerlærling",
+      "start": "2014-06",
+      "end": "2016-07"
+    }
+  ]
+}

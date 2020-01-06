@@ -1,0 +1,48 @@
+// ## FONTS ##
+$sans: 'Recursive', sans-serif;
+
+$linear: 'MONO' 0;
+$normal: 'wght' 350;
+$bold: 'wght' 475;
+$italic: 'slnt' -15;
+
+
+// ### COLORS ###
+// Abstract
+$light: #f2f7f5;
+$dark: #00473e;
+$lightgray: #88a4a0;
+$gray: #657473;
+
+$primary: #2255e9;
+$primary-dark: #204bd0;
+
+$secondary: #bfe8fc;
+$secondary-dark: #90c5f9;
+
+$tertiary: #fa382a;
+
+
+$lighter: #fffdf7;
+$darker: #00332c;
+
+// Elements, light
+$background: $light;
+$headline: $dark;
+$paragraph: $gray;
+$button: $primary;
+$button-text: $lighter;
+$link: $primary;
+
+// Dark
+$background-dark: $darker;
+$headline-dark: $lighter;
+$paragraph-dark: $lightgray;
+
+// $card-background-dark: $light;
+// $card-headline-dark: $dark;
+// $card-paragraph-dark: $gray;
+
+// ### MEDIA QUERIES ###
+$mobile: 400px;
+$medium: 720px;
