@@ -208,7 +208,7 @@ ol {
 
 	.abbreviated {
     :global(.reveal-button) {
-      font-size: .8em;
+      font-size: .85em;
     }
     margin: .25em 0;
 	}

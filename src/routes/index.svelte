@@ -1,6 +1,11 @@
 <script>
+import Showcase from '@/components/Showcase.svelte';
+import Bybane from '@/widgets/Bybane.svelte';
+import Schoolmodels from '@/widgets/Schoolmodels.svelte';
+
 import Timeline from '@/components/Timeline.svelte';
 import timeline from '../../static/timeline.json';
+
 
 let workList = timeline.work.map(work => ({
 	...work,
@@ -34,6 +39,18 @@ let educationList = timeline.education.map(education => ({
 
 <br>
 
+<h2>Noe jeg har jobbet med</h2>
+<div class="showcase">
+	<Showcase let:hover lead="Bybanestriden" employer="Bergens Tidende">
+		<Bybane {hover} />
+	</Showcase>
+
+	<Showcase let:hover lead="Simulering og visualisering av fem skoleinntaksmodeller" employer="Aftenposten">
+		<Schoolmodels {hover} />
+	</Showcase>
+</div>
+
+
 <div class="experience">
 	<Timeline title="Arbeidserfaring" class="timeline" list={workList} />
 	<Timeline title="Utdanning" class="timeline" list={educationList} />
@@ -41,6 +58,17 @@ let educationList = timeline.education.map(education => ({
 
 <style lang="scss">
 @import '../profile.scss';
+
+.showcase {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+
+	@media screen and (min-width: $medium) {
+		flex-direction: row;
+		justify-content: space-around;
+	}
+}
 
 .experience {
 	display: flex;

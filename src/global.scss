@@ -60,3 +60,13 @@ ul {
   padding-left: 1em;
   margin: 1em 0;
 }
+
+
+code {
+	font-family: $mono;
+	font-variation-settings: $normal, 'MONO' 1;
+
+	background-color: $lighter;
+	padding: 0.2em 0.4em;
+	border-radius: 2px;
+}
