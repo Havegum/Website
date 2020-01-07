@@ -16,7 +16,7 @@ $lightgray: #6d9b94;
 $gray: #657473;
 
 $primary: #2255e9;
-$primary-dark: #204bd0;
+$primary-dark: #133ec3;
 
 $secondary: #bfe8fc;
 $secondary-dark: #90c5f9;
@@ -34,6 +34,7 @@ $paragraph: $gray;
 $button: $primary;
 $button-text: $lighter;
 $link: $primary;
+$link-hover: $primary-dark;
 
 // Dark
 $background-dark: $darker;

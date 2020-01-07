@@ -40,7 +40,22 @@ h4 {
 
 a {
   color: #2255e9; }
+  a:hover, a:focus {
+    color: #133ec3; }
+  a:active {
+    font-variation-settings: "wght" 475; }
 
 ul {
   padding-left: 1em;
   margin: 1em 0; }
+
+pre {
+  background-color: #fffdf7; }
+
+code {
+  font-family: "Recursive", inconsolata, monospace;
+  font-variation-settings: "wght" 350, "MONO" 1;
+  color: #6d9b94;
+  background-color: #fffdf7;
+  padding: 0.2em 0.4em;
+  border-radius: 2px; }

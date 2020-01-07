@@ -160,7 +160,7 @@ onMount(() => {
             <Button outline=true class="reveal-button" on:click={reveal(element)}>{element.title}</Button>
           </li>
         {:else}
-          <li in:slide|local>
+          <li in:slide|local={{ offset: 1.45 * (15 + window.innerWidth * 2e-3)}}>
             <p class="element">{element.place}</p>
             <p class="detail">
               <span>{element.title}</span>

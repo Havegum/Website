@@ -54,6 +54,14 @@ h4 {
 
 a {
   color: $link;
+
+	&:hover, &:focus {
+		color: $link-hover;
+	}
+
+	&:active {
+		font-variation-settings: $bold;
+	}
 }
 
 ul {

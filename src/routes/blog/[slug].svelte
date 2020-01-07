@@ -14,7 +14,8 @@
 </script>
 
 <script>
-	export let post;
+import Text from '@/components/Text.svelte';
+export let post;
 </script>
 
 <style>
@@ -60,5 +61,7 @@
 <h1>{post.title}</h1>
 
 <div class='content'>
-	{@html post.html}
+	<Text>
+		{@html post.html}
+	</Text>
 </div>
