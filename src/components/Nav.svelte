@@ -50,7 +50,7 @@ const [send, receive] = crossfade({
 <nav>
 	<ul on:mouseout={timeout}>
 		<li>
-			<a class:selected='{segment === undefined}' on:mouseover={focus()} on:focus={focus()} on:blur={timeout} href='.'>home</a>
+			<a rel=prefetch class:selected='{segment === undefined}' on:mouseover={focus()} on:focus={focus()} on:blur={timeout} href='.'>home</a>
 			{#if target === undefined}
 				<div class="scrubber" in:receive={scrub} out:send={scrub}></div>
 			{/if}
@@ -63,14 +63,6 @@ const [send, receive] = crossfade({
 			{/if}
 		</li>
 
-		<!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
-		     the blog data when we hover over the link or tap it on a touchscreen -->
-		<li>
-			<a rel=prefetch class:selected='{segment === "blog"}' on:mouseover={focus('blog')} on:focus={focus('blog')} on:blur={timeout} href='blog'>blog</a>
-			{#if target === "blog"}
-				<div class="scrubber" in:receive={scrub} out:send={scrub}></div>
-			{/if}
-		</li>
 	</ul>
 </nav>
 

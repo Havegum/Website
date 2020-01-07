@@ -69,6 +69,7 @@ function decorateList (list) {
 
 
 function resizeDots () {
+  if (!listElement) return;
   let elements = listElement.getElementsByTagName('li');
 
   for (let i = 0; i < list.length; i++) {
@@ -129,7 +130,7 @@ onMount(() => {
 </script>
 
 
-<div class="{$$props.class}">
+<div class="timeline {$$props.class}">
   <h2 id="{title}">{title}</h2>
 
   <div class="stack">
@@ -176,13 +177,21 @@ onMount(() => {
 <style lang="scss">
 @import '../profile.scss';
 
+.timeline {
+  width: 18em;
+}
 .stack {
   display: flex;
+}
+
+h2 {
+  margin-bottom: 0.2em;
 }
 
 svg {
   margin-right: .666em;
   overflow: visible;
+  flex-shrink: 0;
 
   circle {
     fill: $tertiary;

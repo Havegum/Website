@@ -53,7 +53,7 @@ button:disabled {
 </style>
 
 
-<button
+<button type="button"
     class="{$$props.class}"
     on:click
     {disabled}

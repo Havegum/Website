@@ -61,11 +61,15 @@ ul {
   margin: 1em 0;
 }
 
+pre {
+	background-color: $lighter;
+}
+
 
 code {
 	font-family: $mono;
 	font-variation-settings: $normal, 'MONO' 1;
-
+	color: $lightgray;
 	background-color: $lighter;
 	padding: 0.2em 0.4em;
 	border-radius: 2px;
