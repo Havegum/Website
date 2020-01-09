@@ -1,5 +1,6 @@
 <script>
 import Text from '@/components/Text.svelte';
+import Skillmap from '@/components/Skillmap.svelte';
 
 import Showcase from '@/components/Showcase.svelte';
 import Bybane from '@/widgets/Bybane.svelte';
@@ -7,6 +8,7 @@ import Schoolmodels from '@/widgets/Schoolmodels.svelte';
 
 import Timeline from '@/components/Timeline.svelte';
 import timeline from '../../static/timeline.json';
+import skillmap from '../../static/skillmap.json';
 
 
 let workList = timeline.work.map(work => ({
@@ -39,21 +41,22 @@ let educationList = timeline.education.map(education => ({
 	</p>
 </Text>
 
-<h2>Noe jeg har jobbet med</h2>
-<div class="showcase">
-	<Showcase let:hover lead="Bybanestriden" employer="Bergens Tidende" href="https://www.bt.no/nyheter/lokalt/i/rA47pl/bybanestriden">
-		<Bybane {hover} />
-	</Showcase>
-
-	<Showcase let:hover lead="Simulering og visualisering av fem skoleinntaksmodeller" employer="Aftenposten" href="https://www.aftenposten.no/osloby/i/3JoKlX/neste-aar-kan-det-bli-slutt-paa-karakterbasert-opptak-i-oslo-disse-fem-modellene-skal-gi-svar-om-fremtidens-inntaksordning">
-		<Schoolmodels {hover} />
-	</Showcase>
-</div>
-
+<Skillmap nodes={skillmap.skills} edges={skillmap.connections}/>
 
 <div class="experience">
 	<Timeline title="Arbeidserfaring" class="timeline" list={workList} />
 	<Timeline title="Utdanning" class="timeline" list={educationList} />
+</div>
+
+<h2>Se noen av prosjektene jeg har jobbet på</h2>
+<div class="showcase">
+	<Showcase class="showcase-item" let:hover lead="Bybanestriden" employer="Bergens Tidende" href="https://www.bt.no/nyheter/lokalt/i/rA47pl/bybanestriden">
+		<Bybane {hover} />
+	</Showcase>
+
+	<Showcase class="showcase-item" let:hover lead="Simulering og visualisering av fem skoleinntaksmodeller" employer="Aftenposten" href="https://www.aftenposten.no/osloby/i/3JoKlX/neste-aar-kan-det-bli-slutt-paa-karakterbasert-opptak-i-oslo-disse-fem-modellene-skal-gi-svar-om-fremtidens-inntaksordning">
+		<Schoolmodels {hover} />
+	</Showcase>
 </div>
 
 <style lang="scss">
@@ -72,6 +75,11 @@ h2 {
 		flex-direction: row;
 		justify-content: space-around;
 		align-items: flex-start;
+	}
+
+	:global(.showcase-item) {
+		margin: .5em;
+		margin-top: 0;
 	}
 }
 

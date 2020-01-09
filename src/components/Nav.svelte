@@ -8,16 +8,9 @@ let targetTimeout;
 
 const scrub = { key: 'scrubber' };
 
-// $: target, timeout();
-
 function timeout (set) {
-	// if (set) {
 	targetTimeout && clearTimeout(targetTimeout);
 	targetTimeout = setTimeout(() => target = segment, 200);
-
-	// } else {
-	// 	targetTimeout && clearTimeout(targetTimeout);
-	// }
 }
 
 function focus (id) {
@@ -50,19 +43,11 @@ const [send, receive] = crossfade({
 <nav>
 	<ul on:mouseout={timeout}>
 		<li>
-			<a rel=prefetch class:selected='{segment === undefined}' on:mouseover={focus()} on:focus={focus()} on:blur={timeout} href='.'>home</a>
-			{#if target === undefined}
+			<a class:selected='{segment === "om"}' on:mouseover={focus('om')} on:focus={focus('om')} on:blur={timeout} href='om'>Om meg</a>
+			{#if target === "om"}
 				<div class="scrubber" in:receive={scrub} out:send={scrub}></div>
 			{/if}
 		</li>
-
-		<li>
-			<a class:selected='{segment === "about"}' on:mouseover={focus('about')} on:focus={focus('about')} on:blur={timeout} href='about'>about</a>
-			{#if target === "about"}
-				<div class="scrubber" in:receive={scrub} out:send={scrub}></div>
-			{/if}
-		</li>
-
 	</ul>
 </nav>
 

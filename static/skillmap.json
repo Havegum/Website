@@ -1,0 +1,178 @@
+{
+  "skills": [
+    {
+      "name": "Design Thinking",
+      "techincal": 0,
+      "size": 2,
+      "x": 103.316,
+      "y": 78.544
+    },
+    {
+      "name": "Figma",
+      "techincal": 0.1,
+      "size": 1,
+      "x": 158.774,
+      "y": 83.758
+    },
+    {
+      "name": "Adobe XD",
+      "techincal": 0.1,
+      "size": 1,
+      "x": 159.022,
+      "y": 70.926
+    },
+    {
+      "name": "Illustrator",
+      "techincal": 0.2,
+      "size": 5,
+      "x": 236.104,
+      "y": 75.265
+    },
+    {
+      "name": "HTML",
+      "techincal": 0.45,
+      "size": 5,
+      "x": 320.955,
+      "y": 98.784
+    },
+    {
+      "name": "CSS",
+      "techincal": 0.35,
+      "size": 5,
+      "x": 333.551,
+      "y": 86.876
+    },
+    {
+      "name": "SCSS",
+      "techincal": 0.45,
+      "size": 1,
+      "x": 360.978,
+      "y": 69.085
+    },
+    {
+      "name": "Typescript",
+      "techincal": 0.7,
+      "size": 1,
+      "x": 380.486,
+      "y": 73.806
+    },
+    {
+      "name": "Javascript",
+      "techincal": 0.5,
+      "size": 5,
+      "x": 410.997,
+      "y": 76.164
+    },
+    {
+      "name": "D3.js",
+      "techincal": 0.7,
+      "size": 3,
+      "x": 375.421,
+      "y": 87.919
+    },
+    {
+      "name": "Svelte",
+      "techincal": 0.6,
+      "size": 5,
+      "x": 372.058,
+      "y": 60.907
+    },
+    {
+      "name": "Node",
+      "techincal": 1,
+      "size": 3,
+      "x": 438.018,
+      "y": 78.162
+    },
+    {
+      "name": "Express",
+      "techincal": 0.9,
+      "size": 1,
+      "x": 453.303,
+      "y": 54.935
+    },
+    {
+      "name": "MongoDB",
+      "techincal": 1,
+      "size": 2,
+      "x": 471.923,
+      "y": 79.024
+    },
+    {
+      "name": "Python",
+      "techincal": 0.7,
+      "size": 4,
+      "x": 503.415,
+      "y": 76.849
+    },
+    {
+      "name": "Pandas",
+      "techincal": 0.8,
+      "size": 2,
+      "x": 545.132,
+      "y": 77.687
+    },
+    {
+      "name": "Jupyter",
+      "techincal": 0.65,
+      "size": 2,
+      "x": 501.944,
+      "y": 104.830
+    },
+    {
+      "name": "Keras",
+      "techincal": 1,
+      "size": 1,
+      "x": 580.823,
+      "y": 84.108
+    },
+    {
+      "name": "Matplotlib",
+      "techincal": 0.75,
+      "size": 3,
+      "x": 537.869,
+      "y": 102.285
+    }
+  ],
+
+  "connections": [
+    { "source": "Design Thinking", "target": "Figma" },
+    { "source": "Design Thinking", "target": "Adobe XD" },
+    { "source": "Adobe XD", "target": "Illustrator" },
+    { "source": "Figma", "target": "Illustrator" },
+    { "source": "Illustrator", "target": "HTML" },
+    { "source": "Illustrator", "target": "Svelte" },
+    { "source": "Illustrator", "target": "CSS" },
+    { "source": "HTML", "target": "CSS" },
+    { "source": "HTML", "target": "Svelte" },
+    { "source": "HTML", "target": "Javascript" },
+    { "source": "HTML", "target": "Typescript" },
+    { "source": "HTML", "target": "D3.js" },
+    { "source": "CSS", "target": "SCSS" },
+    { "source": "CSS", "target": "Javascript" },
+    { "source": "CSS", "target": "Typescript" },
+    { "source": "CSS", "target": "D3.js" },
+    { "source": "SCSS", "target": "Svelte" },
+    { "source": "Javascript", "target": "Typescript" },
+    { "source": "Javascript", "target": "D3.js" },
+    { "source": "Javascript", "target": "Node" },
+    { "source": "Javascript", "target": "Svelte" },
+    { "source": "Javascript", "target": "MongoDB" },
+    { "source": "Javascript", "target": "Python" },
+    { "source": "Javascript", "target": "Express" },
+    { "source": "Svelte", "target": "Express" },
+    { "source": "Svelte", "target": "Node" },
+    { "source": "Express", "target": "Node" },
+    { "source": "Express", "target": "MongoDB" },
+    { "source": "Node", "target": "MongoDB" },
+    { "source": "Python", "target": "Pandas" },
+    { "source": "Python", "target": "Jupyter" },
+    { "source": "Python", "target": "Keras" },
+    { "source": "Python", "target": "Matplotlib" },
+    { "source": "Pandas", "target": "Jupyter" },
+    { "source": "Pandas", "target": "Keras" },
+    { "source": "Pandas", "target": "Matplotlib" },
+    { "source": "Matplotlib", "target": "Jupyter" },
+    { "source": "Matplotlib", "target": "Keras" }
+  ]
+}

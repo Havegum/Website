@@ -6,7 +6,7 @@ export let employer = '';
 let hover = false;
 </script>
 
-<a {href} on:mouseover={() => hover = true} on:mouseout={() => hover = false}>
+<a class="{$$props.class}" {href} on:mouseover={() => hover = true} on:mouseout={() => hover = false}>
   <slot {hover}></slot>
   <div>
     <p class="lead">{lead}</p>
