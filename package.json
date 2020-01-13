@@ -17,6 +17,7 @@
     "compression": "^1.7.1",
     "d3": "^5.15.0",
     "d3-force": "^2.0.1",
+    "d3-quadtree": "^1.0.7",
     "d3-selection": "^1.4.1",
     "helmet": "^3.21.2",
     "node-sass": "^4.13.0",

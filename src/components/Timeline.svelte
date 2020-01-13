@@ -14,6 +14,7 @@ let svg
 let svgWidth = 50;
 let radius = 7;
 
+let months = ['januar', 'februar', 'mars', 'april', 'mai', 'juni', 'juli', 'august', 'september', 'oktober', 'november', 'desember'];
 
 $: decorateList(list);
 
@@ -102,7 +103,7 @@ function toPathData(points, i) {
 
 function getDateString ({ start, end } = {}) {
 	if (!start) return '';
-	const toString = date => date.toLocaleString('no-NB', { year: 'numeric', month: 'long' });
+	const toString = date => months[date.getMonth()] + ' ' + date.getFullYear();
 	return toString(start) + (end ? ' – ' + toString(end) : ' til dags dato')
 }
 
@@ -153,7 +154,7 @@ onMount(() => {
       {/each}
     </svg>
 
-    <ol bind:this={listElement}>
+    <ol bind:this={listElement} aria-labelledby="{title}">
       {#each list as element (element.id)}
         {#if element.hidden}
           <li class="abbreviated element">

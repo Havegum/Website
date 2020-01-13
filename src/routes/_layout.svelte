@@ -32,8 +32,10 @@ main {
 	background-color: $light;
 
 	position: relative;
-	padding: 2em;
+	padding: 1em;
 
-	// @media screen and (min-width: $medium)
+	@media screen and (min-width: $mobile) {
+		padding: 2em;
+	}
 }
 </style>

@@ -13,8 +13,8 @@ html, body, *, *::before, *::after {
 
 body {
 	font-family: $sans;
-  font-weight: 375;
-  font-variation-settings: $linear, $normal;
+  font-weight: 350;
+  font-variation-settings: $linear;
 
 	font-size: 15.8px;
 	line-height: 1.6;
@@ -41,11 +41,11 @@ h1 {
 }
 
 h2 {
-	font-size: 1.5em;
+	font-size: 1.4em;
 }
 
 h3 {
-	font-size: 1.3em;
+	font-size: 1.2em;
 }
 
 h4 {

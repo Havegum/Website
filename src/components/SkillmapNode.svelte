@@ -1,0 +1,53 @@
+<script>
+export let node;
+const clamp = (n, { min=0, max=1 }={}) => Math.max(min, Math.min(max, n));
+
+let text;
+
+$: if (text) {
+  let { width, height } = text.getBBox();
+  node.width = Math.floor(width + 16);
+  node.height = Math.floor(height * 1.1 + 4);
+}
+</script>
+
+
+<circle cx={node.x} cy={node.y} r={node.size + 1} aria-hidden="true"/>
+<g style="
+    font-size: {9 + node.size * 1.5}px;
+    transform: translate({node.x}px, {node.y + 9 + node.size * 1.5}px;
+    font-variation-settings:
+      'CASL' {clamp(1 - node.techincal * 2)},
+      'ital' {clamp(1 - node.techincal * 2)},
+      'MONO' {clamp(node.techincal * 2 - 1)}">
+  <text class="shadow" aria-hidden="true">{node.name}</text>
+  <text style="font-weight: {300 + 50 * node.size}" bind:this={text}>{node.name}</text>
+</g>
+
+
+<style lang="scss">
+@import '../profile.scss';
+
+circle {
+  stroke: $primary;
+  stroke-width: 1;
+  fill: $secondary;
+}
+
+text {
+  fill: $light;
+  color: $light;
+  text-anchor: middle;
+  user-select: none;
+
+  &.shadow {
+    fill: $primary;
+    stroke: $primary;
+    stroke-width: 2px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    // text-shadow: 0 0 2px $primary, 0 0 2px $primary, 0 0 3px $primary;
+    font-weight: 1000;
+  }
+}
+</style>
