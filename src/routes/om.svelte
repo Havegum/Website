@@ -59,16 +59,16 @@ let educationList = timeline.education.map(education => ({
 			har vært nødvendig for å levere dagsprosjekter og samtidig ha fremgang i
 			mer langsiktige prosjekter.
  		</p>
-		<br>
 		<p>
 			Jeg har erfaring med en bred portefølje av felter, og noe som gir meg <b>allsidighet</b>
 			til å bidra mer i tverfaglige team. Noen av det jeg har vært borti er:
 			UX-evaluering, grafisk design, dataanalyse, og maskinlæring.
 		</p>
-		<br>
-		Jeg synes det er gøy å lage ting. Jeg har et <b>engasjement</b> for design og
-		teknologi. Ettermiddagen går fort i å prøve et nytt verktøy, eller se om jeg kan
-		blåse liv i mine egne prosjekter.
+		<p>
+			Jeg synes det er gøy å lage ting. Jeg har et <b>engasjement</b> for design og
+			teknologi. Ettermiddagen går fort i å prøve et nytt verktøy, eller se om jeg kan
+			blåse liv i mine egne prosjekter.
+		</p>
 	</Text>
 </div>
 

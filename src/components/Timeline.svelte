@@ -181,6 +181,7 @@ onMount(() => {
 .timeline {
   width: 18em;
 }
+
 .stack {
   display: flex;
 }
@@ -217,20 +218,24 @@ ol {
   position: relative;
 
 	.abbreviated {
+    margin: .25em 0;
+
     :global(.reveal-button) {
       font-size: .85em;
     }
-    margin: .25em 0;
 	}
 
 	li {
 		margin: 1em 0;
 		line-height: 1.4em;
     font-weight: 475;
-    font-variation-settings: $bold;
 
     @media screen and (min-width: $mobile) {
       font-size: .85em;
+    }
+
+    .element {
+      margin: 0;
     }
 
 		.detail {
