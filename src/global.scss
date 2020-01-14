@@ -11,6 +11,7 @@ html, body, *, *::before, *::after {
   src: url('recursive-MONO_CASL_wght_slnt_ital--full_gsub--2019_12_17-23_21.woff2') format('woff2');
 }
 
+
 body {
 	font-family: $sans;
   font-weight: 350;
@@ -63,8 +64,18 @@ a {
 	}
 
 	&:active {
-		font-variation-settings: $bold;
+		font-weight: 475;
 	}
+}
+
+button {
+	cursor: pointer;
+	display: block;
+	border: none;
+	background-color: transparent;
+	font-family: 'Recursive';
+	font-size: 1em;
+	color: $paragraph;
 }
 
 ul {

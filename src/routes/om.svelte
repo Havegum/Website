@@ -11,6 +11,8 @@ import Timeline from '@/components/Timeline.svelte';
 import timeline from '../../static/timeline.json';
 import skillmap from '../../static/skillmap.json';
 
+import { slide } from 'svelte/transition';
+
 
 let workList = timeline.work.map(work => ({
 	...work,
@@ -25,6 +27,8 @@ let educationList = timeline.education.map(education => ({
 	end: education.end ? new Date(education.end) : null,
 	id: education.place + education.program + education.start
 }));
+
+let ccbyExpanded = false;
 </script>
 
 
@@ -54,21 +58,41 @@ let educationList = timeline.education.map(education => ({
 <div class="key-attributes">
 	<Text>
 		<h2>Nøkkelegenskaper</h2>
-		<p>
-			Jeg kan å jobbe med klare frister. <b>Effektivitet</b> og prioritering
-			har vært nødvendig for å levere dagsprosjekter og samtidig ha fremgang i
-			mer langsiktige prosjekter.
- 		</p>
-		<p>
-			Jeg har erfaring med en bred portefølje av felter, og noe som gir meg <b>allsidighet</b>
-			til å bidra mer i tverfaglige team. Noen av det jeg har vært borti er:
-			UX-evaluering, grafisk design, dataanalyse, og maskinlæring.
-		</p>
-		<p>
-			Jeg synes det er gøy å lage ting. Jeg har et <b>engasjement</b> for design og
-			teknologi. Ettermiddagen går fort i å prøve et nytt verktøy, eller se om jeg kan
-			blåse liv i mine egne prosjekter.
-		</p>
+		<ul>
+			<li>
+				<img src="overcast.svg"/>
+				<p>
+					Jeg synes det er gøy å lage ting. Jeg har et <b>engasjement</b> for design og
+					teknologi. Ettermiddagen går fort i å prøve et nytt verktøy, eller se om jeg kan
+					blåse liv i mine egne prosjekter.
+				</p>
+			</li>
+			<li>
+				<img src="rainy-shaded.svg"/>
+				<p>
+					Jeg har erfaring med en bred portefølje av felter, og noe som gir meg <b>allsidighet</b>
+					til å bidra mer i tverfaglige team. Noen av det jeg har vært borti er:
+					UX-evaluering, grafisk design, dataanalyse, og maskinlæring.
+				</p>
+			</li>
+			<li>
+				<img src="lightning-shaded.svg"/>
+				<p>
+					Jeg kan levere på tid. God prioritering og <b>effektivitet</b>
+					har vært nødvendig for å balansere kortsiktige og langsiktige prosjekter.
+				</p>
+			</li>
+		</ul>
+		<button on:click={() => ccbyExpanded = !ccbyExpanded}>Ikoner av Mat fine</button>
+		{#if ccbyExpanded}
+			<div class="cc-by" transition:slide>
+				Ikonene er modifisert og basert på <a href="https://thenounproject.com/matfine/">Mat fine</a>'s ikoner
+				"<a href="https://thenounproject.com/term/cloud-and-sun/1885886/">cloud and sun</a>",
+				"<a href="https://thenounproject.com/term/cloud-and-rain/1885924/">cloud and rain</a>", og
+				"<a href="https://thenounproject.com/term/cloud-and-lightning/1885892/">Cloud and lightning</a>".
+				Ikonene har "Creative Commons"-lisensen <a href="https://creativecommons.org/licenses/by/3.0/">CC-BY 3.0</a>.
+			</div>
+		{/if}
 	</Text>
 </div>
 
@@ -130,9 +154,57 @@ h2 {
 	}
 
 	b {
-		background-color: $secondary;
-		// color: $light;
-		padding: 0 .2em;
+		color: $primary;
+	}
+
+	button {
+		font-size: .65em;
+		font-variation-settings: $italic;
+		margin-left: auto;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	.cc-by {
+		font-size: .8em;
+	}
+
+	ul {
+		list-style: none;
+		padding: 0;
+	}
+
+	li {
+		display: flex;
+		margin-bottom: 3em;
+
+		flex-direction: column;
+		align-items: center;
+
+
+		p { margin: 0 }
+
+		img {
+			width: 5em;
+			height: 5em;
+			margin: 0 auto 1em;
+		}
+
+		@media screen and (min-width: $mobile) {
+			&:nth-child(2n-1) {
+				flex-direction: row;
+				img { margin-left: 0 }
+			}
+
+			&:nth-child(2n) {
+				flex-direction: row-reverse;
+				img { margin-right: 0 }
+			}
+
+			img { margin: 0 2em }
+		}
 	}
 }
 

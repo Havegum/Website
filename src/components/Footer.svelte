@@ -41,4 +41,8 @@ div {
     }
   }
 }
+
+p {
+  margin: 0;
+}
 </style>

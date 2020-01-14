@@ -13,7 +13,7 @@ let height;
 let margin = {
   top: 10,
   bottom: 30,
-  left: 20,
+  left: 30,
   right: 20,
   get width () { return this.left + this.right },
   get height () { return this.top + this.bottom }
@@ -37,7 +37,7 @@ sim
 
 // Reactive forces
 $: sim.force('x', forceX(n => n.techincal * (width - margin.width)).strength(45e-2));
-$: sim.force('y', forceY((height - margin.height) / 2).strength(6e-2));
+$: sim.force('y', forceY((height - margin.height) / 2).strength(8e-2));
 $: sim.force('bound', forceBound(width - margin.width, height - margin.height));
 sim.on('tick', () => [nodes, edges] = [nodes, edges]);
 

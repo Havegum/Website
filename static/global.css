@@ -22,8 +22,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: .5em;
-  font-weight: 500;
-  font-variation-settings: "wght" 475;
+  font-weight: 650;
   line-height: 1.2; }
 
 h1 {
@@ -44,9 +43,18 @@ p {
 a {
   color: #2255e9; }
   a:hover, a:focus {
-    color: #133ec3; }
+    color: #0c32a7; }
   a:active {
-    font-variation-settings: "wght" 475; }
+    font-weight: 475; }
+
+button {
+  cursor: pointer;
+  display: block;
+  border: none;
+  background-color: transparent;
+  font-family: 'Recursive';
+  font-size: 1em;
+  color: #4a696a; }
 
 ul {
   padding-left: 1em;
@@ -54,6 +62,9 @@ ul {
 
 pre {
   background-color: #fffdf7; }
+
+b {
+  font-weight: 650; }
 
 code {
   font-family: "Recursive", inconsolata, monospace;
