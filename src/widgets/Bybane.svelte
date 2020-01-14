@@ -98,7 +98,7 @@ svg {
 </style>
 
 <svg version="1.1"
-	 alt="Bybanestriden logo"
+	 aria-hidden="true"
 	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
 	 x="0px" y="0px" width="300px" height="190px" viewBox="0 0 300 190" style="enable-background:new 0 0 300 190;"
 	 xml:space="preserve">

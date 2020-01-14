@@ -130,7 +130,9 @@ h2 {
 	}
 
 	b {
-		font-weight: 700;
+		background-color: $secondary;
+		// color: $light;
+		padding: 0 .2em;
 	}
 }
 

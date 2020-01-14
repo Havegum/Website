@@ -31,8 +31,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
 	margin-bottom: .5em;
-  font-weight: 500;
-  font-variation-settings: $bold;
+  font-weight: 650;
 	line-height: 1.2;
 }
 
@@ -73,6 +72,9 @@ pre {
 	background-color: $lighter;
 }
 
+b {
+	font-weight: 650;
+}
 
 code {
 	font-family: $mono;
