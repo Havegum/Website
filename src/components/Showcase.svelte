@@ -34,7 +34,7 @@ a {
   }
 
   .lead {
-    font-variation-settings: $bold;
+    font-weight: 475;
   }
 
   &:hover .lead {
@@ -42,8 +42,7 @@ a {
   }
 
   p {
-    font-variation-settings: $normal;
-    // text-decoration: none !important;
+    margin: 0;
   }
 }
 </style>

@@ -48,6 +48,13 @@ const [send, receive] = crossfade({
 				<div class="scrubber" in:receive={scrub} out:send={scrub}></div>
 			{/if}
 		</li>
+
+		<li>
+			<a class:selected='{segment === "blog"}' on:mouseover={focus('blog')} on:focus={focus('blog')} on:blur={timeout} href='blog'>Blog</a>
+			{#if target === "blog"}
+				<div class="scrubber" in:receive={scrub} out:send={scrub}></div>
+			{/if}
+		</li>
 	</ul>
 </nav>
 

@@ -18,7 +18,7 @@ div {
   div {
     max-width: 47em;
     margin: 0 auto;
-    padding: 1em .5em 1.5em;
+    padding: 1em 1em 1.5em;
 
     &.overlay {
       display: none;
@@ -27,14 +27,17 @@ div {
         display: block;
       }
     }
+
+    @media screen and (min-width: $mobile) {
+      padding: 1em 2em 1.5em;
+
+    }
+
     &:not(.overlay) { box-sizing: content-box }
 
     a { color: $secondary }
     a:hover, a:focus, a:active {
       color: $lighter;
-    }
-    a:active {
-      font-variation-settings: $bold;
     }
   }
 }
