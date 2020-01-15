@@ -21,6 +21,7 @@
     "d3-selection": "^1.4.1",
     "helmet": "^3.21.2",
     "node-sass": "^4.13.0",
+    "pell": "^1.0.6",
     "polka": "next",
     "postcss-import": "^12.0.1",
     "postcss-preset-env": "^6.7.0",

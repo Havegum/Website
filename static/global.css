@@ -66,6 +66,9 @@ pre {
 b {
   font-weight: 650; }
 
+i {
+  font-style: oblique 15deg; }
+
 code {
   font-family: "Recursive", inconsolata, monospace;
   font-variation-settings: "wght" 350, "MONO" 1;
