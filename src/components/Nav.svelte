@@ -5,6 +5,8 @@ import { crossfade } from 'svelte/transition';
 export let segment;
 export let lang = 'no';
 
+$: langQuery = (lang && lang !== 'no' ? '?lang=' + lang : '');
+
 let target = segment;
 let targetTimeout;
 
@@ -48,7 +50,8 @@ const [send, receive] = crossfade({
 			<a  class:selected='{segment === "about"}'
 					on:mouseover={focus('about')}
 					on:focus={focus('about')}
-					on:blur={timeout} href='about'
+					on:blur={timeout}
+					href='about{langQuery}'
 			>
 				{lang === 'en' ? 'About me' : 'Om meg'}
 			</a>
@@ -62,7 +65,7 @@ const [send, receive] = crossfade({
 					on:mouseover={focus('blog')}
 					on:focus={focus('blog')}
 					on:blur={timeout}
-					href='blog'
+					href='blog{langQuery}'
 			>
 				Blog{lang === 'en' ? '' : 'g'}
 			</a>
