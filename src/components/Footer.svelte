@@ -1,8 +1,18 @@
+<script>
+export let lang = 'no';
+</script>
+
 <div>
   <div class="overlay"></div>
   <div>
-    <p>Denne siden var bygget i <a href="https://svelte.dev">Svelte</a> med <a href="https://sapper.svelte.dev/">Sapper</a></p>
-    <p>Følg meg på <a href="https://www.linkedin.com/in/halvard-vegum/?locale=no_NO">LinkedIn</a>, og på Twitter <a href="https://www.twitter.com/Havegum">@Havegum</a></p>
+    {#if lang === 'en'}
+      <p>This site was built with <a href="https://svelte.dev">Svelte</a> using <a href="https://sapper.svelte.dev/">Sapper</a>.</p>
+      <p>Follow me on <a href="https://www.linkedin.com/in/halvard-vegum/">LinkedIn</a>, and on Twitter <a href="https://www.twitter.com/Havegum">@Havegum</a>.</p>
+
+    {:else}
+      <p>Denne siden var bygget i <a href="https://svelte.dev">Svelte</a> med <a href="https://sapper.svelte.dev/">Sapper</a>.</p>
+      <p>Følg meg på <a href="https://www.linkedin.com/in/halvard-vegum/?locale=no_NO">LinkedIn</a>, og på Twitter <a href="https://www.twitter.com/Havegum">@Havegum</a>.</p>
+    {/if}
   </div>
 </div>
 

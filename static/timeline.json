@@ -1,60 +1,60 @@
 {
   "work": [
     {
-      "place": "Bergens Tidende",
-      "title": "Redaksjonell utvikler (ringevikar)",
+      "place": { "no": "Bergens Tidende" },
+      "title": { "no": "Redaksjonell utvikler (ringevikar)", "en": "Editorial Developer (temp)" },
       "start": "2019-08-10",
       "end": null
     },
     {
-      "place": "Aftenposten",
-      "title": "Redaksjonell utvikler (ringevikar)",
+      "place": { "no": "Aftenposten" },
+      "title": { "no": "Redaksjonell utvikler (ringevikar)", "en": "Editorial Developer (temp)" },
       "start": "2019-08",
       "end": null,
       "hidden": true
     },
     {
-      "place": "Aftenposten",
-      "title": "Redaksjonell utvikler (sommervikar)",
+      "place": { "no": "Aftenposten" },
+      "title": { "no": "Redaksjonell utvikler (sommervikar)", "en": "Editorial Developer (intern)" },
       "start": "2019-06",
       "end": "2019-08"
     },
     {
-      "place": "Aqua & Care",
-      "title": "IT-konsulent",
+      "place": { "no": "Aqua & Care" },
+      "title": { "no": "IT-konsulent", "en": "IT Consultant" },
       "start": "2018-08",
       "end": "2019-06",
       "hidden": true
     },
     {
-      "place": "Studvest",
-      "title": "Utvikler",
+      "place": { "no": "Studvest" },
+      "title": { "no": "Utvikler", "en": "Web Developer" },
       "start": "2018-01",
       "end": "2019-06"
     },
     {
-      "place": "Studvest",
-      "title": "Layoutdesigner",
+      "place": { "no": "Studvest" },
+      "title": { "no": "Layoutdesigner" },
       "start": "2017-08",
       "end": "2018-01",
       "hidden": true
     },
     {
-      "place": "Aleris Omsorg Bergen",
-      "title": "Frilans grafiker",
+      "place": { "no": "Aleris Omsorg Bergen" },
+      "title": { "no": "Frilans grafiker", "en": "Freelance Graphic Designer" },
       "start": "2015-10",
       "end": "2015-11",
       "hidden": true
     },
     {
-      "place": "Forsvaret",
-      "title": "Mediegrafikerlærling",
+      "place": { "no": "Forsvaret", "en": "Norwegian Armed Forces" },
+      "title": { "no": "Mediegrafikerlærling", "en": "Graphic Design Intern" },
       "start": "2014-06",
       "end": "2016-07"
     },
     {
-      "place": "Forsvaret",
-      "title": "Grafisk assistent",
+      "place": { "no": "Forsvaret", "en": "Norwegian Armed Forces" },
+      "title": { "no": "Grafisk assistent", "en": "Assistant Graphic Designer" },
       "start": "2014-01",
       "end": "2014-06",
       "hidden": true
@@ -63,21 +63,21 @@
 
   "education": [
     {
-      "place": "Universitetet i Bergen",
-      "title": "Medie- og interaksjonsdesign",
+      "place": { "no": "Universitetet i Bergen", "en": "University of Bergen" },
+      "title": { "no": "Medie- og interaksjonsdesign", "en": "Media and Interaction Design (BA)" },
       "start": "2017-08",
       "end": null
     },
     {
-      "place": "Trøndelag fylkeskommune",
-      "title": "Privatist",
+      "place": { "no": "Trøndelag fylkeskommune", "en": "Trøndelag County Municipality" },
+      "title": { "no": "Privatist", "en": "Private Student" },
       "start": "2015-08",
       "end": "2016-08",
       "hidden": true
     },
     {
-      "place": "Forsvaret",
-      "title": "Mediegrafikerlærling",
+      "place": { "no": "Forsvaret", "en": "Norwegian Armed Forces" },
+      "title": { "no": "Mediegrafikerlærling", "en": "Graphic Design Intern" },
       "start": "2014-06",
       "end": "2016-07"
     }

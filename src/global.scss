@@ -71,11 +71,26 @@ a {
 button {
 	cursor: pointer;
 	display: block;
-	border: none;
-	background-color: transparent;
+
 	font-family: 'Recursive';
-	font-size: 1em;
+	font-weight: 350;
+	font-variation-settings: $linear;
 	color: $paragraph;
+	font-size: 1em;
+
+	background-color: transparent;
+	border: none;
+}
+
+input {
+	font-family: 'Recursive';
+	font-weight: 350;
+	font-variation-settings: $linear;
+	color: $paragraph;
+	font-size: 1em;
+
+	background-color: transparent;
+	border: none;
 }
 
 ul {

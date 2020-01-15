@@ -19,7 +19,7 @@ export let posts;
 </script>
 
 <svelte:head>
-<title>Blog</title>
+<title>Blog | Halvard Vegum</title>
 </svelte:head>
 
 <div>
@@ -28,7 +28,7 @@ export let posts;
 		<Showcase
         class="showcase-item"
         let:hover
-        lead="{post.title}"
+        title="{post.title}"
         href="blog/{post.slug}">
 		</Showcase>
   {/each}
@@ -38,7 +38,10 @@ export let posts;
 <style lang="scss">
 @import '../../profile.scss';
 
-a {
-  display: block;
+div {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
 }
 </style>

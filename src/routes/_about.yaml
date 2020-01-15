@@ -1,0 +1,64 @@
+no:
+  hero: |
+    Jeg er student og utvikler på Media City Bergen som er motivert til å
+    jobbe for mer erfaring med webutvikling og UI-design i mediebransjen.
+    Tidligere har jeg vært mediegrafikerlærling i Forsvaret, nå er jeg
+    redaksjonell utvikler i Bergens Tidende og Aftenposten.
+
+  keyAttributesTitle: Nøkkelegenskaper
+  keyAttributes:
+    - Jeg synes det er gøy å lage ting. Jeg har et <b>engasjement</b> for design og teknologi. Ettermiddagen går fort i å prøve et nytt verktøy, eller se om jeg kan blåse liv i mine egne prosjekter.
+    - "Jeg har erfaring med en bred portefølje av felter, og noe som gir meg <b>allsidighet</b> til å bidra mer i tverfaglige team. Noen av det jeg har vært borti er: UX-evaluering, grafisk design, og maskinlæring."
+    - Jeg kan levere på tid. God prioritering og <b>effektivitet</b> har vært nødvendig for å balansere kortsiktige og langsiktige prosjekter.
+
+  keyAttributesCCBY: Ikoner av Mat fine
+  keyAttributesCCBYBody: |
+    Ikonene er modifisert og basert på <a href="https://thenounproject.com/matfine/">Mat fines</a> ikoner «<a href="https://thenounproject.com/term/cloud-and-sun/1885886/">cloud and sun</a>», «<a href="https://thenounproject.com/term/cloud-and-rain/1885924/">cloud and rain</a>», og «<a href="https://thenounproject.com/term/cloud-and-lightning/1885892/">Cloud and lightning</a>». Ikonene har Creative Commons-lisensen <a href="https://creativecommons.org/licenses/by/3.0/">CC-BY 3.0</a>.
+
+  toolboxTitle: Verktøyskasse
+  toolboxBody: Her er noen av verktøyene jeg har jobbet med.
+
+  showcaseTitle: Se noen av prosjektene jeg har jobbet på
+  showcase:
+    bybanestriden:
+      title: Bybanestriden
+      lead: Bergens Tidende
+      href: https://www.bt.no/nyheter/lokalt/i/rA47pl/bybanestriden
+
+    schoolmodels:
+      title: Simulering og visualisering av fem skoleinntaksmodeller
+      lead: Aftenposten
+      href: https://www.aftenposten.no/osloby/i/3JoKlX/neste-aar-kan-det-bli-slutt-paa-karakterbasert-opptak-i-oslo-disse-fem-modellene-skal-gi-svar-om-fremtidens-inntaksordning
+
+
+en:
+  hero: |
+    I am an editorial developer with experience in graphic design who
+    likes to work with data visualization, interaction design, and digital storytelling.
+    I currently work for Aftenposten and Bergens Tidende, and I was formerly an assistant
+    graphic designer in the Armed Forces.
+
+  keyAttributesTitle: Key attributes
+  keyAttributes:
+    - I like making things, and have a <b>enthusiasm</b> for design and technology. I've found that bringing positive energy to work .
+    - I'm familiar with a broad range of fields which has given me more <b>versatility</b> when participating in interdisciplinary teams. Among other things I've worked with UX-evaluation, graphic design, and machine learning.
+    - I deliver on time. In the places I've worked <b>efficiency</b> has been necessary to balance short and long-term project – both to get up and running, but also to prioritize what to work on.
+
+  keyAttributesCCBY: Icons by Mat fine
+  keyAttributesCCBYBody: |
+    The icons are modified and based on <a href="https://thenounproject.com/matfine/">Mat fines</a> icons "<a href="https://thenounproject.com/term/cloud-and-sun/1885886/">cloud and sun</a>", "<a href="https://thenounproject.com/term/cloud-and-rain/1885924/">cloud and rain</a>", and "<a href="https://thenounproject.com/term/cloud-and-lightning/1885892/">Cloud and lightning</a>". The icons are licenced under Creative Commons <a href="https://creativecommons.org/licenses/by/3.0/">CC-BY 3.0</a>.
+
+  toolboxTitle: Toolbox
+  toolboxBody: Here are some of the tools I've worked with
+
+  showcaseTitle: Check out some of the projects I've worked on
+  showcase:
+    bybanestriden:
+      title: Bybanestriden
+      lead: Bergens Tidende
+      href: https://www.bt.no/nyheter/lokalt/i/rA47pl/bybanestriden
+
+    schoolmodels:
+      title: Simulating and visualising five school enrolment models
+      lead: Aftenposten
+      href: https://www.aftenposten.no/osloby/i/3JoKlX/neste-aar-kan-det-bli-slutt-paa-karakterbasert-opptak-i-oslo-disse-fem-modellene-skal-gi-svar-om-fremtidens-inntaksordning

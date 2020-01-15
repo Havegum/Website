@@ -2,6 +2,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 import alias from '@rollup/plugin-alias';
 import json from '@rollup/plugin-json';
+import yaml from '@rollup/plugin-yaml';
 import commonjs from '@rollup/plugin-commonjs';
 import svelte from 'rollup-plugin-svelte';
 import babel from 'rollup-plugin-babel';
@@ -64,6 +65,7 @@ export default {
 				entries: { '@': __dirname + '/src' }
 			}),
 			json(),
+			yaml(),
 			svelte({
 				preprocess: autoPreprocess(preprocessOptions),
 				dev,
@@ -114,6 +116,7 @@ export default {
 				entries: { '@': __dirname + '/src' }
 			}),
 			json(),
+			yaml(),
 			svelte({
 				preprocess: autoPreprocess(preprocessOptions),
 				generate: 'ssr',

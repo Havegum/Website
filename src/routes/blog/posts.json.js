@@ -1,11 +1,10 @@
-import posts from './_posts.js';
-// 
-// const lookup = new Map();
-// posts.forEach(post => {
-// 	lookup.set(post.slug, JSON.stringify(post));
-// });
+import Post from './_post.js';
 
-export function get (req, res, next) {
+import mongoose from 'mongoose';
+
+export async function get (req, res, next) {
+	let posts = await Post.find();
+
 	res.writeHead(200, { 'Content-Type': 'application/json' });
   res.end(JSON.stringify(posts));
 }

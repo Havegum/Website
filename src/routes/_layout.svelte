@@ -1,17 +1,25 @@
+<script context="module">
+export function preload({ query }) {
+	return query || {};
+}
+</script>
+
 <script>
 import Nav from '@/components/Nav.svelte';
 import Footer from '@/components/Footer.svelte';
 
 export let segment;
+export let lang = 'no';
+$: lang = lang.trim().toLowerCase() === 'en' ? 'en' : 'no';
 </script>
 
-<Nav {segment}/>
+<Nav {segment} {lang}/>
 
-<main>
+<main {lang} >
 	<slot></slot>
 </main>
 
-<Footer />
+<Footer {lang}/>
 
 <style lang="scss">
 @import '../profile.scss';

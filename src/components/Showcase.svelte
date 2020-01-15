@@ -1,7 +1,7 @@
 <script>
 export let href = '#';
+export let title = '';
 export let lead = '';
-export let employer = '';
 
 let hover = false;
 </script>
@@ -9,8 +9,8 @@ let hover = false;
 <a class="{$$props.class}" {href} on:mouseover={() => hover = true} on:mouseout={() => hover = false}>
   <slot {hover}></slot>
   <div>
-    <p class="lead">{lead}</p>
-    <p>{employer}</p>
+    <p class="title">{title}</p>
+    <p>{lead}</p>
   </div>
 </a>
 
@@ -30,14 +30,17 @@ a {
   margin-bottom: 1em;
 
   div {
-    padding: .8em
+    padding: .8em;
+    border-bottom: 3px solid $secondary-dark;
+    // border-bottom-color: $secondary-dark;
+    border-top: none;
   }
 
-  .lead {
+  .title {
     font-weight: 475;
   }
 
-  &:hover .lead {
+  &:hover .title {
     text-decoration: underline;
   }
 

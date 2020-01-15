@@ -24,7 +24,7 @@ goto('om');
 </style>
 
 <svelte:head>
-	<title>Blog</title>
+	<title>Blog | Halvard Vegum</title>
 </svelte:head>
 
 <h1>Recent posts</h1>

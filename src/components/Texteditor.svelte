@@ -7,7 +7,7 @@ let element;
 onMount(() => {
   pell.init({
     element,
-    onChange: html => console.log(html)
+    onChange: html => html
   })
 });
 </script>
@@ -16,7 +16,9 @@ onMount(() => {
   <link rel="stylesheet" type="text/css" href="https://unpkg.com/pell/dist/pell.min.css">
 </svelte:head> -->
 
-<div class="texteditor" bind:this={element}></div>
+<div class="texteditor">
+  <div bind:this={element}></div>
+</div>
 
 <style lang="scss">
 @import '../profile.scss';
@@ -30,6 +32,9 @@ onMount(() => {
 }
 
 :global(.pell-content) {
+  border-bottom: 2px solid $secondary-dark;
+  margin-bottom: 1em;
+  
   blockquote {
     color: $primary;
   }

@@ -7,14 +7,19 @@ import { onMount } from 'svelte';
 
 export let title = '';
 export let list = [];
-
+export let lang = 'no';
 
 let listElement;
 let svg
 let svgWidth = 50;
 let radius = 7;
 
-let months = ['januar', 'februar', 'mars', 'april', 'mai', 'juni', 'juli', 'august', 'september', 'oktober', 'november', 'desember'];
+let months = {
+  no: ['januar', 'februar', 'mars', 'april', 'mai', 'juni', 'juli', 'august', 'september', 'oktober', 'november', 'desember'],
+  en: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+}
+
+$: tillDate = lang === 'no' ? ' til dags dato' : ' till date';
 
 $: decorateList(list);
 
@@ -44,7 +49,7 @@ function decorateList (list) {
           point.offset = lane;
 
           node.points.push(point);
-          node.points.push({ ...point, offset: 0});
+          // node.points.push(Object.assign(point, { offset: 0 }));
         } else {
           // else the times are equal. Push and escape
           node.points.push(point);
@@ -103,8 +108,8 @@ function toPathData(points, i) {
 
 function getDateString ({ start, end } = {}) {
 	if (!start) return '';
-	const toString = date => months[date.getMonth()] + ' ' + date.getFullYear();
-	return toString(start) + (end ? ' – ' + toString(end) : ' til dags dato')
+	const toString = date => months[lang][date.getMonth()] + ' ' + date.getFullYear();
+	return toString(start) + (end ? ' – ' + toString(end) : tillDate)
 }
 
 
@@ -155,17 +160,17 @@ onMount(() => {
     </svg>
 
     <ol bind:this={listElement} aria-labelledby="{title}">
-      {#each list as element (element.id)}
-        {#if element.hidden}
+      {#each list as el (el.id)}
+        {#if el.hidden}
           <li class="abbreviated element">
-            <Button outline=true class="reveal-button" on:click={reveal(element)}>{element.title}</Button>
+            <Button outline=true class="reveal-button" on:click={reveal(el)}>{el.title[lang] || el.title.no}</Button>
           </li>
         {:else}
           <li in:slide|local={{ offset: 1.45 * (15 + window.innerWidth * 2e-3)}}>
-            <p class="element">{element.place}</p>
+            <p class="element">{el.place[lang] || el.place.no}</p>
             <p class="detail">
-              <span>{element.title}</span>
-              <span>{getDateString(element)}</span>
+              <span>{el.title[lang] || el.title.no}</span>
+              <span>{getDateString(el)}</span>
             </p>
           </li>
         {/if}

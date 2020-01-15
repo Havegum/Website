@@ -3,6 +3,8 @@ import { quintOut } from 'svelte/easing';
 import { crossfade } from 'svelte/transition';
 
 export let segment;
+export let lang = 'no';
+
 let target = segment;
 let targetTimeout;
 
@@ -43,14 +45,27 @@ const [send, receive] = crossfade({
 <nav>
 	<ul on:mouseout={timeout}>
 		<li>
-			<a class:selected='{segment === "om"}' on:mouseover={focus('om')} on:focus={focus('om')} on:blur={timeout} href='om'>Om meg</a>
-			{#if target === "om"}
+			<a  class:selected='{segment === "about"}'
+					on:mouseover={focus('about')}
+					on:focus={focus('about')}
+					on:blur={timeout} href='about'
+			>
+				{lang === 'en' ? 'About me' : 'Om meg'}
+			</a>
+			{#if target === "about"}
 				<div class="scrubber" in:receive={scrub} out:send={scrub}></div>
 			{/if}
 		</li>
 
 		<li>
-			<a class:selected='{segment === "blog"}' on:mouseover={focus('blog')} on:focus={focus('blog')} on:blur={timeout} href='blog'>Blog</a>
+			<a  class:selected='{segment === "blog"}'
+					on:mouseover={focus('blog')}
+					on:focus={focus('blog')}
+					on:blur={timeout}
+					href='blog'
+			>
+				Blog{lang === 'en' ? '' : 'g'}
+			</a>
 			{#if target === "blog"}
 				<div class="scrubber" in:receive={scrub} out:send={scrub}></div>
 			{/if}
