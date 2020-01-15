@@ -1,6 +1,22 @@
 <script>
 import Texteditor from '@/components/Texteditor.svelte';
 import Button from '@/components/Button.svelte';
+
+let title = '';
+let body = '';
+let key = '';
+
+async function handleUpload () {
+  let response = await fetch('create/post', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ title, body, key })
+  });
+
+  if (response.status === 200) {
+    console.log('OK!');
+  }
+}
 </script>
 
 <svelte:head>
@@ -9,10 +25,10 @@ import Button from '@/components/Button.svelte';
 
 
 <div>
-  <input id="title" placeholder="Title">
-  <Texteditor />
-  <label for="blogpost-key">Key: <input id="blogpost-key" type="password"></label>
-  <Button>Upload</Button>
+  <input id="title" placeholder="Title" type="text" bind:value={title}>
+  <Texteditor bind:value={body} />
+  <label for="blogpost-key">Key: <input id="blogpost-key" bind:value={key}></label>
+  <Button on:click={handleUpload}>Upload</Button>
 </div>
 
 <style lang="scss">
@@ -40,6 +56,7 @@ input {
     margin-left: .25em;
   }
 }
+
 label {
   display: flex;
 }

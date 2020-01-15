@@ -42,9 +42,11 @@ const globalStyleExport = {
 	}
 };
 
+
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
+if (dev) require('dotenv').config();
 
 const onwarn = (warning, onwarn) => (warning.code === 'CIRCULAR_DEPENDENCY') || onwarn(warning);
 const dedupe = importee => importee === 'svelte' || importee.startsWith('svelte/');

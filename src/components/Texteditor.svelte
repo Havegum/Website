@@ -1,20 +1,21 @@
 <script>
 import { onMount } from 'svelte';
 import pell from 'pell';
+// TODO:
+// Use showdown and edit in markdown instead ...
+// Convert to HTML on save, convert back when editing
+
+export let value;
 
 let element;
 
 onMount(() => {
   pell.init({
     element,
-    onChange: html => html
+    onChange: html => value = html
   })
 });
 </script>
-
-<!-- <svelte:head>
-  <link rel="stylesheet" type="text/css" href="https://unpkg.com/pell/dist/pell.min.css">
-</svelte:head> -->
 
 <div class="texteditor">
   <div bind:this={element}></div>
@@ -34,7 +35,7 @@ onMount(() => {
 :global(.pell-content) {
   border-bottom: 2px solid $secondary-dark;
   margin-bottom: 1em;
-  
+
   blockquote {
     color: $primary;
   }

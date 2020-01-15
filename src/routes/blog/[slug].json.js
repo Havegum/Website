@@ -1,4 +1,4 @@
-import Post from './_post.js';
+import Post from '@/components/Post.js';
 
 export async function get(req, res, next) {
 	// the `slug` parameter is available because
