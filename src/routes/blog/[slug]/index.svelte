@@ -6,7 +6,7 @@
 		const data = await res.json();
 
 		if (res.status === 200) {
-			return { post: data };
+			return { slug: params.slug, post: data };
 		} else {
 			this.error(res.status, data.message);
 		}
@@ -15,6 +15,7 @@
 
 <script>
 import Text from '@/components/Text.svelte';
+export let slug;
 export let post;
 </script>
 
@@ -26,17 +27,17 @@ export let post;
 
 <div class='content'>
 	<div class="breadcrumb">
-		<a href="blog">blog</a> / <a href='blog/{post.slug}'>{post.title.toLowerCase()}</a>
+		<a href="blog">blog</a> / <a href='blog/{slug}'>{post.title.toLowerCase()}</a>
 	</div>
 	<Text>
 		<h1>{post.title}</h1>
-		{@html post.html}
+		{@html post.body}
 	</Text>
 </div>
 
 
 <style lang="scss">
-@import '../../profile.scss';
+@import '../../../profile.scss';
 
 .breadcrumb {
 	margin-bottom: 1.5em;

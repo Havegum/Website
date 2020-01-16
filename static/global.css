@@ -47,24 +47,18 @@ a {
   a:active {
     font-weight: 475; }
 
+button, input {
+  font-family: "Recursive", sans-serif;
+  font-weight: 350;
+  font-variation-settings: "MONO" 0;
+  font-size: 1em;
+  color: #4a696a;
+  border: none;
+  background-color: transparent; }
+
 button {
   cursor: pointer;
   display: block;
-  font-family: 'Recursive';
-  font-weight: 350;
-  font-variation-settings: "MONO" 0;
-  color: #4a696a;
-  font-size: 1em;
-  background-color: transparent;
-  border: none; }
-
-input {
-  font-family: 'Recursive';
-  font-weight: 350;
-  font-variation-settings: "MONO" 0;
-  color: #4a696a;
-  font-size: 1em;
-  background-color: transparent;
   border: none; }
 
 ul {
@@ -80,10 +74,21 @@ b {
 i {
   font-style: oblique 15deg; }
 
-code {
+code, textarea {
   font-family: "Recursive", inconsolata, monospace;
   font-variation-settings: "wght" 350, "MONO" 1;
-  color: #6d9b94;
-  background-color: #fffdf7;
-  padding: 0.2em 0.4em;
-  border-radius: 2px; }
+  color: #4a696a;
+  background-color: #fffdf7; }
+
+code {
+  border-radius: 2px;
+  padding: 0.2em 0.4em; }
+
+textarea {
+  font-size: 1em;
+  border: none;
+  width: 100%;
+  display: block;
+  min-height: 10em;
+  padding: .5em;
+  resize: vertical; }

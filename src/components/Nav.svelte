@@ -73,6 +73,22 @@ const [send, receive] = crossfade({
 				<div class="scrubber" in:receive={scrub} out:send={scrub}></div>
 			{/if}
 		</li>
+
+		{#if segment === 'create'}
+			<li>
+				<a  class:selected='{segment === "create"}'
+						on:mouseover={focus('create')}
+						on:focus={focus('create')}
+						on:blur={timeout}
+						href='create{langQuery}'
+				>
+					Create
+				</a>
+				{#if target === "create"}
+					<div class="scrubber" in:receive={scrub} out:send={scrub}></div>
+				{/if}
+			</li>
+		{/if}
 	</ul>
 </nav>
 
