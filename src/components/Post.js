@@ -11,6 +11,10 @@ const postSchema = new Schema({
 
 const Post = mongoose.model('Post', postSchema);
 
-mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.DB_CONNECTION, {
+	useNewUrlParser: true,
+	useUnifiedTopology: true,
+	useFindAndModify: false
+});
 
 export default Post;

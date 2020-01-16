@@ -11,6 +11,7 @@
 	}
 </script>
 
+
 <script>
 import { slide } from 'svelte/transition';
 
@@ -39,6 +40,7 @@ async function handleUpload () {
 }
 </script>
 
+
 <svelte:head>
   <title>Edit "{post.title}"</title>
 </svelte:head>
@@ -62,6 +64,7 @@ async function handleUpload () {
 {#if error}
   <p transition:slide class="error">Error: {error}</p>
 {/if}
+
 
 <style lang="scss">
 @import '../../../profile.scss';
