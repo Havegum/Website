@@ -1,5 +1,5 @@
-import Post from '@/components/Post.js';
-import mongoose from 'mongoose';
+import { Post } from '@/components/database.js';
+// import mongoose from 'mongoose';
 
 import bodyParser from 'body-parser';
 const json = bodyParser.json();

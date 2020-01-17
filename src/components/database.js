@@ -8,8 +8,15 @@ const postSchema = new Schema({
 	date:  { type: Date, default: Date.now },
 	views: { type: Number, default: 0 },
 });
-
 const Post = mongoose.model('Post', postSchema);
+
+
+let viewSchema = new Schema({
+	path:  { type: String, required: true, index: true },
+	views: { type: Number, default: 0 },
+  lang: String
+});
+const View = mongoose.model('View', viewSchema);
 
 mongoose.connect(process.env.DB_CONNECTION, {
 	useNewUrlParser: true,
@@ -17,4 +24,4 @@ mongoose.connect(process.env.DB_CONNECTION, {
 	useFindAndModify: false
 });
 
-export default Post;
+export { Post, View };

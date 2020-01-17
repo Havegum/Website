@@ -1,5 +1,5 @@
-import Post from '@/components/Post.js';
-import mongoose from 'mongoose';
+import { Post } from '@/components/database.js';
+// import mongoose from 'mongoose';
 
 export async function get (req, res, next) {
 	let posts = await Post.find();
