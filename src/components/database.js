@@ -18,7 +18,7 @@ let viewSchema = new Schema({
 });
 const View = mongoose.model('View', viewSchema);
 
-mongoose.connect(process.env.DB_CONNECTION, {
+mongoose.connect(process.env.HOMEPAGE_DB_URL, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 	useFindAndModify: false

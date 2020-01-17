@@ -15,7 +15,7 @@ export default function tracker ({ path, query }, res, next) {
       async function (err, response) {
         if (response || err) return;
         let view = new View({ path, lang, views: 1 });
-        let response = await view.save();
+        view.save();
       }
     );
 

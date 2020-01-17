@@ -6,7 +6,7 @@ import * as sapper from '@sapper/server';
 
 import tracker from './view-tracker.js';
 
-const { PORT, NODE_ENV } = process.env;
+const { HOMEPAGE_PORT: PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === 'development';
 
 

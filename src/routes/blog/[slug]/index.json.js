@@ -46,7 +46,7 @@ export async function put (req, res) {
 			return res.end(JSON.stringify({ error: 'empty fields' }));
 		}
 
-		if (key !== process.env.POST_KEY) {
+		if (key !== process.env.HOMEPAGE_POST_KEY) {
 			res.writeHead(403, { 'Content-Type': 'application/json' });
 			return res.end(JSON.stringify({ error: 'bad key' }));
 		}
@@ -83,7 +83,7 @@ export async function del (req, res) {
 		const { slug } = req.params;
 		let { key } = req.body;
 
-		if (key !== process.env.POST_KEY) {
+		if (key !== process.env.HOMEPAGE_POST_KEY) {
 			res.writeHead(403, { 'Content-Type': 'application/json' });
 			return res.end(JSON.stringify({ error: 'bad key' }));
 		}
