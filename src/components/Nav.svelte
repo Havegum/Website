@@ -117,12 +117,10 @@ a {
 	padding: 1em 0.5em;
 	display: block;
 
-	font-variation-settings: 'wght' 400;
-
+	font-weight: 400;
 	transition:
-		font-variation-settings 200ms ease-out,
-		font-weight 200ms ease-out,
-		color 100ms ease-out;
+		font-weight 100ms ease-out,
+		color 50ms ease-out;
 
 	&.selected {
 		position: relative;
@@ -130,12 +128,21 @@ a {
 
 	&:hover, &:focus {
 		color: $lightgray;
-		font-variation-settings: 'wght' 650;
+		font-weight: 850;
 		outline: none;
+
+		transition:
+			font-weight 150ms ease-out,
+			color 100ms ease-out;
 	}
 
 	&:active {
 		color: $primary;
+		font-weight: 700;
+
+		transition:
+			font-weight 50ms ease-out,
+			color 50ms ease-out;
 	}
 }
 
