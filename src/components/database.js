@@ -12,7 +12,7 @@ const Post = mongoose.model('Post', postSchema);
 
 
 let viewSchema = new Schema({
-	path:  { type: String, required: true, index: true },
+	path:  { type: String, required: true },
 	views: { type: Number, default: 0 },
   lang: String
 });
