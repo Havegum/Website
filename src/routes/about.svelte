@@ -117,7 +117,7 @@ let ccbyExpanded = false;
 @import '../profile.scss';
 
 :global(.hero-copy) {
-	background-color: $secondary;
+	background-color: $light;
 	top: 0;
 	box-sizing: content-box;
 	padding: 1em;

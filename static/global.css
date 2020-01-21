@@ -4,17 +4,17 @@ html, body, *, *::before, *::after {
   padding: 0; }
 
 @font-face {
-  font-family: 'Recursive';
-  src: url("recursive-MONO_CASL_wght_slnt_ital--full_gsub--2019_12_17-23_21.woff2") format("woff2"); }
+  font-family: 'Public Sans';
+  src: url("Public-Sans-Roman-VF.ttf") format("ttf"); }
 
 body {
-  font-family: "Recursive", sans-serif;
+  font-family: "Public Sans", "Recursive", sans-serif;
   font-weight: 350;
   font-variation-settings: "MONO" 0;
   font-size: 15.8px;
   line-height: 1.6;
   color: #4a696a;
-  background-color: #fffdf7; }
+  background-color: #e4f2f2; }
 
 @media (min-width: 400px) {
   body {
@@ -48,7 +48,7 @@ a {
     font-weight: 475; }
 
 button, input {
-  font-family: "Recursive", sans-serif;
+  font-family: "Public Sans", "Recursive", sans-serif;
   font-weight: 350;
   font-variation-settings: "MONO" 0;
   font-size: 1em;
@@ -66,7 +66,7 @@ ul {
   margin: 1em 0; }
 
 pre {
-  background-color: #fffdf7; }
+  background-color: #f9f9f1; }
 
 b {
   font-weight: 650; }
@@ -78,7 +78,7 @@ code, textarea {
   font-family: "Recursive", inconsolata, monospace;
   font-variation-settings: "wght" 350, "MONO" 1;
   color: #4a696a;
-  background-color: #fffdf7; }
+  background-color: #f9f9f1; }
 
 code {
   border-radius: 2px;

@@ -37,7 +37,7 @@ main {
 	width: 100%;
 	max-width: 47em;
 
-	background-color: $light;
+	background-color: $lighter;
 
 	position: relative;
 	padding: 1em;

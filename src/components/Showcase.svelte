@@ -24,7 +24,7 @@ a {
   color: $paragraph;
   line-height: 1.4em;
 
-  background-color: $lighter;
+  background-color: $light;
 
   width: 17em;
   margin-bottom: 1em;
