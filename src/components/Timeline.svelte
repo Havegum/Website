@@ -234,6 +234,7 @@ ol {
 		margin: 1em 0;
 		line-height: 1.4em;
     font-weight: 500;
+    color: $dark;
 
     @media screen and (min-width: $mobile) {
       font-size: .85em;

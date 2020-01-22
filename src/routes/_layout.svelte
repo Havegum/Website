@@ -13,21 +13,90 @@ export let lang = 'no';
 $: lang = lang.trim().toLowerCase() === 'en' ? 'en' : 'no';
 </script>
 
+
+<div class="background">
+	<img class="sky" src="sky.png" role="presentation" alt=""/>
+	<img class="left shoulder" src="left-shoulder.png" role="presentation" alt=""/>
+	<img class="right shoulder" src="right-shoulder.png" role="presentation" alt=""/>
+	<img class="ground" src="ground.svg" role="presentation" alt=""/>
+	<img class="footer-hat" src="footer-hat.svg" role="presentation" alt=""/>
+</div>
+
 <Nav {segment} {lang}/>
-
 <main {lang} >
-	<slot></slot>
+	<slot/>
 </main>
-
 <Footer {lang}/>
+
 
 <style lang="scss">
 @import '../profile.scss';
+
+.background {
+	background: $secondary;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	overflow: hidden;
+
+	img {
+		width: 100%;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		object-fit: none;
+	}
+
+	.sky {
+		background-color: $light;
+		object-position: top center;
+		height: 27em;
+	}
+
+	.shoulder {
+		width: 40%;
+		height: 100%;
+		&.left {
+			object-position: top right;
+			right: 60%;
+		}
+		&.right {
+			object-position: top left;
+			left: 60%;
+		}
+	}
+
+	.ground {
+		top: 543px;
+		object-position: center top;
+		height: 100%;
+		min-height: 5em;
+		max-height: 20em;
+		object-fit: cover;
+	}
+
+	.footer-hat {
+		top: auto;
+		bottom: 9em;
+		object-position: center bottom;
+		height: 100%;
+		min-height: 5em;
+		max-height: 5vh;
+		object-fit: cover;
+		display: none;
+
+		@media screen and (min-height: 900px) { display: block }
+	}
+}
 
 :global(#sapper) {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
+	position: relative;
 }
 
 main {

@@ -112,7 +112,7 @@ li {
 }
 
 a {
-	color: $paragraph;
+	color: $dark;
 	text-decoration: none;
 	padding: 1em 0.5em;
 	display: block;
@@ -127,7 +127,7 @@ a {
 	}
 
 	&:hover, &:focus {
-		color: $lightgray;
+		color: $primary;
 		font-weight: 850;
 		outline: none;
 
@@ -137,7 +137,7 @@ a {
 	}
 
 	&:active {
-		color: $primary;
+		color: $primary-dark;
 		font-weight: 700;
 
 		transition:

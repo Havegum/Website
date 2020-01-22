@@ -5,6 +5,9 @@ export async function preload({ query }) {
 </script>
 
 <script>
+import { onMount } from 'svelte';
+import { slide } from 'svelte/transition';
+
 import Text from '@/components/Text.svelte';
 import NoPadding from '@/components/NoPadding.svelte';
 import Skillmap from '@/components/Skillmap.svelte';
@@ -19,15 +22,15 @@ import skillmap from '../../static/skillmap.json';
 
 import 'intersection-observer';
 import scrollama from 'scrollama';
+const scroller = scrollama();
 
 import about from './_about.yaml';
 
-import { slide } from 'svelte/transition';
 
 export let lang = 'no';
 $: lang = lang.trim().toLowerCase() === 'en' ? 'en' : 'no';
-
 $: body = about[lang];
+
 
 function decorate (el) {
 	if (!el) return null;
@@ -45,6 +48,18 @@ let workList = timeline.work.map(decorate).filter(e => !!e);
 let educationList = timeline.education.map(decorate).filter(e => !!e);
 
 let ccbyExpanded = false;
+
+onMount(() => {
+	scroller.setup({
+		step: '.--step',
+		once: true,
+		offset: 0.9
+	})
+	.onStepEnter(({ element }) => element.classList.add('active'));
+
+	window.addEventListener('resize', scroller.resize);
+});
+
 </script>
 
 
@@ -70,15 +85,15 @@ let ccbyExpanded = false;
 	<Text>
 		<h2>{body.keyAttributesTitle}</h2>
 		<ul>
-			<li>
+			<li class="--step" class:active={false}>
 				<img src="overcast.svg" alt="" role="presentation"/>
 				<p>{@html body.keyAttributes[0]}</p>
 			</li>
-			<li>
+			<li class="--step">
 				<img src="rainy-shaded.svg" alt="" role="presentation"/>
 				<p>{@html body.keyAttributes[1]}</p>
 			</li>
-			<li>
+			<li class="--step">
 				<img src="lightning-shaded.svg" alt="" role="presentation"/>
 				<p>{@html body.keyAttributes[2]}</p>
 			</li>
@@ -187,8 +202,33 @@ h2 {
 		flex-direction: column;
 		align-items: center;
 
+		opacity: 0;
+		position: relative;
+		top: 2em;
+		transition:
+			top 500ms,
+			opacity 500ms;
 
-		p { margin: 0 }
+		&.active {
+			opacity: 1;
+			top: 0;
+		}
+
+		p {
+			margin: 0;
+			:global(b) {
+				color: $paragraph;
+				font-weight: 400;
+				transition:
+					color 500ms 250ms,
+					font-weight 500ms 250ms;
+			}
+		}
+
+		&.active p :global(b) {
+			color: $primary;
+			font-weight: 700;
+		}
 
 		img {
 			width: 5em;
@@ -198,6 +238,8 @@ h2 {
 			user-select: none;
 			flex-basis: 5em;
 		}
+
+
 
 		@media screen and (min-width: $mobile) {
 			&:nth-child(2n-1) {

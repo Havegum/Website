@@ -21,7 +21,7 @@ a {
   display: flex;
   flex-direction: column;
   text-decoration: none;
-  color: $paragraph;
+  color: $dark;
   line-height: 1.4em;
 
   background-color: $light;

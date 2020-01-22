@@ -2,7 +2,7 @@
 export let lang = 'no';
 </script>
 
-<div>
+<footer>
   <div class="overlay"></div>
   <div>
     {#if lang === 'en'}
@@ -14,12 +14,13 @@ export let lang = 'no';
       <p>Følg meg på <a href="https://www.linkedin.com/in/halvard-vegum/?locale=no_NO">LinkedIn</a>, og på Twitter <a href="https://www.twitter.com/Havegum">@Havegum</a>.</p>
     {/if}
   </div>
-</div>
+</footer>
 
 <style lang="scss">
 @import '../profile.scss';
 
-div {
+footer {
+  position: relative;
   background-color: $primary;
   color: $light;
 
