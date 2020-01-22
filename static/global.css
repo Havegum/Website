@@ -4,23 +4,35 @@ html, body, *, *::before, *::after {
   padding: 0; }
 
 @font-face {
-  font-family: 'Public Sans';
-  src: url("Public-Sans-Roman-VF.ttf") format("ttf"); }
+  font-family: 'Source Sans Variable';
+  font-weight: 200 900;
+  font-style: normal;
+  font-stretch: normal;
+  src: url("fonts/SourceSansVariable-Roman.ttf.woff2") format("woff2"), url("fonts/SourceSansVariable-Roman.ttf.woff") format("woff"), url("fonts/SourceSansVariable-Roman.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Source Sans Variable';
+  font-weight: 200 900;
+  font-style: italic;
+  font-stretch: normal;
+  src: url("fonts/SourceSansVariable-Italic.ttf.woff2") format("woff2"), url("fonts/SourceSansVariable-Italic.ttf.woff") format("woff"), url("fonts/SourceSansVariable-Italic.ttf") format("truetype"); }
+
+body, button, input {
+  font-family: "Source Sans Variable", sans-serif;
+  font-weight: 400; }
 
 body {
-  font-family: "Public Sans", "Recursive", sans-serif;
-  font-weight: 350;
-  font-variation-settings: "MONO" 0;
-  font-size: 15.8px;
+  font-size: 16px;
   line-height: 1.6;
-  color: #4a696a;
+  color: #547879;
   background-color: #e4f2f2; }
 
 @media (min-width: 400px) {
   body {
-    font-size: calc(15px + .2vw); } }
+    font-size: calc(16px + .2vw); } }
 
 h1, h2, h3, h4, h5, h6 {
+  color: #354e50;
   margin-bottom: .5em;
   font-weight: 650;
   line-height: 1.2; }
@@ -48,11 +60,8 @@ a {
     font-weight: 475; }
 
 button, input {
-  font-family: "Public Sans", "Recursive", sans-serif;
-  font-weight: 350;
-  font-variation-settings: "MONO" 0;
   font-size: 1em;
-  color: #4a696a;
+  color: #547879;
   border: none;
   background-color: transparent; }
 
@@ -75,9 +84,8 @@ i {
   font-style: oblique 15deg; }
 
 code, textarea {
-  font-family: "Recursive", inconsolata, monospace;
-  font-variation-settings: "wght" 350, "MONO" 1;
-  color: #4a696a;
+  font-family: inconsolata, monospace;
+  color: #547879;
   background-color: #f9f9f1; }
 
 code {

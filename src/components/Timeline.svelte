@@ -166,7 +166,7 @@ onMount(() => {
             <Button outline=true class="reveal-button" on:click={reveal(el)}>{el.title[lang] || el.title.no}</Button>
           </li>
         {:else}
-          <li in:slide|local={{ offset: 1.45 * (15 + window.innerWidth * 2e-3)}}>
+          <li in:slide|local={{ offset: 1.45 * (16 + window.innerWidth * 2e-3)}}>
             <p class="element">{el.place[lang] || el.place.no}</p>
             <p class="detail">
               <span>{el.title[lang] || el.title.no}</span>
@@ -233,7 +233,7 @@ ol {
 	li {
 		margin: 1em 0;
 		line-height: 1.4em;
-    font-weight: 475;
+    font-weight: 500;
 
     @media screen and (min-width: $mobile) {
       font-size: .85em;
@@ -245,8 +245,7 @@ ol {
 
 		.detail {
 			color: $gray;
-      font-weight: 350;
-      font-variation-settings: $normal;
+      font-weight: 375;
 			display: flex;
 			flex-direction: column;
 		}

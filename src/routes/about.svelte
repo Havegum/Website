@@ -17,6 +17,9 @@ import Timeline from '@/components/Timeline.svelte';
 import timeline from '../../static/timeline.json';
 import skillmap from '../../static/skillmap.json';
 
+import 'intersection-observer';
+import scrollama from 'scrollama';
+
 import about from './_about.yaml';
 
 import { slide } from 'svelte/transition';
@@ -118,10 +121,15 @@ let ccbyExpanded = false;
 
 :global(.hero-copy) {
 	background-color: $light;
+	color: $dark;
 	top: 0;
 	box-sizing: content-box;
 	padding: 1em;
 	padding-bottom: 0;
+
+	h1 {
+		color: $gray;
+	}
 
 	@media screen and (min-width: $mobile) {
 		padding: 2em;
@@ -150,7 +158,7 @@ h2 {
 
 	button {
 		font-size: .65em;
-		font-variation-settings: $italic;
+		font-style: italic;
 		margin-left: auto;
 
 		&:hover, &:focus {

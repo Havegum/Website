@@ -2021,6 +2021,11 @@ inherits@2.0.3:
   resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.3.tgz#633c2c83e3da42a502f52466022480f4208261de"
   integrity sha1-Yzwsg+PaQqUC9SRmAiSA9CCCYd4=
 
+intersection-observer@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/intersection-observer/-/intersection-observer-0.7.0.tgz#ee16bee978db53516ead2f0a8154b09b400bbdc9"
+  integrity sha512-Id0Fij0HsB/vKWGeBe9PxeY45ttRiBmhFyyt/geBdDHBYNctMRTE3dC1U3ujzz3lap+hVXlEcVaB56kZP/eEUg==
+
 invariant@^2.2.2:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
@@ -3429,6 +3434,11 @@ sass-graph@^2.2.4:
     lodash "^4.0.0"
     scss-tokenizer "^0.2.3"
     yargs "^7.0.0"
+
+scrollama@^2.1.4:
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/scrollama/-/scrollama-2.1.4.tgz#712084258e5466904980b881c7d8cf498b323590"
+  integrity sha512-bVc0TsghalmkKfLFh2W50RIGE16rEifDA5D9wked7EgZU22pa6hxnw0MeA6usUd/L11qReqVHPUVQPIQ4t1y4g==
 
 scss-tokenizer@^0.2.3:
   version "0.2.3"

@@ -6,23 +6,35 @@ html, body, *, *::before, *::after {
 	padding: 0;
 }
 
-// @font-face {
-//   font-family: 'Recursive';
-//   src: url('recursive-MONO_CASL_wght_slnt_ital--full_gsub--2019_12_17-23_21.woff2') format('woff2');
-// }
 
 @font-face {
-  font-family: 'Public Sans';
-  src: url('Public-Sans-Roman-VF.ttf') format('ttf');
+    font-family: 'Source Sans Variable';
+    font-weight: 200 900;
+    font-style: normal;
+    font-stretch: normal;
+    src: url('fonts/SourceSansVariable-Roman.ttf.woff2') format('woff2'),
+         url('fonts/SourceSansVariable-Roman.ttf.woff') format('woff'),
+         url('fonts/SourceSansVariable-Roman.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Source Sans Variable';
+    font-weight: 200 900;
+    font-style: italic;
+    font-stretch: normal;
+    src: url('fonts/SourceSansVariable-Italic.ttf.woff2') format('woff2'),
+         url('fonts/SourceSansVariable-Italic.ttf.woff') format('woff'),
+         url('fonts/SourceSansVariable-Italic.ttf') format('truetype');
 }
 
 
-body {
+body, button, input {
 	font-family: $sans;
-  font-weight: 350;
-  font-variation-settings: $linear;
+	font-weight: 400;
+}
 
-	font-size: 15.8px;
+body {
+	font-size: 16px;
 	line-height: 1.6;
 
 	color: $paragraph;
@@ -31,11 +43,12 @@ body {
 
 @media (min-width: $mobile) {
 	body {
-		font-size: calc(15px + .2vw);
+		font-size: calc(16px + .2vw);
 	}
 }
 
 h1, h2, h3, h4, h5, h6 {
+	color: $dark;
 	margin-bottom: .5em;
   font-weight: 650;
 	line-height: 1.2;
@@ -74,9 +87,6 @@ a {
 }
 
 button, input {
-	font-family: $sans;
-	font-weight: 350;
-	font-variation-settings: $linear;
 	font-size: 1em;
 	color: $paragraph;
 	border: none;
@@ -108,7 +118,6 @@ i {
 
 code, textarea {
 	font-family: $mono;
-	font-variation-settings: $normal, 'MONO' 1;
 	color: $gray;
 	background-color: $lighter;
 }

@@ -100,7 +100,6 @@ input {
   margin-left: .25em;
   color: $primary;
   font-family: $mono;
-  font-variation-settings: $normal, 'MONO' 1;
 }
 
 label {
