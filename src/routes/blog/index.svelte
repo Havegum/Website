@@ -22,7 +22,7 @@ export let posts;
 <title>Blog | Halvard Vegum</title>
 </svelte:head>
 
-<div>
+<div class="main">
 {#await posts then post}
   {#each posts as post}
 		<Showcase

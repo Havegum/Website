@@ -28,10 +28,10 @@ a {
 
   width: 17em;
   margin-bottom: 1em;
+  border-bottom: 3px solid $secondary-dark;
 
   div {
     padding: .8em;
-    border-bottom: 3px solid $secondary-dark;
     // border-bottom-color: $secondary-dark;
     border-top: none;
   }

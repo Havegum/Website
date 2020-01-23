@@ -25,7 +25,7 @@ export let post;
 </svelte:head>
 
 
-<div class='content'>
+<div class="main content">
 	<div class="breadcrumb">
 		<a href="blog">blog</a> / <a href='blog/{slug}'>{post.title.toLowerCase()}</a>
 	</div>

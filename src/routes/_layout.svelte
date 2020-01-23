@@ -102,17 +102,23 @@ $: lang = lang.trim().toLowerCase() === 'en' ? 'en' : 'no';
 main {
 	flex-grow: 1;
 	align-self: center;
-
 	width: 100%;
 	max-width: 47em;
 
-	background-color: $lighter;
+	display: flex;
+	flex-direction: column;
 
-	position: relative;
-	padding: 1em;
+	z-index: 0;
+
+	:global(.main) {
+		flex-grow: 1;
+		padding: 1em;
+		position: relative;
+		background-color: $lighter;
+	}
 
 	@media screen and (min-width: $mobile) {
-		padding: 2em;
+		:global(.main) { padding: 2em }
 	}
 }
 </style>

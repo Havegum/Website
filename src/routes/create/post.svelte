@@ -29,7 +29,7 @@ async function handleUpload () {
 </svelte:head>
 
 
-<div>
+<div class="main">
   <input id="title" placeholder="Title" type="text" bind:value={title}>
   <Texteditor bind:value={body} />
 

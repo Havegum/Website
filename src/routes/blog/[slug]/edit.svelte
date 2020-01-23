@@ -46,25 +46,26 @@ async function handleUpload () {
 </svelte:head>
 
 
-<div class="breadcrumb">
-  <a href="blog">blog</a> / <a href='blog/{slug}'>{post.title.toLowerCase()}</a> / <a href="blog/{slug}/edit">edit</a>
+<div class="main">
+	<div class="breadcrumb">
+	  <a href="blog">blog</a> / <a href='blog/{slug}'>{post.title.toLowerCase()}</a> / <a href="blog/{slug}/edit">edit</a>
+	</div>
+
+	<div class="editor">
+	  <Texteditor bind:value={body} />
+	</div>
+
+	<Text>
+	  <h1>{post.title}</h1>
+	  {@html body}
+	</Text>
+
+	<label for="blogpost-key">Key: <input id="blogpost-key" bind:value={key}></label>
+	<Button on:click={handleUpload}>Update</Button>
+	{#if error}
+	  <p transition:slide class="error">Error: {error}</p>
+	{/if}
 </div>
-
-<div class="editor">
-  <Texteditor bind:value={body} />
-</div>
-
-<Text>
-  <h1>{post.title}</h1>
-  {@html body}
-</Text>
-
-<label for="blogpost-key">Key: <input id="blogpost-key" bind:value={key}></label>
-<Button on:click={handleUpload}>Update</Button>
-{#if error}
-  <p transition:slide class="error">Error: {error}</p>
-{/if}
-
 
 <style lang="scss">
 @import '../../../profile.scss';

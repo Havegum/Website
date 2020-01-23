@@ -1,15 +1,18 @@
 no:
   hero: |
-    Jeg er student og utvikler på Media City Bergen som er motivert til å
-    jobbe for mer erfaring med webutvikling og UI-design i mediebransjen.
-    Tidligere har jeg vært mediegrafikerlærling i Forsvaret, nå er jeg
-    redaksjonell utvikler i Bergens Tidende og Aftenposten.
+    Jeg er en entusiastisk interaksjonsstudent og utvikler fra mediebyen i Bergen
+    som elsker å prøve nye ting. Datavisualisering og UI-design er der jeg føler
+    meg mest hjemme – noe av det beste jeg vet er å ta et komplekst problem og
+    finne en enkel måte å presentere det på.
+
+  workListTitle: Arbeidserfaring
+  educationListTitle: Utdanning
 
   keyAttributesTitle: Nøkkelegenskaper
   keyAttributes:
-    - Jeg synes det er gøy å lage ting. Jeg har et <b>engasjement</b> for design og teknologi. Ettermiddagen går fort i å prøve et nytt verktøy, eller se om jeg kan blåse liv i mine egne prosjekter.
-    - "Jeg har erfaring med en bred portefølje av felter, og noe som gir meg <b>allsidighet</b> til å bidra mer i tverfaglige team. Noen av det jeg har vært borti er: UX-evaluering, grafisk design, og maskinlæring."
-    - Jeg kan levere på tid. God prioritering og <b>effektivitet</b> har vært nødvendig for å balansere kortsiktige og langsiktige prosjekter.
+    - Jeg synes det er gøy å lage ting. Jeg har et <b>engasjement</b> for design og teknologi. Jeg gleder meg til å utforske nye konsepter og jeg tar gjerne med meg denne positiviteten i nye&nbsp;prosjekter.
+    - "Jeg har erfaring med en bred portefølje av felter, og noe som gir meg <b>allsidighet</b> til å bidra mer i tverfaglige team. Noen av det jeg har vært borti er UX-evaluering, biometrisk datainnsamling, grafisk design, og&nbsp;maskinlæring."
+    - Jeg kan å levere på tid. God prioritering og <b>effektivitet</b> har vært nødvendig for å komme raskt i gang i ny jobb, og balansere kortsiktige og langsiktige&nbsp;prosjekter.
 
   keyAttributesCCBY: Ikoner av Mat fine
   keyAttributesCCBYBody: |
@@ -33,16 +36,18 @@ no:
 
 en:
   hero: |
-    I am an editorial developer with experience in graphic design who
-    likes to work with data visualization, interaction design, and digital storytelling.
-    I currently work for Aftenposten and Bergens Tidende, and I was formerly an assistant
-    graphic designer in the Armed Forces.
+    I am an enthusiastic student and webdev in Media City Bergen that loves trying
+    out new things. Data visualization and UI design is where I'm most at home. One
+    of my favourite things is finding intuitive presentations for complex concepts.
+
+  workListTitle: Experience
+  educationListTitle: Education
 
   keyAttributesTitle: Key attributes
   keyAttributes:
-    - I like making things, and have a <b>enthusiasm</b> for design and technology. I've found that bringing positive energy to work .
-    - I'm familiar with a broad range of fields which has given me more <b>versatility</b> when participating in interdisciplinary teams. Among other things I've worked with UX-evaluation, graphic design, and machine learning.
-    - I deliver on time. In the places I've worked <b>efficiency</b> has been necessary to balance short and long-term project – both to get up and running, but also to prioritize what to work on.
+    - I like making things, and have an <b>enthusiasm</b> for design and technology. I get excited when exploring new concepts, and I try to bring that positive energy into the&nbsp;team.
+    - I'm familiar with a broad range of fields which has given me more <b>versatility</b> when participating in interdisciplinary teams. Among other things I've worked with UX-evaluation, biometric data gathering, graphic design, and machine&nbsp;learning.
+    - I deliver on time. Where I've worked, <b>efficiency</b> has been necessary to quickly get up and running in a new job, and to balance short and long-term&nbsp;projects.
 
   keyAttributesCCBY: Icons by Mat fine
   keyAttributesCCBYBody: |
