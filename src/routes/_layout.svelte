@@ -5,12 +5,23 @@ export function preload({ query }) {
 </script>
 
 <script>
+import { onMount } from 'svelte';
+
 import Nav from '@/components/Nav.svelte';
 import Footer from '@/components/Footer.svelte';
 
 export let segment;
 export let lang = 'no';
 $: lang = lang.trim().toLowerCase() === 'en' ? 'en' : 'no';
+
+onMount(() => {
+	window.addEventListener('popstate', () => {
+		let search = window.location.search;
+		if (!search) return lang = 'no';
+		let query = search.match(/lang=([^&$]+)/);
+		lang = query ? query[1] : 'no';
+	});
+});
 </script>
 
 
@@ -40,6 +51,7 @@ $: lang = lang.trim().toLowerCase() === 'en' ? 'en' : 'no';
 	left: 0;
 	right: 0;
 	overflow: hidden;
+	z-index: -1;
 
 	img {
 		width: 100%;

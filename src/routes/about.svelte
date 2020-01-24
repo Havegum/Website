@@ -20,15 +20,13 @@ import Timeline from '@/components/Timeline.svelte';
 import timeline from '../../static/timeline.json';
 import skillmap from '../../static/skillmap.json';
 
-import 'intersection-observer';
-import scrollama from 'scrollama';
-const scroller = scrollama();
+import enterView from 'enter-view';
 
 import about from './_about.yaml';
 
 
 export let lang = 'no';
-$: lang = lang.trim().toLowerCase() === 'en' ? 'en' : 'no';
+$: lang = !lang ? 'no' : lang.trim().toLowerCase() === 'en' ? 'en' : 'no';
 $: body = about[lang];
 
 
@@ -50,14 +48,12 @@ let educationList = timeline.education.map(decorate).filter(e => !!e);
 let ccbyExpanded = false;
 
 onMount(() => {
-	scroller.setup({
-		step: '.--step',
-		once: true,
-		offset: 0.9
-	})
-	.onStepEnter(({ element }) => element.classList.add('active'));
-
-	window.addEventListener('resize', scroller.resize);
+	enterView({
+		selector: '.--step',
+		enter: e => e.classList.add('active'),
+		offset: 0.1,
+		once: true
+	});
 });
 
 </script>
@@ -143,13 +139,14 @@ onMount(() => {
 	color: $darker;
 
 	h1 {
-		background: $primary;
+		background: $tertiary;
 		color: $lighter;
 		display: inline-block;
-		padding: 0 .25em;
 		margin-bottom: .5em;
+		padding: 0 .25em;
+		padding-right: 0.75em;
+		border-radius: 0 5em 5em 0;
 	}
-
 }
 
 :global(.hero-pad) {

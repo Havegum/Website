@@ -1,6 +1,7 @@
 <script>
 import { quintOut } from 'svelte/easing';
 import { crossfade } from 'svelte/transition';
+import { goto } from '@sapper/app';
 
 export let segment;
 export let lang = 'no';
@@ -42,6 +43,13 @@ const [send, receive] = crossfade({
 		};
 	}
 });
+
+function changeLanguage () {
+	let loc = window.location.pathname
+	if (lang !== 'en') loc += '?lang=en';
+	goto(loc);
+	window.dispatchEvent(new Event('popstate'))
+}
 </script>
 
 <nav>
@@ -90,6 +98,8 @@ const [send, receive] = crossfade({
 			</li>
 		{/if}
 	</ul>
+
+	<button role="button" aria-label={lang === 'en' ? 'Bytt til norsk' : 'View site in english'} on:click={changeLanguage}>{lang === 'en' ? 'Norsk' : 'English'}</button>
 </nav>
 
 <style lang="scss">
@@ -165,5 +175,13 @@ a {
 	left: .5em;
 	right: .5em;
 	bottom: 0;
+}
+
+button {
+	color: $primary;
+	position: absolute;
+	right: 1.45em;
+	top: 1.45em;
+	font-size: .85em;
 }
 </style>

@@ -106,7 +106,7 @@ function toPathData(points, i) {
 }
 
 
-function getDateString ({ start, end } = {}) {
+function getDateString ({ start, end } = {}, lang) {
 	if (!start) return '';
 	const toString = date => months[lang][date.getMonth()] + ' ' + date.getFullYear();
 	return toString(start) + (end ? ' – ' + toString(end) : tillDate)
@@ -170,7 +170,7 @@ onMount(() => {
             <p class="element">{el.place[lang] || el.place.no}</p>
             <p class="detail">
               <span>{el.title[lang] || el.title.no}</span>
-              <span>{getDateString(el)}</span>
+              <span>{getDateString(el, lang)}</span>
             </p>
           </li>
         {/if}
