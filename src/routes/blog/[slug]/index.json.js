@@ -54,7 +54,7 @@ export async function put (req, res) {
 		Post.updateOne({ slug }, { title, body }, async function (err, query) {
 			if (!err && query.nModified === 1) {
 				res.writeHead(200, { 'Content-Type': 'application/json' });
-				return res.end(JSON.stringify({ message: 'OK!' }))
+				return res.end(JSON.stringify({ message: 'OK!', slug }))
 			}
 
 			let post = new Post({ title, body, slug });
@@ -64,7 +64,7 @@ export async function put (req, res) {
 					return res.end(JSON.stringify({ error: 'database error' }));
 				}
 				res.writeHead(200, { 'Content-Type': 'application/json' });
-				return res.end(JSON.stringify({ message: 'OK!' }))
+				return res.end(JSON.stringify({ message: 'OK!', slug }))
 			});
 		});
 	});
@@ -89,5 +89,6 @@ export async function del (req, res) {
 		}
 
 		let post = await Post.deleteOne({ slug });
+		return res.end(JSON.stringify({ message: 'OK' }));
 	});
 }

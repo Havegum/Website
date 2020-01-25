@@ -1,4 +1,5 @@
 <script>
+import { goto } from '@sapper/app';
 import { slide } from 'svelte/transition';
 
 import Text from '@/components/Text.svelte';
@@ -21,6 +22,8 @@ async function handleUpload () {
   let json = await response.json();
   if (response.status !== 200) return error = json.error;
   body = '';
+
+  goto(`/blog/${json.slug}`);
 }
 </script>
 

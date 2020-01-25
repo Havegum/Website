@@ -81,18 +81,12 @@ onMount(() => {
 		<Text>
 			<h2>{body.keyAttributesTitle}</h2>
 			<ul>
+			{#each ['overcast', 'rainy-shaded', 'lightning-shaded'] as img, i}
 				<li class="--step" class:active={false}>
-					<img src="overcast.svg" alt="" role="presentation"/>
-					<p>{@html body.keyAttributes[0]}</p>
+					<img src="{img}.svg" alt="" role="presentation"/>
+					<p>{@html body.keyAttributes[i]}</p>
 				</li>
-				<li class="--step">
-					<img src="rainy-shaded.svg" alt="" role="presentation"/>
-					<p>{@html body.keyAttributes[1]}</p>
-				</li>
-				<li class="--step">
-					<img src="lightning-shaded.svg" alt="" role="presentation"/>
-					<p>{@html body.keyAttributes[2]}</p>
-				</li>
+			{/each}
 			</ul>
 			<button on:click={() => ccbyExpanded = !ccbyExpanded}>
 				{body.keyAttributesCCBY}
@@ -143,7 +137,7 @@ onMount(() => {
 		color: $lighter;
 		display: inline-block;
 		margin-bottom: .5em;
-		padding: 0 .25em;
+		padding: .1em .25em;
 		padding-right: 0.75em;
 		border-radius: 0 5em 5em 0;
 	}
@@ -202,6 +196,9 @@ h2 {
 		opacity: 0;
 		position: relative;
 		top: 2em;
+
+		will-change: top, opacity;
+
 		transition:
 			top 500ms,
 			opacity 500ms;
@@ -216,6 +213,7 @@ h2 {
 			:global(b) {
 				color: $paragraph;
 				font-weight: 400;
+				will-change: color, font-weight;
 				transition:
 					color 500ms 250ms,
 					font-weight 500ms 250ms;
@@ -235,8 +233,6 @@ h2 {
 			user-select: none;
 			flex-basis: 5em;
 		}
-
-
 
 		@media screen and (min-width: $mobile) {
 			&:nth-child(2n-1) {

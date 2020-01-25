@@ -22,24 +22,45 @@ button {
 
   padding: .3em .5em .15em;
   border-radius: 3px;
+}
 
-  &.primary {
-    background-color: $primary;
-    color: $button-text;
+.primary {
+  background-color: $primary;
+  color: $button-text;
 
-    &.outline {
-      background-color: transparent;
-      border: 1px solid $primary;
-      color: $primary;
+  &.outline {
+    background-color: transparent;
+    border: 1px solid $primary;
+    color: $primary;
 
-      &:hover, &:focus {
-        background-color: $primary;
-        color: $button-text;
-      }
+    &:hover, &:focus {
+      background-color: $primary;
+      color: $button-text;
+    }
 
-      &:active {
-        font-weight: 600;
-      }
+    &:active {
+      font-weight: 600;
+    }
+  }
+}
+
+
+.tertiary {
+  background-color: $tertiary;
+  color: $button-text;
+
+  &.outline {
+    background-color: transparent;
+    border: 1px solid $tertiary;
+    color: $tertiary;
+
+    &:hover, &:focus {
+      background-color: $tertiary;
+      color: $button-text;
+    }
+
+    &:active {
+      font-weight: 600;
     }
   }
 }

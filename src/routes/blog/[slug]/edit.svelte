@@ -13,6 +13,7 @@
 
 
 <script>
+import { goto } from '@sapper/app';
 import { slide } from 'svelte/transition';
 
 import Text from '@/components/Text.svelte';
@@ -37,6 +38,24 @@ async function handleUpload () {
   let json = await response.json();
   if (response.status !== 200) return error = json.error;
   body = '';
+
+	goto(`/blog/${json.slug}`);
+}
+
+async function handleDelete () {
+  let response = await fetch(`blog/${slug}.json`, {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ key })
+  });
+  let json = await response.json();
+  if (response.status !== 200) return error = json.error;
+  body = '';
+
+
+	console.log(json);
+
+	goto(`/blog`);
 }
 </script>
 
@@ -62,6 +81,7 @@ async function handleUpload () {
 
 	<label for="blogpost-key">Key: <input id="blogpost-key" bind:value={key}></label>
 	<Button on:click={handleUpload}>Update</Button>
+	<Button on:click={handleDelete} category="tertiary">Delete</Button>
 	{#if error}
 	  <p transition:slide class="error">Error: {error}</p>
 	{/if}

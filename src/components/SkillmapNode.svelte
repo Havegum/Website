@@ -15,12 +15,8 @@ $: if (text) {
 <circle cx={node.x} cy={node.y} r={node.size + 1} aria-hidden="true"/>
 <g style="
     font-size: {9 + node.size * 1.5}px;
-    transform: translate({node.x}px, {node.y + 9 + node.size * 1.5}px;
-    font-variation-settings:
-      'CASL' {clamp(1 - node.techincal * 2)},
-      'ital' {clamp(1 - node.techincal * 2)},
-      'MONO' {clamp(node.techincal * 2 - 1)}">
-  <text class="shadow" aria-hidden="true">{node.name}</text>
+    transform: translate({node.x}px, {node.y + 9 + node.size * 1.5}px">
+  <text style="font-weight: {300 + 50 * node.size}" class="shadow" aria-hidden="true">{node.name}</text>
   <text style="font-weight: {300 + 50 * node.size}" bind:this={text}>{node.name}</text>
 </g>
 
@@ -46,8 +42,6 @@ text {
     stroke-width: 2px;
     stroke-linecap: round;
     stroke-linejoin: round;
-    // text-shadow: 0 0 2px $primary, 0 0 2px $primary, 0 0 3px $primary;
-    font-weight: 1000;
   }
 }
 </style>

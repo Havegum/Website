@@ -44,6 +44,7 @@ onMount(() => {
 @import '../profile.scss';
 
 .background {
+	user-select: none;
 	background: $secondary;
 	position: absolute;
 	top: 0;

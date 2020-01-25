@@ -1,4 +1,5 @@
 @import './profile.scss';
+@import url('https://rsms.me/inter/inter.css');
 
 html, body, *, *::before, *::after {
 	box-sizing: border-box;
@@ -6,36 +7,18 @@ html, body, *, *::before, *::after {
 	padding: 0;
 }
 
-
-@font-face {
-    font-family: 'Source Sans Variable';
-    font-weight: 200 900;
-    font-style: normal;
-    font-stretch: normal;
-    src: url('fonts/SourceSansVariable-Roman.ttf.woff2') format('woff2'),
-         url('fonts/SourceSansVariable-Roman.ttf.woff') format('woff'),
-         url('fonts/SourceSansVariable-Roman.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Source Sans Variable';
-    font-weight: 200 900;
-    font-style: italic;
-    font-stretch: normal;
-    src: url('fonts/SourceSansVariable-Italic.ttf.woff2') format('woff2'),
-         url('fonts/SourceSansVariable-Italic.ttf.woff') format('woff'),
-         url('fonts/SourceSansVariable-Italic.ttf') format('truetype');
-}
-
-
 body, button, input {
-	font-family: $sans;
+	font-family: 'Inter', sans-serif;
 	font-weight: 400;
+
+	@supports (font-variation-settings: normal) {
+		font-family: 'Inter var', sans-serif;
+	}
 }
 
 body {
-	font-size: 16px;
-	line-height: 1.6;
+	font-size: 16.2px;
+	line-height: 1.7;
 
 	color: $paragraph;
   background-color: $light;
@@ -43,13 +26,13 @@ body {
 
 @media (min-width: $mobile) {
 	body {
-		font-size: calc(16px + .2vw);
+		font-size: calc(15.5px + .2vw);
 	}
 }
 
 h1, h2, h3, h4, h5, h6 {
 	color: $dark;
-	margin-bottom: .5em;
+	margin: 1.25em 0 0.25em;
   font-weight: 650;
 	line-height: 1.2;
 }

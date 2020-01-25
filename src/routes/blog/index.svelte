@@ -23,22 +23,24 @@ export let posts;
 </svelte:head>
 
 <div class="main">
-{#await posts then post}
-  {#each posts as post}
-		<Showcase
-        class="showcase-item"
-        let:hover
-        title="{post.title}"
-        href="blog/{post.slug}">
-		</Showcase>
-  {/each}
-{/await}
+	<div class="posts">
+	{#await posts then post}
+	  {#each posts as post}
+			<Showcase
+	        class="showcase-item"
+	        let:hover
+	        title="{post.title}"
+	        href="blog/{post.slug}">
+			</Showcase>
+	  {/each}
+	{/await}
+	</div>
 </div>
 
 <style lang="scss">
 @import '../../profile.scss';
 
-div {
+.posts {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
