@@ -9,8 +9,16 @@ import tracker from './view-tracker.js';
 const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === 'development';
 
+const languageRedirect = (res, url) => {
+	res.writeHead(302, { location: url + `?lang=en` });
+  res.end();
+}
 
 let app = polka();
+
+app.get('/en/', (_, res) =>	languageRedirect(res, '/'))
+	 .get('/en/*', ({ url }, res) => languageRedirect(res, url.slice(3)));
+
 // app.use(helmet());
 app.use(tracker);
 app.use(compression({ threshold: 0 }));
