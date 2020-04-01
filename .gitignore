@@ -8,3 +8,4 @@ yarn-error.log
 static/global*
 .env
 /media
+deploy.sh

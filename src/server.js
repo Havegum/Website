@@ -9,8 +9,8 @@ import tracker from './view-tracker.js';
 const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === 'development';
 
-const languageRedirect = (res, url) => {
-	res.writeHead(302, { location: url + `?lang=en` });
+const languageRedirect = (res, path) => {
+	res.writeHead(302, { location: `${path}?lang=en` });
   res.end();
 }
 
