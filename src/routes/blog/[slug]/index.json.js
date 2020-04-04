@@ -6,17 +6,31 @@ const json = bodyParser.json();
 
 let timeout = false;
 
+// Matches local paths, like
+// "./file.js", "dir/file.hash.js", "https://www.vegum.no/script.js"
+let localHostedScripts = /(<script([^\>]+))(src=["']((https?:\/\/)?(www\.)?(halvard\.)?vegum\.no\/|((\.)?\/)?([^\/\.]+\/)*[^\/]*\.js))/gi;
+let scriptMatch = /<script[^>]*>[^<]*<\/script>/gi;
 
 export async function get(req, res) {
-	// the `slug` parameter is available because
-	// this file is called [slug].json.js
 	const { slug } = req.params;
+	const { dropNonce } = req.query;
 
 	let post = await Post.findOneAndUpdate({ slug }, { $inc: { views: 1 } });
 
 	if (post) {
+		let title = post.get('title');
+		let body = post.get('body');
+
+		if (!dropNonce) {
+			body = body.replace(localHostedScripts, `$1nonce="${res.locals.nonce}" $3`);
+		}
+
+		let scripts = body.match(scriptMatch);
+		// This is probably super inefficient ...
+		scripts.forEach(script => body = body.replace(script, ''))
+
 		res.writeHead(200, { 'Content-Type': 'application/json' });
-		res.end(JSON.stringify({ body: post.get('body'), title: post.get('title') }));
+		res.end(JSON.stringify({ title, body, scripts }));
 
 	} else {
 		res.writeHead(404, { 'Content-Type': 'application/json' });
