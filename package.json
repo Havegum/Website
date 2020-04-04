@@ -31,7 +31,8 @@
     "postcss-preset-env": "^6.7.0",
     "showdown": "^1.9.1",
     "sirv": "^0.4.0",
-    "svelte-preprocess": "^3.3.0"
+    "svelte-preprocess": "^3.3.0",
+    "uuid": "^7.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
