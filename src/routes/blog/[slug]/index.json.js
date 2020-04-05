@@ -21,13 +21,16 @@ export async function get(req, res) {
 		let title = post.get('title');
 		let body = post.get('body');
 
-		if (!dropNonce) {
-			body = body.replace(localHostedScripts, `$1nonce="${res.locals.nonce}" $3`);
+		if (dropNonce) {
+			res.writeHead(200, { 'Content-Type': 'application/json' });
+			res.end(JSON.stringify({ title, body }));
+			return;
 		}
 
+		body = body.replace(localHostedScripts, `$1nonce="${res.locals.nonce}" $3`);
 		let scripts = body.match(scriptMatch);
 		// This is probably super inefficient ...
-		scripts.forEach(script => body = body.replace(script, ''))
+		if (scripts) scripts.forEach(script => body = body.replace(script, ''))
 
 		res.writeHead(200, { 'Content-Type': 'application/json' });
 		res.end(JSON.stringify({ title, body, scripts }));

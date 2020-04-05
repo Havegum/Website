@@ -6,6 +6,7 @@ yarn-error.log
 /__sapper__/
 /static/global.css
 static/global*
+static/integrations/*
 .env
 /media
 deploy.sh

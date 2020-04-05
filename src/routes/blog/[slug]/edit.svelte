@@ -52,9 +52,6 @@ async function handleDelete () {
   if (response.status !== 200) return error = json.error;
   body = '';
 
-
-	console.log(json);
-
 	goto(`/blog`);
 }
 </script>
