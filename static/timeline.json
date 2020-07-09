@@ -2,9 +2,16 @@
   "work": [
     {
       "place": { "no": "Bergens Tidende" },
+      "title": { "no": "Redaksjonell utvikler", "en": "Editorial Developer" },
+      "start": "2020-06-21",
+      "end": null
+    },
+    {
+      "place": { "no": "Bergens Tidende" },
       "title": { "no": "Redaksjonell utvikler (ringevikar)", "en": "Editorial Developer (temp)" },
       "start": "2019-08-10",
-      "end": null
+      "end": "2020-06-21",
+      "hidden": true
     },
     {
       "place": { "no": "Aftenposten" },
@@ -34,7 +41,7 @@
     },
     {
       "place": { "no": "Studvest" },
-      "title": { "no": "Layoutdesigner" },
+      "title": { "no": "Layoutdesigner", "en": "Layout Designer" },
       "start": "2017-08",
       "end": "2018-01",
       "hidden": true
@@ -66,7 +73,7 @@
       "place": { "no": "Universitetet i Bergen", "en": "University of Bergen" },
       "title": { "no": "Medie- og interaksjonsdesign", "en": "Media and Interaction Design (BA)" },
       "start": "2017-08",
-      "end": null
+      "end": "2020-06"
     },
     {
       "place": { "no": "Trøndelag fylkeskommune", "en": "Trøndelag County Municipality" },

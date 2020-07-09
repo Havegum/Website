@@ -8,6 +8,9 @@ export async function preload({ query }) {
 import { onMount } from 'svelte';
 import { slide } from 'svelte/transition';
 
+import Roughbox from '@/components/layout/Roughbox.svelte';
+import Main from '@/components/layout/Main.svelte';
+
 import Text from '@/components/Text.svelte';
 import NoPadding from '@/components/NoPadding.svelte';
 import Skillmap from '@/components/Skillmap.svelte';
@@ -63,68 +66,76 @@ onMount(() => {
 	<title>Halvard Vegum</title>
 </svelte:head>
 
-<div class="hero-copy">
-	<Text>
-		<h1>Halvard Vegum</h1>
-		<p>{body.hero}</p>
-	</Text>
-</div>
-
-<div class="main">
-	<div class="experience">
-		<Timeline title={body.workListTitle} class="timeline" list={workList} {lang} />
-		<Timeline title={body.educationListTitle} class="timeline" list={educationList} {lang} />
-	</div>
-
-
-	<div class="key-attributes">
+<Main background={false} padding={false}>
+	<div class="hero-copy">
 		<Text>
-			<h2>{body.keyAttributesTitle}</h2>
-			<ul>
-			{#each ['overcast', 'rainy-shaded', 'lightning-shaded'] as img, i}
-				<li class="--step" class:active={false}>
-					<img src="{img}.svg" alt="" role="presentation"/>
-					<p>{@html body.keyAttributes[i]}</p>
-				</li>
-			{/each}
-			</ul>
-			<button on:click={() => ccbyExpanded = !ccbyExpanded}>
-				{body.keyAttributesCCBY}
-			</button>
-			{#if ccbyExpanded}
-				<div class="cc-by" transition:slide>
-					{@html body.keyAttributesCCBYBody}
-				</div>
-			{/if}
+			<h1>Halvard Vegum</h1>
+			<p>{@html body.hero}</p>
 		</Text>
 	</div>
-
 
 	<div>
-		<Text>
-			<h2>{body.toolboxTitle}</h2>
-			{body.toolboxBody}
-			<Skillmap nodes={skillmap.skills} edges={skillmap.connections}/>
-		</Text>
-	</div>
+		<Roughbox>
+			<div class="experience">
+				<Timeline title={body.workListTitle} class="timeline" list={workList} {lang} />
+				<Timeline title={body.educationListTitle} class="timeline" list={educationList} {lang} />
+			</div>
 
-	<div class="showcase">
-		<h2>{body.showcaseTitle}</h2>
-		<div>
-			<Showcase class="showcase-item" let:hover {...body.showcase.bybanestriden}>
-				<Bybane {hover} />
-			</Showcase>
+			<div class="key-attributes">
+				<Text>
+					<h2>{body.keyAttributesTitle}</h2>
+					<ul>
+					{#each ['overcast', 'rainy-shaded', 'lightning-shaded'] as img, i}
+						<li class="--step" class:active={false}>
+							<img src="{img}.svg" alt="" role="presentation"/>
+							<p>{@html body.keyAttributes[i]}</p>
+						</li>
+					{/each}
+					</ul>
+					<button on:click={() => ccbyExpanded = !ccbyExpanded}>
+						{body.keyAttributesCCBY}
+					</button>
+					{#if ccbyExpanded}
+						<div class="cc-by" transition:slide>
+							{@html body.keyAttributesCCBYBody}
+						</div>
+					{/if}
+				</Text>
+			</div>
 
-			<Showcase class="showcase-item" let:hover {...body.showcase.schoolmodels}>
-				<Schoolmodels {hover} />
-			</Showcase>
-		</div>
+
+			<div>
+				<Text>
+					<h2>{body.toolboxTitle}</h2>
+					{body.toolboxBody}
+					<Skillmap nodes={skillmap.skills} edges={skillmap.connections}/>
+				</Text>
+			</div>
+
+			<div class="showcase">
+				<h2>{body.showcaseTitle}</h2>
+				<div>
+					<Showcase class="showcase-item" let:hover {...body.showcase.bybanestriden}>
+						<Bybane {hover} />
+					</Showcase>
+
+					<Showcase class="showcase-item" let:hover {...body.showcase.schoolmodels}>
+						<Schoolmodels {hover} />
+					</Showcase>
+				</div>
+			</div>
+		</Roughbox>
 	</div>
-</div>
+</Main>
 
 
 <style lang="scss">
 @import '../profile.scss';
+main {
+	max-width: 47em;
+	justify-self: center;
+	width: 100%;
+}
 
 .hero-copy {
 	padding: 2em 1em 1em;
@@ -157,7 +168,6 @@ h2 {
 }
 
 .key-attributes {
-
 	:global(b) {
 		color: $primary;
 	}

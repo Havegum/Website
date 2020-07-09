@@ -120,6 +120,13 @@
       "y": 76
     },
     {
+      "name": "Rust",
+      "techincal": 0.75,
+      "size": 1,
+      "x": 410,
+      "y": 76
+    },
+    {
       "name": "HTML",
       "techincal": 0.45,
       "size": 5,
@@ -178,6 +185,7 @@
     { "source": "Javascript", "target": "MongoDB" },
     { "source": "Javascript", "target": "Python" },
     { "source": "Javascript", "target": "Express" },
+    { "source": "Javascript", "target": "Rust" },
     { "source": "Svelte", "target": "Express" },
     { "source": "Svelte", "target": "Node" },
     { "source": "Express", "target": "Node" },

@@ -14,6 +14,7 @@ export async function preload({ params, query }) {
 <script>
 // import Text from '@/components/Text.svelte';
 import Showcase from '@/components/Showcase.svelte';
+import Main from '@/components/layout/Main.svelte';
 
 export let posts;
 </script>
@@ -22,7 +23,8 @@ export let posts;
 <title>Blog | Halvard Vegum</title>
 </svelte:head>
 
-<div class="main">
+<!-- <div class="main"> -->
+<Main>
 	<div class="posts">
 	{#await posts then post}
 	  {#each posts as post}
@@ -35,7 +37,8 @@ export let posts;
 	  {/each}
 	{/await}
 	</div>
-</div>
+</Main>
+<!-- </div> -->
 
 <style lang="scss">
 @import '../../profile.scss';

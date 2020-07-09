@@ -28,6 +28,7 @@ export async function preload({ params, query }) {
 <script>
 import { onMount } from 'svelte';
 import Text from '@/components/Text.svelte';
+import Main from '@/components/layout/Main.svelte';
 export let slug;
 export let post;
 export let nonce;
@@ -55,17 +56,18 @@ onMount(() => {
 	<title>{post.title} | Halvard Vegum</title>
 </svelte:head>
 
-
-<div class="main content">
-	<div class="breadcrumb">
-		<a href="blog">blog</a> / <a href='blog/{slug}'>{post.title.toLowerCase()}</a>
+<Main>
+	<div class="main content">
+		<div class="breadcrumb">
+			<a href="blog">blog</a> / <a href='blog/{slug}'>{post.title.toLowerCase()}</a>
+		</div>
+		<Text>
+			<h1>{post.title}</h1>
+			{@html post.body}
+			<div bind:this={scripts}></div>
+		</Text>
 	</div>
-	<Text>
-		<h1>{post.title}</h1>
-		{@html post.body}
-		<div bind:this={scripts}></div>
-	</Text>
-</div>
+</Main>
 
 
 <style lang="scss">

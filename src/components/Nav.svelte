@@ -48,7 +48,7 @@ function changeLanguage () {
 	let loc = window.location.pathname
 	if (lang !== 'en') loc += '?lang=en';
 	goto(loc);
-	window.dispatchEvent(new Event('popstate'))
+	window.dispatchEvent(new Event('popstate'));
 }
 </script>
 
@@ -122,7 +122,7 @@ li {
 }
 
 a {
-	color: $dark;
+	color: $darker;
 	text-decoration: none;
 	padding: 1em 0.5em;
 	display: block;
@@ -157,7 +157,7 @@ a {
 }
 
 .scrubber {
-	background-color: $lightgray;
+	background-color: $gray;
 }
 
 .selected::after {

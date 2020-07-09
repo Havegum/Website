@@ -22,12 +22,22 @@ body {
 
 	color: $paragraph;
   background-color: $light;
-}
 
-@media (min-width: $mobile) {
-	body {
+	@media (min-width: $mobile) {
 		font-size: calc(15.5px + .2vw);
 	}
+
+}
+
+#sapper {
+	// display: flex;
+	// flex-direction: column;
+
+	display: grid;
+	grid-template-rows: [nav-start] auto [nav-end main-start] 1fr [main-end footer-start] auto [footer-end];
+	// grid-template-columns: [start] 1fr [body-start] 100% [body-end] 1fr [end];
+	min-height: 100vh;
+	position: relative;
 }
 
 h1, h2, h3, h4, h5, h6 {
