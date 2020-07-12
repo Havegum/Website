@@ -47,7 +47,13 @@ const preprocessOptions = {
 };
 const preprocess = [
 	autoPreprocess(preprocessOptions),
-	mdsvex()
+	mdsvex({
+		layout: {
+			blog: "./src/components/layout/BlogLayout.svelte",
+			none: "./src/components/layout/SimpleLayout.svelte",
+			_: "./src/components/layout/BlogLayout.svelte",
+		}
+	})
 ];
 
 

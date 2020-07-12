@@ -1,3 +1,6 @@
+---
+layout: blog
+---
 # H1
 ONCE UPON A TODO
-Array UPON A 
+Array UPON A
