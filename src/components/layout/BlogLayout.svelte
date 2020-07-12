@@ -3,26 +3,54 @@ import { onMount } from 'svelte';
 import Main from '@/components/layout/Main.svelte';
 import Text from '@/components/Text.svelte';
 
-let segments = [];
-const buildPath = i => {
-  if (i === 0) return segments[i];
-  else return buildPath(i - 1) + '/' + segments[i];
-};
+export let title;
+export let link;
+export let published;
+let postedString, modifiedString;
+export { postedString as posted };
+export { modifiedString as modified };
 
-onMount(() => {
-  segments = window.location.pathname.slice(1).split('/');
-});
+let posted = new Date(postedString);
+let modified = new Date(modifiedString);
+const lastYear = new Date();
+lastYear.setFullYear(lastYear.getFullYear() - 1);
+
+function formatDate (date) {
+	return `
+		${date.toLocaleString('en-GB', { day: 'numeric' })}
+		${date.toLocaleString('en-GB', { month: 'long' })},
+		${date.toLocaleString('en-GB', { year: 'numeric' })}
+	`;
+}
 </script>
 
+<svelte:head>
+	<title>{title} | Halvard Vegum</title>
+</svelte:head>
 
 <Main background="light">
   <div class="breadcrumb">
-    {#each segments as path, i}
-			<a href={buildPath(i)}>{path}</a> {#if i < segments.length - 1}<span> / </span>{/if}
-    {/each}
+		<a href="blog">blog</a> / <a href='blog/{link}'>{title}</a>
   </div>
 
 	<Text>
+		<section class="meta">
+			<p class="timestamp">
+				Published <time>{formatDate(posted)}</time>
+				{#if modified > posted}
+					<span class="modified">(modified {formatDate(modified)})</span>
+				{/if}
+			</p>
+			<hr/>
+
+			{#if lastYear > modified}
+			<div class="warn-outdate">
+				<strong>Note:</strong> This post is more than one year old.
+			</div>
+			{/if}
+		</section>
+
+		<h1 class="title">{title}</h1>
     <slot/>
 	</Text>
 </Main>
@@ -48,5 +76,34 @@ a {
 a:hover,
 a:focus {
 	text-decoration: underline;
+}
+
+.meta {
+	margin-bottom: 2em;
+}
+
+.meta p {
+	margin-bottom: 0;
+}
+
+.timestamp {
+	font-size: .85em;
+}
+
+.timestamp .modified {
+	margin-left: 1em;
+	font-style: italic;
+}
+
+hr {
+	border: none;
+	border-top: 1px dashed var(--lightgray);
+}
+
+.warn-outdate {
+	border: 1px solid var(--tertiary);
+	color: var(--tertiary);
+	padding: 1em;
+	margin-top: 1em;
 }
 </style>

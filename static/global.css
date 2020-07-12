@@ -10,7 +10,7 @@ body {
   --secondary-dark: #90c5f9;
   --tertiary: #da3125;
   --lighter: #f9f9f1;
-  --darker: #00332c;
+  --darker: #1a2826;
   --background: #e4f2f2;
   --headline: #354e50;
   --paragraph: #547879;
@@ -18,7 +18,7 @@ body {
   --button-text: #f9f9f1;
   --link: #2255e9;
   --link-hover: #0c32a7;
-  --background-dark: #00332c;
+  --background-dark: #1a2826;
   --headline-dark: #f9f9f1;
   --paragraph-dark: #6d9b94; }
 
@@ -100,11 +100,6 @@ b {
 
 i {
   font-style: oblique 15deg; }
-
-code, textarea {
-  font-family: inconsolata, monospace;
-  color: #547879;
-  background-color: #f9f9f1; }
 
 code {
   border-radius: 2px;
