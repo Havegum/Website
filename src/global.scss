@@ -21,7 +21,7 @@ body {
 	line-height: 1.7;
 
 	color: $paragraph;
-  background-color: $light;
+  background-color: $secondary;
 
 	@media (min-width: $mobile) {
 		font-size: calc(15.5px + .2vw);

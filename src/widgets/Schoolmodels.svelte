@@ -1,6 +1,5 @@
 <script>
 import { onMount } from 'svelte';
-import { cubicInOut } from 'svelte/easing';
 
 let arr = [
 	{ style: "st4", x: 60.1,  y: 141.7 },
@@ -75,16 +74,7 @@ function animate () {
 		interval = null;
 	}
 
-	shuffle(arr);
-
-	let start = null;
-	window.requestAnimationFrame(function step (timestamp) {
-		if (!start) start = timestamp;
-		let progress = timestamp - start;
-		ease(progress / 600);
-		if (progress < 600) window.requestAnimationFrame(step);
-	});
-
+	arr = shuffle(arr);
 	i++;
 }
 
@@ -110,6 +100,9 @@ function shuffle (a) {
 	for (let i = 0; i < idx.length; i++) {
 		a[i].activex = a[i].targetx || a[i].x;
 		a[i].activey = a[i].targety || a[i].y;
+
+		a[i].x = a[i].activex;
+		a[i].y = a[i].activey;
 	}
 
 	for (let i = 0; i < idx.length; i++) {
@@ -132,6 +125,11 @@ svg {
 	display: block;
 	width: 100%;
 	height: auto;
+
+	circle {
+		will-change: transform;
+		transition: transform 300ms cubic-bezier(0.65, 0, 0.35, 1);
+	}
 
 	.st0 { fill: $secondary }
 	.st1 { fill: #74A7EF }
@@ -159,6 +157,12 @@ svg {
 	<path class="st3" d="M279,85h-11V74h11V85z M268,67V53l-12.5-14.8L243,53v14h-18v26h17.3h12.9h12.9H285V67H268z M255.2,49.9c3.1,0,5.7,2.5,5.7,5.7c0,3.1-2.5,5.7-5.7,5.7s-5.7-2.5-5.7-5.7C249.5,52.4,252.1,49.9,255.2,49.9z M243,85h-12V74h12 V85z M261,85h-5.8H249V74h6.2h5.8V85z"/>
 
 	{#each arr as d, i}
-		<circle class={d.style} cx={d.x} cy={d.y} r="5" />
+		<circle
+			style="transform: translate3d({d.x}px, {d.y}px, 0); transition-delay: {i*10}ms"
+			class={d.style}
+			r="5"
+		/>
 	{/each}
+	<!-- cx={d.x}
+	cy={d.y} -->
 </svg>

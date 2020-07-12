@@ -11,9 +11,27 @@ import config from 'sapper/config/rollup.js';
 import pkg from './package.json';
 
 
+const babelconfig = {
+	extensions: ['.js', '.mjs', '.html', '.svelte'],
+	runtimeHelpers: true,
+	exclude: ['node_modules/@babel/**'],
+	presets: [
+		['@babel/preset-env', {
+			targets: '> 0.25%, not dead'
+		}]
+	],
+	plugins: [
+		'@babel/plugin-syntax-dynamic-import',
+		['@babel/plugin-transform-runtime', {
+			useESModules: true
+		}]
+	]
+}
+
+// Preprocessing
+import { mdsvex } from "mdsvex";
 import postcssImport from 'postcss-import';
 import postcssPresetEnv from 'postcss-preset-env';
-
 import autoPreprocess from 'svelte-preprocess';
 const preprocessOptions = {
 	postcss: {
@@ -27,12 +45,16 @@ const preprocessOptions = {
     ]
   }
 };
+const preprocess = [
+	autoPreprocess(preprocessOptions),
+	mdsvex()
+];
+
 
 import fs from 'fs';
 import sass from 'node-sass';
 const globalStyleExport = {
   name: 'global-style-export',
-
 	renderStart () {
 		let result = sass.renderSync({
 			file: './src/global.scss',
@@ -69,7 +91,8 @@ export default {
 			json(),
 			yaml(),
 			svelte({
-				preprocess: autoPreprocess(preprocessOptions),
+				extensions: ['.svelte', '.svx'],
+				preprocess,
 				dev,
 				hydratable: true,
 				emitCss: true
@@ -79,27 +102,8 @@ export default {
 				dedupe
 			}),
 			commonjs(),
-
-			legacy && babel({
-				extensions: ['.js', '.mjs', '.html', '.svelte'],
-				runtimeHelpers: true,
-				exclude: ['node_modules/@babel/**'],
-				presets: [
-					['@babel/preset-env', {
-						targets: '> 0.25%, not dead'
-					}]
-				],
-				plugins: [
-					'@babel/plugin-syntax-dynamic-import',
-					['@babel/plugin-transform-runtime', {
-						useESModules: true
-					}]
-				]
-			}),
-
-			!dev && terser({
-				module: true
-			})
+			legacy && babel(babelConfig),
+			!dev && terser({ module: true })
 		],
 
 		onwarn,
@@ -120,7 +124,8 @@ export default {
 			json(),
 			yaml(),
 			svelte({
-				preprocess: autoPreprocess(preprocessOptions),
+				extensions: ['.svelte', '.svx'],
+				preprocess,
 				generate: 'ssr',
 				dev
 			}),
@@ -146,6 +151,7 @@ export default {
 				'process.env.NODE_ENV': JSON.stringify(mode)
 			}),
 			commonjs(),
+			legacy && babel(babelConfig),
 			!dev && terser()
 		],
 

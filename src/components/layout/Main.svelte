@@ -3,7 +3,11 @@ export let background = true;
 export let padding = true;
 </script>
 
-<main class:background class:padding>
+<main
+  class:background
+  class:light={background === 'light'}
+  class:padding
+>
   <slot></slot>
 </main>
 
@@ -17,6 +21,10 @@ main {
 }
 
 .background {
+  background-color: $light;
+}
+
+.light {
   background-color: $lighter;
 }
 

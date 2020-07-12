@@ -13,7 +13,7 @@ export async function preload({ params, query }) {
 
 <script>
 // import Text from '@/components/Text.svelte';
-import Showcase from '@/components/Showcase.svelte';
+import BlogListing from '@/components/layout/BlogListing.svelte';
 import Main from '@/components/layout/Main.svelte';
 
 export let posts;
@@ -23,30 +23,26 @@ export let posts;
 <title>Blog | Halvard Vegum</title>
 </svelte:head>
 
-<!-- <div class="main"> -->
 <Main>
-	<div class="posts">
-	{#await posts then post}
+	<li class="posts">
 	  {#each posts as post}
-			<Showcase
-	        class="showcase-item"
-	        let:hover
-	        title="{post.title}"
-	        href="blog/{post.slug}">
-			</Showcase>
+			<BlogListing
+	      class="showcase-item"
+	      title="{post.title}"
+	      href="blog/{post.slug}"
+			/>
 	  {/each}
-	{/await}
-	</div>
+	</li>
 </Main>
-<!-- </div> -->
 
 <style lang="scss">
 @import '../../profile.scss';
 
 .posts {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: space-around;
+	margin-top: 1em;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(auto, 17em));
+	gap: 1em;
+	justify-content: center;
 }
 </style>

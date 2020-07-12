@@ -12,10 +12,9 @@ import Roughbox from '@/components/layout/Roughbox.svelte';
 import Main from '@/components/layout/Main.svelte';
 
 import Text from '@/components/Text.svelte';
-import NoPadding from '@/components/NoPadding.svelte';
 import Skillmap from '@/components/Skillmap.svelte';
 
-import Showcase from '@/components/Showcase.svelte';
+import Widget from '@/widgets/Widget.svelte';
 import Bybane from '@/widgets/Bybane.svelte';
 import Schoolmodels from '@/widgets/Schoolmodels.svelte';
 
@@ -115,13 +114,13 @@ onMount(() => {
 			<div class="showcase">
 				<h2>{body.showcaseTitle}</h2>
 				<div>
-					<Showcase class="showcase-item" let:hover {...body.showcase.bybanestriden}>
+					<Widget class="showcase-item" let:hover {...body.showcase.bybanestriden}>
 						<Bybane {hover} />
-					</Showcase>
+					</Widget>
 
-					<Showcase class="showcase-item" let:hover {...body.showcase.schoolmodels}>
+					<Widget class="showcase-item" let:hover {...body.showcase.schoolmodels}>
 						<Schoolmodels {hover} />
-					</Showcase>
+					</Widget>
 				</div>
 			</div>
 		</Roughbox>

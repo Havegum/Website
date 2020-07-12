@@ -3,11 +3,9 @@ export let href = '#';
 export let title = '';
 export let lead = '';
 
-let hover = false;
 </script>
 
-<a class="{$$props.class}" {href} on:mouseover={() => hover = true} on:mouseout={() => hover = false}>
-  <slot {hover}></slot>
+<a {href}>
   <div>
     <p class="title">{title}</p>
     <p>{lead}</p>
@@ -15,7 +13,7 @@ let hover = false;
 </a>
 
 <style lang="scss">
-@import '../profile.scss';
+@import '../../profile.scss';
 
 a {
   display: flex;
@@ -24,15 +22,14 @@ a {
   color: $dark;
   line-height: 1.4em;
 
-  background-color: $light;
+  background-color: $lighter;
 
-  width: 17em;
-  margin-bottom: 1em;
+  // width: 17em;
+  // margin-bottom: 1em;
   border-bottom: 3px solid $secondary-dark;
 
   div {
     padding: .8em;
-    // border-bottom-color: $secondary-dark;
     border-top: none;
   }
 
