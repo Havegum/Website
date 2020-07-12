@@ -1,26 +1,26 @@
 <script>
-// import { onMount } from 'svelte';
+import { onMount } from 'svelte';
 import Main from '@/components/layout/Main.svelte';
 import Text from '@/components/Text.svelte';
-//
-// let path = [];
-// const buildPath = i => {
-//   if (i === 0) return path[i];
-//   else return buildPath(i - 1) + '/' + path[i];
-// };
-//
-// onMount(() => {
-//   path = window.location.pathname.slice(1).split('/');
-// });
+
+let segments = [];
+const buildPath = i => {
+  if (i === 0) return segments[i];
+  else return buildPath(i - 1) + '/' + segments[i];
+};
+
+onMount(() => {
+  segments = window.location.pathname.slice(1).split('/');
+});
 </script>
 
 
 <Main background="light">
-  <!-- <div class="breadcrumb">
-    {#each path as path, i}
-      <a href={buildPath(i)}>{path}</a> / <span/>
+  <div class="breadcrumb">
+    {#each segments as path, i}
+		<a href={buildPath(i)}>{path}</a> {#if i < segments.length - 1}<span> / </span>{/if}
     {/each}
-  </div> -->
+  </div>
 
 	<Text>
     <slot/>
@@ -28,6 +28,12 @@ import Text from '@/components/Text.svelte';
 </Main>
 
 
+<style lang="scss">
+@import '../../profile.scss';
+.breadcrumb {
+	margin-bottom: 1.5em;
+}
+</style>
 <!-- <style lang="scss"> -->
 <!-- @import '../../profile.scss'; -->
 <!-- <style>

@@ -130,11 +130,11 @@ onMount(() => {
 
 <style lang="scss">
 @import '../profile.scss';
-main {
-	max-width: 47em;
-	justify-self: center;
-	width: 100%;
-}
+// main {
+// 	max-width: 47em;
+// 	justify-self: center;
+// 	width: 100%;
+// }
 
 .hero-copy {
 	padding: 2em 1em 1em;

@@ -59,17 +59,17 @@
 		object-fit: cover;
 	}
 
-	.footer-hat {
-		top: auto;
-		bottom: 9em;
-		object-position: center bottom;
-		height: 100%;
-		min-height: 5em;
-		max-height: 5vh;
-		object-fit: cover;
-		display: none;
-
-		@media screen and (min-height: 900px) { display: block }
-	}
+	// .footer-hat {
+	// 	top: auto;
+	// 	bottom: 9em;
+	// 	object-position: center bottom;
+	// 	height: 100%;
+	// 	min-height: 5em;
+	// 	max-height: 5vh;
+	// 	object-fit: cover;
+	// 	display: none;
+	//
+	// 	@media screen and (min-height: 900px) { display: block }
+	// }
 }
 </style>
