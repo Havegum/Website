@@ -18,7 +18,7 @@ onMount(() => {
 <Main background="light">
   <div class="breadcrumb">
     {#each segments as path, i}
-		<a href={buildPath(i)}>{path}</a> {#if i < segments.length - 1}<span> / </span>{/if}
+			<a href={buildPath(i)}>{path}</a> {#if i < segments.length - 1}<span> / </span>{/if}
     {/each}
   </div>
 
@@ -28,26 +28,25 @@ onMount(() => {
 </Main>
 
 
-<style lang="scss">
-@import '../../profile.scss';
-.breadcrumb {
-	margin-bottom: 1.5em;
-}
-</style>
+<!-- NOTE: using sass results in weird behaviour -->
+<!-- It won't compile on `sapper dev`, -->
+<!-- but if file is originally pure css, then sass is added, it works ... -->
+
 <!-- <style lang="scss"> -->
 <!-- @import '../../profile.scss'; -->
-<!-- <style>
+<style>
 .breadcrumb {
 	margin-bottom: 1.5em;
-	color: $primary;
-
-	/* a {
-		color: $gray;
-		text-decoration: none;
-
-		&:hover, &:focus {
-			text-decoration: underline;
-		}
-	} */
+	color: var(--primary);
 }
-</style> -->
+
+a {
+	color: var(--gray);
+	text-decoration: none;
+}
+
+a:hover,
+a:focus {
+	text-decoration: underline;
+}
+</style>

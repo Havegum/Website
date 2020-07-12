@@ -1,6 +1,30 @@
 @import './profile.scss';
 @import url('https://rsms.me/inter/inter.css');
 
+body {
+	--light: #{ $light };
+	--dark: #{ $dark };
+	--lightgray: #{ $lightgray };
+	--gray: #{ $gray };
+	--primary: #{ $primary };
+	--primary-dark: #{ $primary-dark };
+	--secondary: #{ $secondary };
+	--secondary-dark: #{ $secondary-dark };
+	--tertiary: #{ $tertiary };
+	--lighter: #{ $lighter };
+	--darker: #{ $darker };
+	--background: #{ $background };
+	--headline: #{ $headline };
+	--paragraph: #{ $paragraph };
+	--button: #{ $button };
+	--button-text: #{ $button-text };
+	--link: #{ $link };
+	--link-hover: #{ $link-hover };
+	--background-dark: #{ $background-dark };
+	--headline-dark: #{ $headline-dark };
+	--paragraph-dark: #{ $paragraph-dark };
+}
+
 html, body, *, *::before, *::after {
 	box-sizing: border-box;
 	margin: 0;

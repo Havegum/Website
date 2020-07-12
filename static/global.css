@@ -1,4 +1,27 @@
 @import url("https://rsms.me/inter/inter.css");
+body {
+  --light: #e4f2f2;
+  --dark: #354e50;
+  --lightgray: #6d9b94;
+  --gray: #547879;
+  --primary: #2255e9;
+  --primary-dark: #0c32a7;
+  --secondary: #bfe8fc;
+  --secondary-dark: #90c5f9;
+  --tertiary: #da3125;
+  --lighter: #f9f9f1;
+  --darker: #00332c;
+  --background: #e4f2f2;
+  --headline: #354e50;
+  --paragraph: #547879;
+  --button: #2255e9;
+  --button-text: #f9f9f1;
+  --link: #2255e9;
+  --link-hover: #0c32a7;
+  --background-dark: #00332c;
+  --headline-dark: #f9f9f1;
+  --paragraph-dark: #6d9b94; }
+
 html, body, *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
