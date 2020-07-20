@@ -1,0 +1,23 @@
+---
+layout: blog
+title: Creating my own website
+slug: creating-my-own-website
+published: true
+posted: 2020-02-07
+modified: 2020-02-07
+author: Halvard Alvheim Vegum
+---
+
+I made this site in part to showcase my work, but also to be conducive to my resolution to write more. For me, writing is a good way to organize my thoughts and think more critically about assumptions and decisions I've made.
+
+My goal is to write at least *something* about every project I work on this year.
+
+## On that note, here's some points on the process of creating this site
+
+Because the most pressing function of this site was to show I'm at least halfway competent in developing a website I started this project very conscious that everything should be polished. It had to be responsive, accessible, and have a great user experience. As part of that last point I wanted my site to be unique and memorable, which lead me down a rabbit hole of trying out really experimental designs while at the same time figuring out how all the future components should come together in a cohesive design system and at the same time be accessible.
+
+In the end I landed on a fairly standard layout with a pretty normal color scheme. I think one lesson learned from this is that I shouldn't be afraid to start from the normal ways of doing things and experiment from there. My time would be better spent doing other things, and it's not a feasible goal to try to revolutionize every single aspect of the site.
+
+## The way forward
+
+I should be [more](<https://www.youtube.com/watch?v=jnV1u67_yVg>) [conscious](<https://twitter.com/markdalgleish/status/1222711334145380352>) about modules. The site was put together rather quickly and the layout handling logic is very ad hoc. I'm guessing I should start with ensuring components are atomic, and don't enforce layout restrictions on parent components. A "Spacer" utility component that takes various CSS fields as properties could be a solution?

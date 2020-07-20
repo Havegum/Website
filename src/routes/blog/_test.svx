@@ -1,7 +1,7 @@
 ---
 layout: blog
 title: My great title
-link: test
+slug: test
 published: true
 posted: 2020-07-11
 modified: 2020-07-12

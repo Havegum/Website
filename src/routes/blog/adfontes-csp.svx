@@ -1,0 +1,38 @@
+---
+layout: blog
+title: Solving the constraint satisfaction problem of Ad fontes' scheduling
+slug: adfontes-csp
+published: true
+posted: 2020-02-18
+modified: 2020-02-18
+author: Halvard Alvheim Vegum
+---
+
+A friend of mine asked if I could create a tool that would make the scheduling of bar shifts at the student bar Ad fontes easier. Usually I'm weary of taking on extra projects like this because I don't wanna be bogged down with creating a bunch of tools and then be responsible for maintaining them, however this case was different in a few ways.
+
+The problem of automatic scheduling was an excuse for me to apply things I've wanted to try out since learning about it last semester. Specifically constructing a problem as a constraint satisfaction problem (CSP) and solving it using the techniques I've learned about.
+
+After searching around for existing tools and libraries I didn't find anything that did quite what I wanted it to. I started building it myself and published it [on my site](<https://adfontes.vegum.no/>), and [to github](<https://github.com/Havegum/adfontes-scheduler>).
+
+## The algorithm
+
+Upon loading the data, the solver prepares the data structure and makes a complete random assignment. The solver then iterates using a combination of simulated annealing and local best-first search. At the end it performs a greedy best-first search.
+
+## Some good things
+
+- This project was functional *really quickly* – in one day I had set up everything and published it to my site. This is at least *good for me*, who feared it could drag on indefinitely.
+
+- It uses existing, familiar interfaces for the users. All data is stored in a Google Sheets spreadsheet, which is requested immediately upon page load. There are indicators for the state of the downloads, and upon loading, a shift is immediately generated. The interface is updated while the search is active to provide feedback to the user and to prevent browser freeze for the two seconds it takes to complete the search.
+
+- The site is static. All the schedule generation is happening on client-side, which is *good for me* since my poor server doesn't have *that much* capacity to go around …
+
+
+<!-- -->
+
+<!-- -->
+
+## Some less good things
+
+Since I made this tool specifically with Ad fontes in mind and wanted to get it done quick, I didn't spend much time in the way of abstracting the problem, or generalizing the implementation. I don't think that's *necessarily bad*, but it means the solution is tightly coupled to the problem. Changes to the problem means the solution is more likely to need refactoring.
+
+*Originally the scheduler used a depth-first search with variables chosen at random. This has since been changed to the current, much faster algorithm.*

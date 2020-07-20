@@ -3,9 +3,10 @@ import { onMount } from 'svelte';
 import Main from '@/components/layout/Main.svelte';
 import Text from '@/components/Text.svelte';
 
+
+
 export let title;
-export let link;
-export let published;
+export let slug;
 let postedString, modifiedString;
 export { postedString as posted };
 export { modifiedString as modified };
@@ -30,29 +31,29 @@ function formatDate (date) {
 
 <Main background="light">
   <div class="breadcrumb">
-		<a href="blog">blog</a> / <a href='blog/{link}'>{title}</a>
+		<a href="blog">blog</a> / <a href='blog/{slug}'>{title}</a>
   </div>
 
-	<Text>
-		<section class="meta">
-			<p class="timestamp">
-				Published <time>{formatDate(posted)}</time>
-				{#if modified > posted}
-					<span class="modified">(modified {formatDate(modified)})</span>
+		<Text>
+			<section class="meta">
+				<p class="timestamp">
+					Published <time>{formatDate(posted)}</time>
+					{#if modified > posted}
+						<span class="modified">(modified {formatDate(modified)})</span>
+					{/if}
+				</p>
+				<hr/>
+
+				{#if lastYear > modified}
+				<div class="warn-outdate">
+					<strong>Note:</strong> This post is more than one year old.
+				</div>
 				{/if}
-			</p>
-			<hr/>
+			</section>
 
-			{#if lastYear > modified}
-			<div class="warn-outdate">
-				<strong>Note:</strong> This post is more than one year old.
-			</div>
-			{/if}
-		</section>
-
-		<h1 class="title">{title}</h1>
-    <slot/>
-	</Text>
+			<h1 class="title">{title}</h1>
+	    <slot/>
+		</Text>
 </Main>
 
 

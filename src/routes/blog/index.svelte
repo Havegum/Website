@@ -11,29 +11,33 @@ export async function preload({ params, query }) {
 }
 </script>
 
+
 <script>
-// import Text from '@/components/Text.svelte';
 import BlogListing from '@/components/layout/BlogListing.svelte';
 import Main from '@/components/layout/Main.svelte';
-
 export let posts;
 </script>
+
 
 <svelte:head>
 <title>Blog | Halvard Vegum</title>
 </svelte:head>
 
+
 <Main>
-	<li class="posts">
+	<ol class="posts">
 	  {#each posts as post}
-			<BlogListing
-	      class="showcase-item"
-	      title="{post.title}"
-	      href="blog/{post.slug}"
-			/>
+			<li>
+				<BlogListing
+		      class="showcase-item"
+		      title="{post.title}"
+		      href="blog/{post.slug}"
+				/>
+			</li>
 	  {/each}
-	</li>
+	</ol>
 </Main>
+
 
 <style lang="scss">
 @import '../../profile.scss';
@@ -44,5 +48,6 @@ export let posts;
 	grid-template-columns: repeat(auto-fill, minmax(auto, 17em));
 	gap: 1em;
 	justify-content: center;
+	list-style: none;
 }
 </style>

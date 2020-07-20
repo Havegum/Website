@@ -84,6 +84,7 @@ export default {
 	client: {
 		input: config.client.input(),
 		output: config.client.output(),
+		preserveEntrySignatures: false,
 		plugins: [
 			globalStyleExport,
 			replace({
@@ -118,6 +119,7 @@ export default {
 	server: {
 		input: config.server.input(),
 		output: config.server.output(),
+		preserveEntrySignatures: false,
 		plugins: [
 			replace({
 				'process.browser': false,

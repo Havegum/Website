@@ -1,5 +1,7 @@
 import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
+import dotenv from 'dotenv';
+dotenv.config();
 
 const postSchema = new Schema({
 	title: { type: String, required: true },

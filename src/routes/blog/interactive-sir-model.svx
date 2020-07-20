@@ -1,0 +1,35 @@
+---
+layout: blog
+title: Illustrating contagion with a SIR-model
+slug: interactive-sir-model
+published: true
+posted: 2020-04-04
+modified: 2020-04-04
+author: Halvard Alvheim Vegum
+---
+
+## Situation
+
+In the early phases of the COVID-19 outbreak, a lot of newsrooms were publishing illustrations and [toy simulations](<https://www.washingtonpost.com/graphics/2020/world/corona-simulator/>) of the possible trajectories of the spread of the virus. March 12, the Norwegian Institute of Public Health – Folkehelseinstituttet (FHI) – published [a report](<https://www.fhi.no/publ/2020/covid-19-epidemien-risikovurdering/>) which outlined two scenarios, and was intended for the healthcare system to use for planning.
+
+Aftenposten wanted to publish their own simulations and illustrations that had some relation to the scenarios published by FHI.
+
+## Task
+
+I was brought in to figure out a way to make an illustrative model that resembled the numbers from the scenarios published by FHI. Since I mainly work at Bergens Tidende, I needed to ensure the visualization would work in our CMS as well.
+
+## Actions
+
+My first instinct was to work out the model in Python because of the libraries that make working with data easy. After reading up on [SIR-models](<https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology#The_SIR_model_is_dynamic_in_three_senses>) I implemented a basic model that could be tweaked to match the FHI-report.
+
+In short, the model is a generator that takes input rates of infection, hospitalization, recovery, etc. For each step, represented by days since first case, a proportion of the population in the `susceptible` category gets moved to the `infected` category. Similarly, a proportion of the `infected` move over to `recovered`.
+
+After wrapping my head around the model I figured it wouldn't take too much time rewriting it in javascript so that the parameters of the model could be interactive. Now, the key number we wanted to highlight was the number of people hospitalized, and in intensive care. To illustrate the number of hospitalized, I first let it be a constant proportion of the number of infected at each step. This wasn't a good assumption, because people may be hospitalized and recover at different rates than the rest. To solve this I added another category `hospitalized` as well as `hospitalizationRate` and `hospitalizationRecoveryRate`.
+
+The purpose of the model was not to do our own estimation of the outbreak, but to interactively visualize FHI's scenarios. So the final step in this model was to tweak the input to ensure the output matched those scenarios.
+
+## Results
+
+The result was an interactive graph to be displayed in articles by Aftenposten and Bergens Tidende.
+
+<div id="sir-model"><link rel="stylesheet" href="integrations/sir-model/bundle.css"><script src="integrations/sir-model/bundle.js"></script></div>
