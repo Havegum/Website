@@ -6,7 +6,7 @@ import { goto } from '@sapper/app';
 export let segment;
 export let lang = 'no';
 
-$: langQuery = (lang && lang !== 'no' ? '?lang=' + lang : '');
+$: langPrefix = (lang && lang !== 'no' ? lang + '/' : '');
 
 let target = segment;
 let targetTimeout;
@@ -44,27 +44,43 @@ const [send, receive] = crossfade({
 	}
 });
 
-function changeLanguage () {
-	let loc = window.location.pathname
-	if (lang !== 'en') loc += '?lang=en';
-	goto(loc);
-	window.dispatchEvent(new Event('popstate'));
-}
+// function setLang (a) {
+// 	const loc = window.location.pathname;
+// 	const href = loc.startsWith('/en') ? loc.slice(3) : '/en' + loc;
+// 	a.setAttribute('href', href);
+// }
+//
+// function setHref (anchor) {
+// 	setLang(anchor);
+//
+// 	function handleClick () {
+// 		window.dispatchEvent(new Event('popstate'));
+// 		setLang(anchor);
+// 	}
+//
+// 	anchor.addEventListener('click', handleClick);
+//
+// 	return {
+// 		destroy: () => {
+// 			anchor.removeEventListener('click', handleClick);
+// 		}
+// 	};
+// }
 </script>
 
 <nav>
 	<ul on:mouseout={timeout}>
 		<li>
-			<a  class:selected='{segment === "about"}'
+			<a  class:selected='{segment === "about" | segment === 'om-meg'}'
 					on:mouseover={focus('about')}
 					on:focus={focus('about')}
 					on:blur={timeout}
-					href='about{langQuery}'
+					href='{lang === 'en' ? 'about' : 'om-meg'}'
 			>
 				{lang === 'en' ? 'About me' : 'Om meg'}
 			</a>
-			{#if target === "about"}
-				<div class="scrubber" in:receive={scrub} out:send={scrub}></div>
+			{#if target === "about" || target === 'om-meg'}
+				<div class="scrubber" in:receive={scrub} out:send={scrub}/>
 			{/if}
 		</li>
 
@@ -73,22 +89,22 @@ function changeLanguage () {
 					on:mouseover={focus('blog')}
 					on:focus={focus('blog')}
 					on:blur={timeout}
-					href='blog{langQuery}'
+					href='blog'
 			>
 				Blog{lang === 'en' ? '' : 'g'}
 			</a>
 			{#if target === "blog"}
-				<div class="scrubber" in:receive={scrub} out:send={scrub}></div>
+				<div class="scrubber" in:receive={scrub} out:send={scrub}/>
 			{/if}
 		</li>
 
-		{#if segment === 'create'}
+		<!-- {#if segment === 'create'}
 			<li>
 				<a  class:selected='{segment === "create"}'
 						on:mouseover={focus('create')}
 						on:focus={focus('create')}
 						on:blur={timeout}
-						href='create{langQuery}'
+						href='create'
 				>
 					Create
 				</a>
@@ -96,10 +112,11 @@ function changeLanguage () {
 					<div class="scrubber" in:receive={scrub} out:send={scrub}></div>
 				{/if}
 			</li>
-		{/if}
+		{/if} -->
 	</ul>
 
-	<button role="button" aria-label={lang === 'en' ? 'Bytt til norsk' : 'View site in english'} on:click={changeLanguage}>{lang === 'en' ? 'Norsk' : 'English'}</button>
+	<!-- <a class="lang-swap" use:setHref href="/">{lang === 'en' ? 'Norsk' : 'English'}</a> -->
+	<!-- <button role="button" aria-label={lang === 'en' ? 'Bytt til norsk' : 'View site in english'} on:click={changeLanguage}>{lang === 'en' ? 'Norsk' : 'English'}</button> -->
 </nav>
 
 <style lang="scss">
@@ -177,11 +194,12 @@ a {
 	bottom: 0;
 }
 
-button {
-	color: $primary;
-	position: absolute;
-	right: 1.45em;
-	top: 1.45em;
-	font-size: .85em;
-}
+// button,
+// .lang-swap {
+// 	color: $primary;
+// 	position: absolute;
+// 	right: 1.45em;
+// 	top: 1.45em;
+// 	font-size: .85em;
+// }
 </style>
