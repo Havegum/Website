@@ -1,9 +1,3 @@
-<script context="module">
-export async function preload({ query }) {
-	return query || {};
-}
-</script>
-
 <script>
 import { onMount } from 'svelte';
 import { slide } from 'svelte/transition';
@@ -27,8 +21,7 @@ import enterView from 'enter-view';
 import about from './_about.yaml';
 
 
-export let lang = 'no';
-$: lang = !lang ? 'no' : lang.trim().toLowerCase() === 'en' ? 'en' : 'no';
+export let lang = 'en';
 $: body = about[lang];
 
 
@@ -68,13 +61,14 @@ onMount(() => {
 <Main background={false} padding={false}>
 	<div class="hero-copy">
 		<Text>
-			<h1>Halvard Vegum</h1>
+			<h1>Halvard Alvheim Vegum</h1>
 			<p>{@html body.hero}</p>
 		</Text>
 	</div>
 
 	<div>
 		<Roughbox>
+      <a class="lang-swap" href={lang === 'en' ? '/om-meg' : '/about'}>({lang === 'en' ? 'les på Norsk': 'view in English'})</a>
 			<div class="experience">
 				<Timeline title={body.workListTitle} class="timeline" list={workList} {lang} />
 				<Timeline title={body.educationListTitle} class="timeline" list={educationList} {lang} />
@@ -135,6 +129,19 @@ onMount(() => {
 // 	justify-self: center;
 // 	width: 100%;
 // }
+
+.lang-swap {
+  font-size: .85em;
+  text-align: right;
+  display: block;
+  height: 0;
+  font-weight: inherit;
+  text-decoration: none;
+
+  &:hover, &:focus {
+    text-decoration: underline;
+  }
+}
 
 .hero-copy {
 	padding: 2em 1em 1em;

@@ -1,5 +1,5 @@
 <script context="module">
-	export async function preload({ params, query }) {
+	export async function preload({ params }) {
 		const res = await this.fetch(`blog/${params.slug}.json?dropNonce=true`);
 		const data = await res.json();
 
