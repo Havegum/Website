@@ -1,6 +1,6 @@
 import { readdir, promises } from 'fs';
 import frontmatter from '@github-docs/frontmatter';
-import { Post } from '@/components/database.js';
+// import { Post } from '@/components/database.js';
 const dirname = './src/routes/blog/';
 // import mongoose from 'mongoose';
 
@@ -26,7 +26,7 @@ function getMarkdownBlogs (path) {
 
 
 export async function get (req, res, next) {
-	let dbPosts = await Post.find();
+	// let dbPosts = await Post.find();
 	let mdPosts = await getMarkdownBlogs(dirname);
 
 	const strip = p => ({ title: p.get('title'), slug: p.get('slug'), date: p.get('date') });

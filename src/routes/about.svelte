@@ -124,12 +124,6 @@ onMount(() => {
 
 <style lang="scss">
 @import '../profile.scss';
-// main {
-// 	max-width: 47em;
-// 	justify-self: center;
-// 	width: 100%;
-// }
-
 .lang-swap {
   font-size: .85em;
   text-align: right;
@@ -157,14 +151,6 @@ onMount(() => {
 		padding: .1em .25em;
 		padding-right: 0.75em;
 		border-radius: 0 5em 5em 0;
-	}
-}
-
-:global(.hero-pad) {
-	margin-bottom: -1em;
-
-	@media screen and (min-width: $mobile) {
-		margin-bottom: -2em;
 	}
 }
 
