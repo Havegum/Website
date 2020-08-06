@@ -2,7 +2,7 @@
 import { onMount } from 'svelte';
 import Main from '@/components/layout/Main.svelte';
 import Text from '@/components/Text.svelte';
-
+import { send, receive } from '@/util/blogTransition.js';
 
 
 export let title;
@@ -29,32 +29,34 @@ function formatDate (date) {
 	<title>{title} | Halvard Vegum</title>
 </svelte:head>
 
-<Main background="light">
-  <div class="breadcrumb">
-		<a href="blog">blog</a> / <a href='blog/{slug}'>{title}</a>
-  </div>
+<div class="blog">
+	<Main transitionIn={(node) => receive(node, { key: slug })} transitionOut={node => send(node, { key: slug })} background="light">
+	  <div class="breadcrumb">
+			<a href="blog">blog</a> / <a href='blog/{slug}'>{title}</a>
+	  </div>
 
-		<Text>
-			<section class="meta">
-				<p class="timestamp">
-					Published <time>{formatDate(posted)}</time>
-					{#if modified > posted}
-						<span class="modified">(modified {formatDate(modified)})</span>
+			<Text>
+				<section class="meta">
+					<p class="timestamp">
+						Published <time>{formatDate(posted)}</time>
+						{#if modified > posted}
+							<span class="modified">(modified {formatDate(modified)})</span>
+						{/if}
+					</p>
+					<hr/>
+
+					{#if lastYear > modified}
+					<div class="warn-outdate">
+						<strong>Note:</strong> This post is more than one year old.
+					</div>
 					{/if}
-				</p>
-				<hr/>
+				</section>
 
-				{#if lastYear > modified}
-				<div class="warn-outdate">
-					<strong>Note:</strong> This post is more than one year old.
-				</div>
-				{/if}
-			</section>
-
-			<h1 class="title">{title}</h1>
-	    <slot/>
-		</Text>
-</Main>
+				<h1 class="title">{title}</h1>
+		    <slot/>
+			</Text>
+	</Main>
+</div>
 
 
 <!-- NOTE: using sass results in weird behaviour -->
@@ -64,6 +66,16 @@ function formatDate (date) {
 <!-- <style lang="scss"> -->
 <!-- @import '../../profile.scss'; -->
 <style>
+.blog {
+	grid-row: 2;
+	grid-column: 1;
+	width: 100%;
+	max-width: 47em;
+	margin: 0 auto;
+	height: 0;
+	overflow: visible;
+}
+
 .breadcrumb {
 	margin-bottom: 1.5em;
 	color: var(--primary);
