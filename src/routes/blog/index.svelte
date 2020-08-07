@@ -1,10 +1,10 @@
 <script context="module">
 export async function preload({ params }) {
 	const res = await this.fetch(`./blog.json`);
-	const data = await res.json();
+	const posts = await res.json();
 
 	if (res.status === 200) {
-		return { posts: data };
+		return { posts };
 	} else {
 		this.error(res.status, data.message);
 	}
@@ -32,7 +32,6 @@ $: height = !init ? 'auto' : transition ? 0 : `${textHeight}px`;
 	<title>Blog | Halvard Vegum</title>
 </svelte:head>
 
-
 <Main padding={!transition}>
 	<div style="margin-bottom: {height}">
 		<ol
@@ -41,15 +40,15 @@ $: height = !init ? 'auto' : transition ? 0 : `${textHeight}px`;
 			bind:clientHeight={textHeight}
 		>
 		  {#each posts as post}
-				<li
-					in:receive={{ key: post.slug }}
-					out:send={{ key: post.slug }}
-				>
-					<BlogListing
-			      class="showcase-item"
-			      title="{post.title}"
-			      href="blog/{post.slug}"
-					/>
+				<li>
+					<BlogListing href="blog/{post.slug}">
+						<span slot="lead">{post.title}</span>
+						<div
+							class="background"
+							in:receive={{ key: post.slug }}
+							out:send={{ key: post.slug }}
+						/>
+					</BlogListing>
 				</li>
 		  {/each}
 		</ol>
@@ -62,7 +61,7 @@ $: height = !init ? 'auto' : transition ? 0 : `${textHeight}px`;
 <style lang="scss">
 @import '../../profile.scss';
 
-div {
+div, ol {
 	position: relative;
 }
 
@@ -80,6 +79,18 @@ div {
 	&.transition {
 		top: 2em;
 	}
+}
+
+
+
+.background {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: -1;
+	background-color: $lighter;
 }
 
 li {

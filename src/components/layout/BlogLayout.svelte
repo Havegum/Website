@@ -2,14 +2,16 @@
 import { onMount } from 'svelte';
 import Main from '@/components/layout/Main.svelte';
 import Text from '@/components/Text.svelte';
+import { fade } from 'svelte/transition';
 import { send, receive } from '@/util/blogTransition.js';
-
 
 export let title;
 export let slug;
 let postedString, modifiedString;
 export { postedString as posted };
 export { modifiedString as modified };
+
+let outroIsNotBlog = false;
 
 let posted = new Date(postedString);
 let modified = new Date(modifiedString);
@@ -18,22 +20,36 @@ lastYear.setFullYear(lastYear.getFullYear() - 1);
 
 function formatDate (date) {
 	return `
-		${date.toLocaleString('en-GB', { day: 'numeric' })}
-		${date.toLocaleString('en-GB', { month: 'long' })},
-		${date.toLocaleString('en-GB', { year: 'numeric' })}
+		${date.toLocaleString('en-GB', {   day: 'numeric' })}
+		${date.toLocaleString('en-GB', { month: 'long'    })},
+		${date.toLocaleString('en-GB', {  year: 'numeric' })}
 	`;
 }
 </script>
+
 
 <svelte:head>
 	<title>{title} | Halvard Vegum</title>
 </svelte:head>
 
-<div class="blog">
-	<Main transitionIn={(node) => receive(node, { key: slug })} transitionOut={node => send(node, { key: slug })} background="light">
-	  <div class="breadcrumb">
-			<a href="blog">blog</a> / <a href='blog/{slug}'>{title}</a>
-	  </div>
+
+<svelte:window
+	on:beforeunload={() => console.log('HEY')}
+	on:popstate={() => console.log('HEY')}
+/>
+
+
+<div
+	class="blog"
+	class:hidden={outroIsNotBlog}
+	out:fade={{ delay: 800 }}
+	on:outrostart={() => outroIsNotBlog = window.location.pathname !== '/blog' }
+>
+	<Main background="light">
+		<div in:fade>
+		  <div class="breadcrumb">
+				<a href="blog">blog</a> / <a href='blog/{slug}'>{title}</a>
+		  </div>
 
 			<Text>
 				<section class="meta">
@@ -46,16 +62,29 @@ function formatDate (date) {
 					<hr/>
 
 					{#if lastYear > modified}
-					<div class="warn-outdate">
-						<strong>Note:</strong> This post is more than one year old.
-					</div>
+						<div class="warn-outdate">
+							<strong>Note:</strong> This post is more than one year old.
+						</div>
 					{/if}
 				</section>
 
 				<h1 class="title">{title}</h1>
 		    <slot/>
 			</Text>
+		</div>
 	</Main>
+
+	<svg class="clipper">
+		<defs>
+			<clipPath id="clipper">
+				<rect
+					class="clip-rect"
+					in:receive={{ key: slug }}
+					out:send={{ key: slug }}
+				/>
+			</clipPath>
+		</defs>
+	</svg>
 </div>
 
 
@@ -72,8 +101,14 @@ function formatDate (date) {
 	width: 100%;
 	max-width: 47em;
 	margin: 0 auto;
-	height: 0;
 	overflow: visible;
+	position: relative;
+	z-index: 1;
+	clip-path: url(#clipper);
+}
+
+.blog.hidden {
+	display: none;
 }
 
 .breadcrumb {
@@ -118,5 +153,24 @@ hr {
 	color: var(--tertiary);
 	padding: 1em;
 	margin-top: 1em;
+}
+
+.clipper {
+	display: block;
+	pointer-events: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.clip-rect {
+	x: 0;
+	y: 0;
+	width: 100%;
+	height: 100%;
 }
 </style>

@@ -23,15 +23,28 @@ function crossfade({ fallback, ...defaults }) {
 		const transform = style.transform === 'none' ? '' : style.transform;
 		const opacity = +style.opacity;
 
+		let css;
+		if (node instanceof SVGElement) {
+			css = (t, u) => `
+				x: ${u * dx}px;
+				y: ${u * dy}px;
+				width: calc(${100*t}% + ${from.width * u}px);
+				height: calc(${100*t}% + ${from.height * u}px);
+			`
+		} else {
+      css = (t, u) => `
+				transform-origin: top left;
+				opacity: ${t * opacity};
+				transform: ${transform} translate(${u * dx}px,${u * dy}px) scale(${t + (1-t) * dw}, ${t + (1-t) * dh});
+			`
+		}
+
 		return {
 			delay,
 			duration: is_function(duration) ? duration(d) : duration,
 			easing,
-      css: (t, u) => `
-				opacity: ${t * opacity};
-				transform-origin: top left;
-				transform: ${transform} translate(${u * dx}px,${u * dy}px) scale(${t + (1-t) * dw}, ${t + (1-t) * dh});
-			`
+			fallback: () => ``,
+			css
 		};
 	}
 
@@ -67,7 +80,7 @@ function crossfade({ fallback, ...defaults }) {
 
 
 const [send, receive] = crossfade({
-  duration: 10000
+  duration: 1000
 });
 
 export { send, receive };

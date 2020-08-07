@@ -1,14 +1,12 @@
 <script>
 export let href = '#';
-export let title = '';
-export let lead = '';
 
 </script>
 
 <a {href}>
+  <slot/>
   <div>
-    <p class="title">{title}</p>
-    <p>{lead}</p>
+    <p><slot name="lead"/></p>
   </div>
 </a>
 
@@ -16,6 +14,7 @@ export let lead = '';
 @import '../../profile.scss';
 
 a {
+  position: relative;
   display: flex;
   flex-direction: column;
   text-decoration: none;
@@ -31,13 +30,15 @@ a {
   div {
     padding: .8em;
     border-top: none;
+    position: relative;
+    z-index: 0;
   }
 
   .title {
     font-weight: 475;
   }
 
-  &:hover .title {
+  &:hover p {
     text-decoration: underline;
   }
 
