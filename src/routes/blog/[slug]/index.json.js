@@ -1,4 +1,4 @@
-import { Post } from '@/components/database.js';
+// import { Post } from '@/components/database.js';
 // import mongoose from 'mongoose';
 
 import bodyParser from 'body-parser';
@@ -15,30 +15,30 @@ export async function get(req, res) {
 	const { slug } = req.params;
 	const { dropNonce } = req.query;
 
-	let post = await Post.findOneAndUpdate({ slug }, { $inc: { views: 1 } });
+	// let post = await Post.findOneAndUpdate({ slug }, { $inc: { views: 1 } });
 
-	if (post) {
-		let title = post.get('title');
-		let body = post.get('body');
-
-		if (dropNonce) {
-			res.writeHead(200, { 'Content-Type': 'application/json' });
-			res.end(JSON.stringify({ title, body }));
-			return;
-		}
-
-		body = body.replace(localHostedScripts, `$1nonce="${res.locals.nonce}" $3`);
-		let scripts = body.match(scriptMatch);
-		// This is probably super inefficient ...
-		if (scripts) scripts.forEach(script => body = body.replace(script, ''))
-
-		res.writeHead(200, { 'Content-Type': 'application/json' });
-		res.end(JSON.stringify({ title, body, scripts }));
-
-	} else {
-		res.writeHead(404, { 'Content-Type': 'application/json' });
-		res.end(JSON.stringify({ message: `Not found` }));
-	}
+	// if (post) {
+	// 	let title = post.get('title');
+	// 	let body = post.get('body');
+	//
+	// 	if (dropNonce) {
+	// 		res.writeHead(200, { 'Content-Type': 'application/json' });
+	// 		res.end(JSON.stringify({ title, body }));
+	// 		return;
+	// 	}
+	//
+	// 	body = body.replace(localHostedScripts, `$1nonce="${res.locals.nonce}" $3`);
+	// 	let scripts = body.match(scriptMatch);
+	// 	// This is probably super inefficient ...
+	// 	if (scripts) scripts.forEach(script => body = body.replace(script, ''))
+	//
+	// 	res.writeHead(200, { 'Content-Type': 'application/json' });
+	// 	res.end(JSON.stringify({ title, body, scripts }));
+	//
+	// } else {
+	res.writeHead(404, { 'Content-Type': 'application/json' });
+	res.end(JSON.stringify({ message: `Not found` }));
+	// }
 }
 
 

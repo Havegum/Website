@@ -5,8 +5,6 @@ import { v4 as uuidv4 } from 'uuid';
 import compression from 'compression';
 import * as sapper from '@sapper/server';
 
-import tracker from './view-tracker.js';
-
 const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === 'development';
 
@@ -30,7 +28,6 @@ app.use(helmet({
 	}
 }));
 
-app.use(tracker);
 app.use(compression({ threshold: 0 }));
 app.use(sirv('static', { dev }));
 app.use(sapper.middleware());

@@ -1,7 +1,7 @@
 no:
   hero: |
-    Jeg er en utvikler i mediebyen i Bergen. Jeg har bakgrunn som interaksjons&shy;design&shy;student og
-    som elsker å prøve nye ting. Datavisualisering og UI-design er der jeg føler
+    Jeg er en <strong>redaksjonell utvikler</strong> i mediebyen i Bergen. Jeg har bakgrunn som interaksjons&shy;design&shy;student og
+    som elsker å prøve nye ting. <strong>Datavisualisering</strong> og <strong>UI-design</strong> er der jeg føler
     meg mest hjemme – noe av det beste jeg vet er å ta et komplekst problem og
     finne en enkel måte å presentere det på.
 
@@ -36,8 +36,8 @@ no:
 
 en:
   hero: |
-    I am a newsroom developer in Media City Bergen with a background in studying interaction design.
-    I love trying out new things, but data visualization and UI design is where I'm most at home. One
+    I am a <strong>newsroom developer</strong> in Media City Bergen with a background in studying interaction design.
+    I love trying out new things, but <strong>data visualization</strong> and <strong>UI design</strong> is where I'm most at home. One
     of my favourite things is finding intuitive presentations for complex concepts.
 
   workListTitle: Experience

@@ -61,7 +61,7 @@ onMount(() => {
 <Main background={false} padding={false}>
 	<div class="hero-copy">
 		<Text>
-			<h1>Halvard Alvheim Vegum</h1>
+			<h1>Halvard A<span class="middle-name">lvheim</span><span class="middle-name-dot">.</span> Vegum</h1>
 			<p>{@html body.hero}</p>
 		</Text>
 	</div>
@@ -124,12 +124,6 @@ onMount(() => {
 
 <style lang="scss">
 @import '../profile.scss';
-// main {
-// 	max-width: 47em;
-// 	justify-self: center;
-// 	width: 100%;
-// }
-
 .lang-swap {
   font-size: .85em;
   text-align: right;
@@ -157,14 +151,13 @@ onMount(() => {
 		padding: .1em .25em;
 		padding-right: 0.75em;
 		border-radius: 0 5em 5em 0;
-	}
-}
 
-:global(.hero-pad) {
-	margin-bottom: -1em;
+		.middle-name { display: none }
+		@media screen and (min-width: 670px) {
+			.middle-name { display: inline }
+			.middle-name-dot { display: none }
+		}
 
-	@media screen and (min-width: $mobile) {
-		margin-bottom: -2em;
 	}
 }
 
