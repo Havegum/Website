@@ -19,23 +19,18 @@ function crossfade({ fallback, ...defaults }) {
 		const dh = from.height / to.height;
 		const d = Math.sqrt(dx * dx + dy * dy);
 
-    const style = getComputedStyle(node);
-		const transform = style.transform === 'none' ? '' : style.transform;
-		const opacity = +style.opacity;
-
 		let css;
 		if (node instanceof SVGElement) {
 			css = (t, u) => `
 				x: ${u * dx}px;
-				y: ${u * dy}px;
+				y: ${u * (dy + params.scrollY)}px;
 				width: calc(${100*t}% + ${from.width * u}px);
 				height: calc(${100*t}% + ${from.height * u}px);
 			`
 		} else {
       css = (t, u) => `
 				transform-origin: top left;
-				opacity: ${t * opacity};
-				transform: ${transform} translate(${u * dx}px,${u * dy}px) scale(${t + (1-t) * dw}, ${t + (1-t) * dh});
+				transform: translate(${u * dx}px,${u * dy}px) scale(${t + (1-t) * dw}, ${t + (1-t) * dh});
 			`
 		}
 

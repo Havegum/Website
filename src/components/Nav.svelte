@@ -43,39 +43,17 @@ const [send, receive] = crossfade({
 		};
 	}
 });
-
-// function setLang (a) {
-// 	const loc = window.location.pathname;
-// 	const href = loc.startsWith('/en') ? loc.slice(3) : '/en' + loc;
-// 	a.setAttribute('href', href);
-// }
-//
-// function setHref (anchor) {
-// 	setLang(anchor);
-//
-// 	function handleClick () {
-// 		window.dispatchEvent(new Event('popstate'));
-// 		setLang(anchor);
-// 	}
-//
-// 	anchor.addEventListener('click', handleClick);
-//
-// 	return {
-// 		destroy: () => {
-// 			anchor.removeEventListener('click', handleClick);
-// 		}
-// 	};
-// }
 </script>
 
 <nav>
 	<ul on:mouseout={timeout}>
 		<li>
-			<a  class:selected='{segment === "about" | segment === 'om-meg'}'
-					on:mouseover={focus('about')}
-					on:focus={focus('about')}
-					on:blur={timeout}
-					href='{lang === 'en' ? 'about' : 'om-meg'}'
+			<a
+				class:selected='{segment === "about" | segment === 'om-meg'}'
+				on:mouseover={focus('about')}
+				on:focus={focus('about')}
+				on:blur={timeout}
+				href='{lang === 'en' ? 'about' : 'om-meg'}'
 			>
 				{lang === 'en' ? 'About me' : 'Om meg'}
 			</a>
@@ -85,11 +63,12 @@ const [send, receive] = crossfade({
 		</li>
 
 		<li>
-			<a  class:selected='{segment === "blog"}'
-					on:mouseover={focus('blog')}
-					on:focus={focus('blog')}
-					on:blur={timeout}
-					href='blog'
+			<a
+				class:selected='{segment === "blog"}'
+			 	on:mouseover={focus('blog')}
+			 	on:focus={focus('blog')}
+			 	on:blur={timeout}
+			 	href='blog'
 			>
 				Blog{lang === 'en' ? '' : 'g'}
 			</a>
@@ -97,26 +76,7 @@ const [send, receive] = crossfade({
 				<div class="scrubber" in:receive={scrub} out:send={scrub}/>
 			{/if}
 		</li>
-
-		<!-- {#if segment === 'create'}
-			<li>
-				<a  class:selected='{segment === "create"}'
-						on:mouseover={focus('create')}
-						on:focus={focus('create')}
-						on:blur={timeout}
-						href='create'
-				>
-					Create
-				</a>
-				{#if target === "create"}
-					<div class="scrubber" in:receive={scrub} out:send={scrub}></div>
-				{/if}
-			</li>
-		{/if} -->
 	</ul>
-
-	<!-- <a class="lang-swap" use:setHref href="/">{lang === 'en' ? 'Norsk' : 'English'}</a> -->
-	<!-- <button role="button" aria-label={lang === 'en' ? 'Bytt til norsk' : 'View site in english'} on:click={changeLanguage}>{lang === 'en' ? 'Norsk' : 'English'}</button> -->
 </nav>
 
 <style lang="scss">
@@ -131,6 +91,7 @@ ul {
 	flex-direction: row;
 	justify-content: center;
 	margin: 0;
+	padding: 0;
 }
 
 li {

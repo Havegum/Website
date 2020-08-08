@@ -1,9 +1,8 @@
 <script>
-import { onMount } from 'svelte';
 import Main from '@/components/layout/Main.svelte';
 import Text from '@/components/Text.svelte';
 import { fade } from 'svelte/transition';
-import { send, receive } from '@/util/blogTransition.js';
+import { send as sendFunc, receive as receiveFunc } from '@/util/blogTransition.js';
 
 export let title;
 export let slug;
@@ -12,6 +11,10 @@ export { postedString as posted };
 export { modifiedString as modified };
 
 let outroIsNotBlog = false;
+let scrollY = 0;
+$: send = node => sendFunc(node, { key: slug, scrollY });
+$: receive = node => receiveFunc(node, { key: slug, scrollY });
+
 
 let posted = new Date(postedString);
 let modified = new Date(modifiedString);
@@ -25,25 +28,23 @@ function formatDate (date) {
 		${date.toLocaleString('en-GB', {  year: 'numeric' })}
 	`;
 }
+
+function handleOutroStart () {
+	outroIsNotBlog = window.location.pathname !== '/blog'
+}
 </script>
 
+<svelte:window bind:scrollY/>
 
 <svelte:head>
 	<title>{title} | Halvard Vegum</title>
 </svelte:head>
 
-
-<svelte:window
-	on:beforeunload={() => console.log('HEY')}
-	on:popstate={() => console.log('HEY')}
-/>
-
-
 <div
 	class="blog"
 	class:hidden={outroIsNotBlog}
 	out:fade={{ delay: 800 }}
-	on:outrostart={() => outroIsNotBlog = window.location.pathname !== '/blog' }
+	on:outrostart={handleOutroStart}
 >
 	<Main background="light">
 		<div in:fade>
@@ -79,8 +80,8 @@ function formatDate (date) {
 			<clipPath id="clipper">
 				<rect
 					class="clip-rect"
-					in:receive={{ key: slug }}
-					out:send={{ key: slug }}
+					in:receive
+					out:send
 				/>
 			</clipPath>
 		</defs>
