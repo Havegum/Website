@@ -75,7 +75,7 @@ function crossfade({ fallback, ...defaults }) {
 
 
 const [send, receive] = crossfade({
-  duration: 1000
+  duration: 600
 });
 
 export { send, receive };

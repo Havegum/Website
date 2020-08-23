@@ -15,7 +15,6 @@ let scrollY = 0;
 $: send = node => sendFunc(node, { key: slug, scrollY });
 $: receive = node => receiveFunc(node, { key: slug, scrollY });
 
-
 let posted = new Date(postedString);
 let modified = new Date(modifiedString);
 const lastYear = new Date();
@@ -43,11 +42,11 @@ function handleOutroStart () {
 <div
 	class="blog"
 	class:hidden={outroIsNotBlog}
-	out:fade={{ delay: 800 }}
+	out:fade={{ delay: 400, duration: 200 }}
 	on:outrostart={handleOutroStart}
 >
 	<Main background="light">
-		<div in:fade>
+		<div in:fade={{ duration: 200 }}>
 		  <div class="breadcrumb">
 				<a href="blog">blog</a> / <a href='blog/{slug}'>{title}</a>
 		  </div>

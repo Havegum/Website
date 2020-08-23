@@ -23,6 +23,8 @@ body {
 	--background-dark: #{ $background-dark };
 	--headline-dark: #{ $headline-dark };
 	--paragraph-dark: #{ $paragraph-dark };
+
+	--red: #{ $tertiary }
 }
 
 html, body, *, *::before, *::after {

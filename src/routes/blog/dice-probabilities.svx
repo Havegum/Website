@@ -1,0 +1,40 @@
+---
+layout: blog
+title: How many dice do you need to succeed in Forged in the Dark systems?
+slug: dice-probabilities
+published: true
+posted: 2020-08-10
+modified: 2020-08-10
+author: Halvard Alvheim Vegum
+---
+
+<script>
+  import DiceTable from './components/DiceTable.svelte';
+  import DiceExplainer from './components/DiceExplainer.svelte';
+</script>
+
+You'll probably want two. If you'd rather not face too many consequences three is better. If you then push yourself for four, you're more likely than not to succeed with no caveats.
+
+<DiceTable/>
+
+
+## But how can you even know?
+
+For one roll it's fairly obvious. Dice should follow a uniform distribution, so if you wanna know the chance of a successful roll for instance, you can just count up the number of good results – four or higher – and divide by the total number of possible results. 3/6 = 0.5 = 50%. Easy!    
+
+<DiceExplainer />
+
+
+For two dice, we need to take the max of the two dice. One way to count these possibilities is to think of each possible result as a tile in a square. Then, to count to the number of ways the dice can result in a six is just a matter of counting the _area_ of the tiles with that number. So with the example of six, we get the area of getting six _or lower_ by multiplying six by itself, and subtracting the area of getting a five _or lower_: 6×6 - 5×5 = 36 - 25 = 11. Then divide by the total number of permutations: 11/(6×6) ≈ 31%
+
+<DiceExplainer dimensions={2}/>
+
+
+For three dice, exchange area for volume and you're done! Counting the permutations that yield a good result is simply a matter of changing the exponent: 6<sup>3</sup> - 3<sup>3</sup> = 216 - 72 = 144. 144/216 ≈ 67%.
+
+<DiceExplainer dimensions={3}/>
+
+
+At this point it's getting hard to visualize, but I hope you get the idea ...
+
+<DiceExplainer dimensions={4}/>

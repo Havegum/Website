@@ -21,7 +21,7 @@ export let transitionOut = () => {};
 main {
   grid-row: 2;
   grid-column: 1;
-
+  height: 100%;
   width: 100%;
   max-width: 47em;
   margin: 0 auto;

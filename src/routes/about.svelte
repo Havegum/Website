@@ -55,7 +55,7 @@ onMount(() => {
 
 
 <svelte:head>
-	<title>Halvard Vegum</title>
+	<title>Halvard Alvheim Vegum</title>
 </svelte:head>
 
 <Main background={false} padding={false}>

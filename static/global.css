@@ -20,7 +20,9 @@ body {
   --link-hover: #0c32a7;
   --background-dark: #1a2826;
   --headline-dark: #f9f9f1;
-  --paragraph-dark: #6d9b94; }
+  --paragraph-dark: #6d9b94;
+  --red: #da3125
+; }
 
 html, body, *, *::before, *::after {
   box-sizing: border-box;
