@@ -5,9 +5,7 @@
   <slot></slot>
 </section>
 
-<style lang="scss">
-@import '../profile.scss';
-
+<style>
 section {
   max-width: 39em;
   margin: 0 auto;

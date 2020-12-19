@@ -21,27 +21,24 @@ $: if (text) {
 </g>
 
 
-<style lang="scss">
-@import '../profile.scss';
-
+<style>
 circle {
-  stroke: $primary;
+  stroke: var(--primary);
   stroke-width: 1;
-  fill: $secondary;
+  fill: var(--secondary);
 }
 
 text {
-  fill: $light;
-  color: $light;
+  fill: var(--light);
+  color: var(--light);
   text-anchor: middle;
   user-select: none;
-
-  &.shadow {
-    fill: $primary;
-    stroke: $primary;
-    stroke-width: 2px;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
+}
+text.shadow {
+  fill: var(--primary);
+  stroke: var(--primary);
+  stroke-width: 2px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 </style>

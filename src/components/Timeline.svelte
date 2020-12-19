@@ -136,6 +136,7 @@ onMount(() => {
 </script>
 
 
+
 <div class="timeline {$$props.class}">
   <h2 id="{title}">{title}</h2>
 
@@ -180,9 +181,7 @@ onMount(() => {
 </div>
 
 
-<style lang="scss">
-@import '../profile.scss';
-
+<style>
 .timeline {
   width: 18em;
 }
@@ -199,57 +198,60 @@ svg {
   margin-right: .666em;
   overflow: visible;
   flex-shrink: 0;
+}
 
-  circle {
-    fill: $tertiary;
-  }
+circle {
+  fill: var(--tertiary);
+}
 
-  path {
-    fill: none;
-    stroke: $tertiary;
-    stroke-linejoin: round;
-    stroke-linecap: round;
-    stroke-width: 3;
+path {
+  fill: none;
+  stroke: var(--tertiary);
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  stroke-width: 3;
+}
 
-    &.filled {
-      fill: $tertiary;
-      stroke: none;
-    }
-  }
+path.filled {
+  fill: var(--tertiary);
+  stroke: none;
 }
 
 ol {
 	list-style: none;
   position: relative;
+}
 
-	.abbreviated {
-    margin: .25em 0;
+.abbreviated {
+  margin: .25em 0;
+}
 
-    :global(.reveal-button) {
-      font-size: .85em;
-    }
-	}
+.abbreviated :global(.reveal-button) {
+  font-size: .85em;
+}
 
-	li {
-		margin: 1em 0;
-		line-height: 1.4em;
-    font-weight: 500;
-    color: $dark;
+li {
+	margin: 1em 0;
+	line-height: 1.4em;
+  font-weight: 500;
+  color: var(--dark);
+}
 
-    @media screen and (min-width: $mobile) {
-      font-size: .85em;
-    }
+/* var(--mobile) */
+@media screen and (min-width: 400px) {
+  li {
+    font-size: .85em;
+  }
+}
 
-    .element {
-      margin: 0;
-    }
+li .element {
+  margin: 0;
+}
 
-		.detail {
-			color: $gray;
-      font-weight: 375;
-			display: flex;
-			flex-direction: column;
-		}
-	}
+li .detail {
+  color: var(--gray);
+  font-weight: 375;
+  display: flex;
+  flex-direction: column;
 }
 </style>

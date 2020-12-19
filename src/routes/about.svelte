@@ -123,7 +123,6 @@ onMount(() => {
 
 
 <style lang="scss">
-@import '../profile.scss';
 .lang-swap {
   font-size: .85em;
   text-align: right;
@@ -131,21 +130,22 @@ onMount(() => {
   height: 0;
   font-weight: inherit;
   text-decoration: none;
+}
 
-  &:hover, &:focus {
-    text-decoration: underline;
-  }
+.lang-swap:hover,
+.lang-swap:focus {
+	text-decoration: underline;
 }
 
 .hero-copy {
 	padding: 2em 1em 1em;
 	box-sizing: content-box;
 
-	color: $darker;
+	color: var(--darker);
 
 	h1 {
-		background: $tertiary;
-		color: $lighter;
+		background: var(--tertiary);
+		color: var(--lighter);
 		display: inline-block;
 		margin-bottom: .5em;
 		padding: .1em .25em;
@@ -168,7 +168,7 @@ h2 {
 
 .key-attributes {
 	:global(b) {
-		color: $primary;
+		color: var(--primary);
 	}
 
 	button {
@@ -181,7 +181,7 @@ h2 {
 		}
 
 		&:focus, &:active {
-			font-weight: $bold;
+			font-weight: var(--bold);
 		}
 	}
 
@@ -220,7 +220,7 @@ h2 {
 		p {
 			margin: 0;
 			:global(b) {
-				color: $paragraph;
+				color: var(--paragraph);
 				font-weight: 400;
 				will-change: color, font-weight;
 				transition:
@@ -230,7 +230,7 @@ h2 {
 		}
 
 		&.active p :global(b) {
-			color: $primary;
+			color: var(--primary);
 			font-weight: 700;
 		}
 
@@ -243,7 +243,7 @@ h2 {
 			flex-basis: 5em;
 		}
 
-		@media screen and (min-width: $mobile) {
+		@media screen and (min-width: 400px) {
 			&:nth-child(2n-1) {
 				flex-direction: row;
 				img { margin-left: 0 }
@@ -265,7 +265,7 @@ h2 {
 		flex-direction: column;
 		align-items: center;
 
-		@media screen and (min-width: $medium) {
+		@media screen and (min-width: 620px) {
 			flex-direction: row;
 			justify-content: space-around;
 			align-items: flex-start;
@@ -283,7 +283,7 @@ h2 {
 	align-items: center;
 	margin: 1.5em 0 .5em;
 
-	@media screen and (min-width: $medium) {
+	@media screen and (min-width: 620px) {
 		flex-direction: row;
 		justify-content: space-around;
 		align-items: flex-start;

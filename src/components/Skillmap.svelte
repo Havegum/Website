@@ -44,6 +44,7 @@ sim.on('tick', () => [nodes, edges] = [nodes, edges]);
 $: height, width, sim.alpha(1).restart();
 </script>
 
+
 <div bind:clientWidth={width} bind:clientHeight={height}>
   <svg aria-label="Ferdighetskart">
     <g style="transform: translate({margin.left}px, {margin.top}px)">
@@ -62,28 +63,27 @@ $: height, width, sim.alpha(1).restart();
   </svg>
 </div>
 
-<style lang="scss">
-@import '../profile.scss';
 
+<style>
 div {
-  background-color: $primary;
+  background-color: var(--primary);
   max-width: 39em;
 
   height: calc(20em - 10vw);
   min-height: 10em;
 
   margin: 0 auto;
+}
 
-  svg {
-    display: block;
-    width: 100%;
-    height: 100%;
+svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
 
-    line {
-      stroke-width: 1;
-      stroke-dasharray: 2 3;
-      stroke: $secondary-dark;
-    }
-  }
+line {
+  stroke-width: 1;
+  stroke-dasharray: 2 3;
+  stroke: var(--secondary-dark);
 }
 </style>

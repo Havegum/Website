@@ -25,6 +25,11 @@ body {
 	--paragraph-dark: #{ $paragraph-dark };
 
 	--red: #{ $tertiary }
+
+
+
+	--mobile: #{ $mobile };
+	--medium: #{ $medium };
 }
 
 html, body, *, *::before, *::after {
