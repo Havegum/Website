@@ -17,37 +17,35 @@ let hover = false;
   </div>
 </a>
 
-<style lang="scss">
-@import '../profile.scss';
-
+<style>
 a {
   display: flex;
   flex-direction: column;
   text-decoration: none;
-  color: $dark;
+  color: var(--dark);
   line-height: 1.4em;
 
-  background-color: $light;
+  background-color: var(--light);
 
   width: 17em;
   margin-bottom: 1em;
-  border-bottom: 3px solid $secondary-dark;
+  border-bottom: 3px solid var(--secondary-dark);
+}
 
-  div {
-    padding: .8em;
-    border-top: none;
-  }
+div {
+  padding: .8em;
+  border-top: none;
+}
 
-  .title {
-    font-weight: 475;
-  }
+.title {
+  font-weight: 475;
+}
 
-  &:hover .title {
-    text-decoration: underline;
-  }
+a:hover .title {
+  text-decoration: underline;
+}
 
-  p {
-    margin: 0;
-  }
+p {
+  margin: 0;
 }
 </style>

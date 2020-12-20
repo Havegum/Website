@@ -84,47 +84,43 @@ async function handleDelete () {
 	{/if}
 </div>
 
-<style lang="scss">
-@import '../../../profile.scss';
-
+<style>
 .breadcrumb {
-  margin-bottom: 1.5em;
-  color: $primary;
+	margin-bottom: 1.5em;
+	color: var(--primary);
+}
 
-  a {
-    color: $gray;
-    text-decoration: none;
+.breadcrumb a {
+	color: var(--gray);
+	text-decoration: none;
+}
 
-    &:hover, &:focus {
-      text-decoration: underline;
-    }
-  }
+.breadcrumb a:hover, .breadcrumb a:focus {
+	text-decoration: underline;
 }
 
 .editor {
-  margin-bottom: 1em;
+	margin-bottom: 1em;
 }
 
 input {
-  background-color: transparent;
-  color: $paragraph;
-  border: none;
-  font-size: 1em;
-
-  width: 100%;
+	background-color: transparent;
+	color: var(--paragraph);
+	border: none;
+	font-size: 1em;
+	width: 100%;
 }
 
 #blogpost-key {
-  margin-left: .25em;
-  color: $primary;
-  font-family: $mono;
+	margin-left: .25em;
+	color: var(--primary);
+	font-family: var(--mono);
 }
 
 label {
-  margin-bottom: 1em;
-  padding: 0 .4em;
-  display: flex;
-  background-color: $secondary;
+	margin-bottom: 1em;
+	padding: 0 .4em;
+	display: flex;
+	background-color: var(--secondary);
 }
-
 </style>

@@ -21,11 +21,8 @@ body {
   --background-dark: #1a2826;
   --headline-dark: #f9f9f1;
   --paragraph-dark: #6d9b94;
-  --red: #da3125
-
-
-
-	--mobile: 400px;
+  --red: #da3125;
+  --mobile: 400px;
   --medium: 620px; }
 
 html, body, *, *::before, *::after {

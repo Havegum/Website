@@ -3,17 +3,14 @@
 	<img role="presentation" alt="" class="left shoulder" src="left-shoulder.png"/>
 	<img role="presentation" alt="" class="right shoulder" src="right-shoulder.png"/>
 	<img role="presentation" alt="" class="ground" src="ground.svg"/>
-	<!-- <img role="presentation" alt="" class="footer-hat" src="footer-hat.svg"/> -->
 </div>
 
 
 
-<style lang="scss">
-@import '../profile.scss';
-
+<style>
 .background {
 	user-select: none;
-	background: $secondary;
+	background: var(--secondary);
 	position: absolute;
 	top: 0;
 	bottom: 0;
@@ -21,55 +18,44 @@
 	right: 0;
 	overflow: hidden;
 	z-index: -1;
+}
 
-	img {
-		width: 100%;
-		position: absolute;
-		left: 0;
-		right: 0;
-		top: 0;
-		object-fit: none;
-	}
+img {
+	width: 100%;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	object-fit: none;
+}
 
-	.sky {
-		background-color: $light;
-		object-position: top center;
-		height: 27em;
-	}
+.sky {
+	background-color: var(--light);
+	object-position: top center;
+	height: 27em;
+}
 
-	.shoulder {
-		width: 40%;
-		height: 100%;
-		&.left {
-			object-position: top right;
-			right: 60%;
-		}
-		&.right {
-			object-position: top left;
-			left: 60%;
-		}
-	}
+.shoulder {
+	width: 40%;
+	height: 100%;
+}
 
-	.ground {
-		top: 543px;
-		object-position: center top;
-		height: 100%;
-		min-height: 5em;
-		max-height: 20em;
-		object-fit: cover;
-	}
+.shoulder.left {
+	object-position: top right;
+	right: 60%;
+}
 
-	// .footer-hat {
-	// 	top: auto;
-	// 	bottom: 9em;
-	// 	object-position: center bottom;
-	// 	height: 100%;
-	// 	min-height: 5em;
-	// 	max-height: 5vh;
-	// 	object-fit: cover;
-	// 	display: none;
-	//
-	// 	@media screen and (min-height: 900px) { display: block }
-	// }
+.shoulder.right {
+	object-position: top left;
+	left: 60%;
+}
+
+.ground {
+	top: 543px;
+	object-position: center top;
+	height: 100%;
+	min-height: 5em;
+	max-height: 20em;
+	object-fit: cover;
 }
 </style>

@@ -2,6 +2,7 @@
 export let lang = 'no';
 </script>
 
+
 <footer>
   <div class="overlay"></div>
   <div>
@@ -16,41 +17,49 @@ export let lang = 'no';
   </div>
 </footer>
 
-<style lang="scss">
-@import '../profile.scss';
 
+<style>
 footer {
   position: relative;
-  background-color: $primary;
-  color: $light;
-
+  background-color: var(--primary);
+  color: var(--light);
   padding-bottom: 1em;
+}
 
-  div {
-    max-width: 47em;
-    margin: 0 auto;
-    padding: 1em 1em 1.5em;
+footer div {
+  max-width: 47em;
+  margin: 0 auto;
+  padding: 1em 1em 1.5em;
+}
 
-    &.overlay {
-      display: none;
-      background-color: $secondary-dark;
-      @media screen and (min-width: $medium) {
-        display: block;
-      }
-    }
+footer .overlay {
+  display: none;
+  background-color: var(--secondary-dark);
+}
 
-    @media screen and (min-width: $mobile) {
-      padding: 1em 2em 1.5em;
-
-    }
-
-    &:not(.overlay) { box-sizing: content-box }
-
-    a { color: $secondary }
-    a:hover, a:focus, a:active {
-      color: $lighter;
-    }
+@media screen and (min-width: 620px) {
+  footer .overlay {
+    display: block;
   }
+}
+
+@media screen and (min-width: 400px) {
+  footer div {
+    padding: 1em 2em 1.5em;
+  }
+}
+footer :not(.overlay) {
+  box-sizing: content-box;
+}
+
+a {
+  color: var(--secondary);
+}
+
+a:hover,
+a:focus,
+a:active {
+  color: var(--lighter);
 }
 
 p {

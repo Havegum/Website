@@ -1,7 +1,7 @@
 <script>
 export let href = '#';
-
 </script>
+
 
 <a {href}>
   <slot/>
@@ -10,40 +10,33 @@ export let href = '#';
   </div>
 </a>
 
-<style lang="scss">
-@import '../../profile.scss';
 
+<style>
 a {
   position: relative;
   display: flex;
   flex-direction: column;
   text-decoration: none;
-  color: $dark;
+  color: var(--dark);
   line-height: 1.4em;
 
-  background-color: $lighter;
+  background-color: var(--lighter);
 
-  // width: 17em;
-  // margin-bottom: 1em;
-  border-bottom: 3px solid $secondary-dark;
+  border-bottom: 3px solid var(--secondary-dark);
+}
 
-  div {
-    padding: .8em;
-    border-top: none;
-    position: relative;
-    z-index: 0;
-  }
+div {
+  padding: .8em;
+  border-top: none;
+  position: relative;
+  z-index: 0;
+}
 
-  .title {
-    font-weight: 475;
-  }
+a:hover p {
+  text-decoration: underline;
+}
 
-  &:hover p {
-    text-decoration: underline;
-  }
-
-  p {
-    margin: 0;
-  }
+p {
+  margin: 0;
 }
 </style>

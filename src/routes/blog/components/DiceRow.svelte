@@ -56,85 +56,88 @@ $: good = data.filter(d => d.result >= 4).map(d => d.value).reduce(sum);
 </tr>
 
 
-<style lang="scss">
+<style>
 .row {
-	// display: flex;
-	* { flex: 1 0 0 }
-  height: 2em;
-  width: 100%;
+	height: 2em;
+	width: 100%;
 	align-items: baseline;
+	text-align: right;
+	color: var(--primary);
+}
 
-  text-align: right;
-	color: #2255e9;
+.row * {
+	flex: 1 0 0;
+}
 
-	.bad { color: #da3125 }
-  .good { flex-grow: 0 }
+.row .bad {
+	color: var(--tertiary);
+}
 
-	td.bad, td.good {
-		font-weight: bold;
-		font-size: 1.1em;
-	}
+.row .good {
+	flex-grow: 0;
+}
 
-  .number {
-    padding: 0 .5em;
-  }
+.row td.bad, .row td.good {
+	font-weight: bold;
+	font-size: 1.1em;
+}
 
-  .number::after {
-    content: '%';
-    display: inline;
-    visibility: hidden;
-  }
+.row .number {
+	padding: 0 .5em;
+}
 
-  .first::after {
-    visibility: visible;
-    color: var(--gray)
-  }
+.row .number::after {
+	content: '%';
+	display: inline;
+	visibility: hidden;
+}
 
-  .dice {
-    font-size: 1.4em;
-    color: var(--dark);
-    text-align: center;
-  }
+.row .first::after {
+	visibility: visible;
+	color: var(--gray);
+}
+
+.row .dice {
+	font-size: 1.4em;
+	color: var(--dark);
+	text-align: center;
 }
 
 .bar {
-  // display: grid;
-  // align-content: center;
-  height: inherit;
+	height: inherit;
 }
 
 .bar-inner {
 	height: 1em;
-  width: 100%;
+	width: 100%;
 	display: inline-flex;
 	position: relative;
-
-	.part {
-		flex: 0 0 0;
-		height: 1em;
-		background-color: var(--secondary-dark);
-
-		&.bad {
-			background-color: var(--tertiary);
-		}
-	}
-
-	.highlight {
-		position: absolute;
-		top: 0;
-		right: 0;
-		height: 1em;
-
-		.hatch-left {
-			height: 100%;
-			fill: url(#hatch-left);
-		}
-
-		.hatch-right {
-			height: 100%;
-			fill: url(#hatch-right);
-		}
-	}
 }
 
+.bar-inner .part {
+	flex: 0 0 0;
+	height: 1em;
+	background-color: var(--secondary-dark);
+}
+
+.bar-inner .part.bad {
+	background-color: var(--tertiary);
+}
+
+.bar-inner .highlight {
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 1em;
+}
+
+.bar-inner .highlight .hatch-left {
+	height: 100%;
+	fill: url(#hatch-left);
+}
+
+.bar-inner .highlight .hatch-right {
+	height: 100%;
+	fill: url(#hatch-right);
+}
 </style>

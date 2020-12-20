@@ -54,12 +54,10 @@ async function handleUpload () {
   {/if}
 </div>
 
-<style lang="scss">
-@import '../../profile.scss';
-
+<style>
 input {
   background-color: transparent;
-  color: $paragraph;
+  color: var(--paragraph);
   border: none;
   font-size: 1em;
 
@@ -67,35 +65,35 @@ input {
 }
 
 #title {
-  font-weight: $bold;
+  font-weight: var(--bold);
   font-size: 2em;
   padding: .125em .2em;
   margin-bottom: .5em;
+}
 
-  &:focus {
-    background-color: $secondary;
-    color: $darker;
-  }
+#title:focus {
+  background-color: var(--secondary);
+  color: var(--darker);
 }
 
 #blogpost-key {
   margin-left: .25em;
-  color: $primary;
-  font-family: $mono;
+  color: var(--primary);
+  font-family: var(--mono);
 }
 
 .preview {
   margin: 1em 0;
+}
 
-  :global(.small) {
-    font-size: .8em;
-  }
+.preview :global(.small) {
+  font-size: .8em;
 }
 
 label {
   margin-bottom: 1em;
   padding: 0 .4em;
   display: flex;
-  background-color: $secondary;
+  background-color: var(--secondary);
 }
 </style>

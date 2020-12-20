@@ -70,21 +70,20 @@ export let post;
 </Main>
 
 
-<style lang="scss">
-@import '../../../profile.scss';
-
+<style>
 .breadcrumb {
 	margin-bottom: 1.5em;
-	color: $primary;
+	color: var(--primary);
+}
 
-	a {
-		color: $gray;
-		text-decoration: none;
+.breadcrumb a {
+	color: var(--gray);
+	text-decoration: none;
+}
 
-		&:hover, &:focus {
-			text-decoration: underline;
-		}
-	}
+.breadcrumb a:hover,
+.breadcrumb a:focus {
+	text-decoration: underline;
 }
 
 .content :global(h2) {

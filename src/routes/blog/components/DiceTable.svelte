@@ -2,6 +2,7 @@
 import Row from './DiceRow.svelte';
 </script>
 
+
 <svg class="hidden">
 	<defs>
 		<line id="line" x1="5" y1="0" x2="5" y2="10" stroke="#2255e9" stroke-width="4.5"/>
@@ -23,7 +24,6 @@ import Row from './DiceRow.svelte';
 				<th class="align-right span" colspan="2">good outcome</th>
 				<th class="align-right">clean six</th>
 				<th class="align-right">crit</th>
-
 			</tr>
 		</thead>
 	{#each [0, 1, 2, 3, 4, 5, 6, 7] as n}
@@ -33,54 +33,46 @@ import Row from './DiceRow.svelte';
 	{/each}
 </table>
 
-<style lang="scss">
+
+<style>
 table {
 	table-layout: fixed;
 	border-collapse: collapse;
 	width: 100%;
+}
 
-	tbody {
-		padding: .2em 1em;
+tbody {
+	padding: .2em 1em;
+}
 
-		&:nth-child(2n) {
-			background-color: var(--light);
-		}
-	}
+tbody:nth-child(2n) {
+	background-color: var(--light);
+}
 
-	th {
-		width: 100%;
-    color: var(--dark);
-    line-height: 1.2;
-    vertical-align: bottom;
-    padding-bottom: .5em;
+th {
+	width: 100%;
+  color: var(--dark);
+  line-height: 1.2;
+  vertical-align: bottom;
+  padding-bottom: .5em;
+}
 
-		&.align-right {
-			text-align: right;
-			padding-right: 1.2em;
-		}
+th.align-right {
+	text-align: right;
+	padding-right: 1.2em;
+}
 
-		&.align-left {
-			text-align: left;
-		}
+th.align-left {
+	text-align: left;
+}
 
-		&.span {
-			width: 200%;
-		}
-	}
+th.span {
+	width: 200%;
 }
 
 svg.hidden {
 	position: absolute;
 	width: 0;
 	height: 0;
-}
-
-label {
-	display: flex;
-	align-items: baseline;
-
-	input {
-		margin-right: 1em;
-	}
 }
 </style>

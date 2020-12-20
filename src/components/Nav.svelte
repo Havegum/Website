@@ -79,9 +79,7 @@ const [send, receive] = crossfade({
 	</ul>
 </nav>
 
-<style lang="scss">
-@import '../profile.scss';
-
+<style>
 nav {
 	padding: 0 1em;
 }
@@ -100,7 +98,7 @@ li {
 }
 
 a {
-	color: $darker;
+	color: var(--darker);
 	text-decoration: none;
 	padding: 1em 0.5em;
 	display: block;
@@ -109,37 +107,37 @@ a {
 	transition:
 		font-weight 100ms ease-out,
 		color 50ms ease-out;
+}
 
-	&.selected {
-		position: relative;
-	}
+a.selected {
+	position: relative;
+}
 
-	&:hover, &:focus {
-		color: $primary;
-		font-weight: 850;
-		outline: none;
+a:hover, a:focus {
+	color: var(--primary);
+	font-weight: 850;
+	outline: none;
 
-		transition:
-			font-weight 150ms ease-out,
-			color 100ms ease-out;
-	}
+	transition:
+		font-weight 150ms ease-out,
+		color 100ms ease-out;
+}
 
-	&:active {
-		color: $primary-dark;
-		font-weight: 700;
+a:active {
+	color: var(--primary-dark);
+	font-weight: 700;
 
-		transition:
-			font-weight 50ms ease-out,
-			color 50ms ease-out;
-	}
+	transition:
+		font-weight 50ms ease-out,
+		color 50ms ease-out;
 }
 
 .scrubber {
-	background-color: $gray;
+	background-color: var(--gray);
 }
 
 .selected::after {
-	background-color: $primary;
+	background-color: var(--primary);
 	z-index: 1;
 	content: '';
 }
@@ -154,13 +152,4 @@ a {
 	right: .5em;
 	bottom: 0;
 }
-
-// button,
-// .lang-swap {
-// 	color: $primary;
-// 	position: absolute;
-// 	right: 1.45em;
-// 	top: 1.45em;
-// 	font-size: .85em;
-// }
 </style>

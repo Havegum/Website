@@ -14,7 +14,6 @@ export async function preload({ params }) {
 
 <script>
 import { send, receive } from '@/util/blogTransition.js';
-import Post from './adfontes-csp.svx';
 import BlogListing from '@/components/layout/BlogListing.svelte';
 import Main from '@/components/layout/Main.svelte';
 
@@ -55,12 +54,8 @@ $: height = !init ? 'auto' : transition ? 0 : `${textHeight}px`;
 	</div>
 </Main>
 
-<!-- <Post /> -->
 
-
-<style lang="scss">
-@import '../../profile.scss';
-
+<style>
 div, ol {
 	position: relative;
 }
@@ -75,13 +70,11 @@ div, ol {
 	list-style: none;
 	gap: 1em;
 	top: 1em;
-
-	&.transition {
-		top: 2em;
-	}
 }
 
-
+.posts.transition {
+	top: 2em;
+}
 
 .background {
 	position: absolute;
@@ -90,10 +83,6 @@ div, ol {
 	left: 0;
 	right: 0;
 	z-index: -1;
-	background-color: $lighter;
-}
-
-li {
-
+	background-color: var(--lighter);
 }
 </style>

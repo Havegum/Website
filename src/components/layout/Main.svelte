@@ -15,9 +15,8 @@ export let transitionOut = () => {};
   <slot></slot>
 </main>
 
-<style lang="scss">
-@import '../../profile.scss';
 
+<style>
 main {
   grid-row: 2;
   grid-column: 1;
@@ -28,11 +27,11 @@ main {
 }
 
 .background {
-  background-color: $light;
+  background-color: var(--light);
 }
 
 .light {
-  background-color: $lighter;
+  background-color: var(--lighter);
 }
 
 .padding {

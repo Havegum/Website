@@ -65,35 +65,33 @@ onMount(start);
 </script>
 
 
-<style lang="scss">
-@import '../profile.scss';
-
+<style>
 svg {
 	display: block;
 	width: 100%;
 	height: auto;
+}
 
-	.st0 { fill: $dark }
+.st0 { fill: var(--dark) }
 
-	.st2 { fill: $lightgray }
+.st2 { fill: var(--lightgray) }
 
-	.st3 { fill: $light }
+.st3 { fill: var(--light) }
 
-	.st5 { fill: $tertiary }
+.st5 { fill: var(--tertiary) }
 
-	.st6 {
-		fill: none;
-		stroke: $tertiary;
-		stroke-width: 8;
-		stroke-miterlimit: 10;
-	}
+.st6 {
+	fill: none;
+	stroke: var(--tertiary);
+	stroke-width: 8;
+	stroke-miterlimit: 10;
+}
 
-	.st7 {
-		fill: $light;
-		stroke: $tertiary;
-		stroke-width: 4;
-		stroke-miterlimit: 10;
-	}
+.st7 {
+	fill: var(--light);
+	stroke: var(--tertiary);
+	stroke-width: 4;
+	stroke-miterlimit: 10;
 }
 </style>
 

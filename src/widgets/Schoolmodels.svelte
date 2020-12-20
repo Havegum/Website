@@ -118,26 +118,24 @@ function shuffle (a) {
 onMount(() => setTimeout(start, 3000));
 </script>
 
-<style lang="scss">
-@import '../profile.scss';
-
+<style>
 svg {
 	display: block;
 	width: 100%;
 	height: auto;
-
-	circle {
-		will-change: transform;
-		transition: transform 300ms cubic-bezier(0.65, 0, 0.35, 1);
-	}
-
-	.st0 { fill: $secondary }
-	.st1 { fill: #74A7EF }
-	.st2 { fill: #4A79E0 }
-	.st3 { fill: #204BD0 }
-	.st4 { fill: #5888E5 }
-	.st5 { fill: #3C6ADA }
 }
+
+circle {
+	will-change: transform;
+	transition: transform 300ms cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.st0 { fill: var(--secondary) }
+.st1 { fill: #74A7EF }
+.st2 { fill: #4A79E0 }
+.st3 { fill: #204BD0 }
+.st4 { fill: #5888E5 }
+.st5 { fill: #3C6ADA }
 </style>
 
 <svg version="1.1"

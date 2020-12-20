@@ -66,16 +66,14 @@ onMount(() => d = true );
 </div>
 
 
-<style lang="scss">
-@import '../../profile.scss';
-
+<style>
 svg {
   position: absolute;
   display: none;
 }
 
 div {
-  background-color: $lighter;
+  background-color: var(--lighter);
   padding: 1em;
 }
 
@@ -92,7 +90,7 @@ div {
   }
 
   path {
-    fill: $lighter;
+    fill: var(--lighter);
   }
 
   .roughed  {

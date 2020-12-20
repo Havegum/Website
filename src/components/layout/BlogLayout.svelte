@@ -91,9 +91,6 @@ function handleOutroStart () {
 <!-- NOTE: using sass results in weird behaviour -->
 <!-- It won't compile on `sapper dev`, -->
 <!-- but if file is originally pure css, then sass is added, it works ... -->
-
-<!-- <style lang="scss"> -->
-<!-- @import '../../profile.scss'; -->
 <style>
 .blog {
 	grid-row: 2;
