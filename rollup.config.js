@@ -58,15 +58,15 @@ const preprocess = [
 
 
 import fs from 'fs';
-import sass from 'node-sass';
+// import sass from 'node-sass';
 const globalStyleExport = {
   name: 'global-style-export',
 	renderStart () {
-		let result = sass.renderSync({
-			file: './src/global.scss',
-	    outFile: './static/global.css'
-	  });
-		result && fs.writeFile('./static/global.css', result.css, err => err && console.error(error));
+		// let result = sass.renderSync({
+		// 	file: './src/global.scss',
+	  //   outFile: './static/global.css'
+	  // });
+		// result && fs.writeFile('./static/global.css', result.css, err => err && console.error(error));
 	}
 };
 

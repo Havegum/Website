@@ -40,8 +40,8 @@ body, button, input {
 body {
   font-size: 16.2px;
   line-height: 1.7;
-  color: #547879;
-  background-color: #bfe8fc; }
+  color: var(--paragraph);
+  background-color: var(--secondary); }
   @media (min-width: 400px) {
     body {
       font-size: calc(15.5px + .2vw); } }
@@ -74,15 +74,15 @@ p {
   margin-bottom: 1em; }
 
 a {
-  color: #2255e9; }
+  color: var(--link); }
   a:hover, a:focus {
-    color: #0c32a7; }
+    color: var(--link-hover); }
   a:active {
     font-weight: 475; }
 
 button, input {
   font-size: 1em;
-  color: #547879;
+  color: var(--paragraph);
   border: none;
   background-color: transparent; }
 
@@ -96,7 +96,7 @@ ul {
   margin: 1em 0; }
 
 pre {
-  background-color: #f9f9f1; }
+  background-color: var(--lighter); }
 
 b {
   font-weight: 650; }
