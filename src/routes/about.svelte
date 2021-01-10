@@ -3,6 +3,7 @@ import { onMount } from 'svelte';
 import { slide } from 'svelte/transition';
 
 import Roughbox from '@/components/layout/Roughbox.svelte';
+import IllustratedBackground from '@/components/IllustratedBackground.svelte';
 import Main from '@/components/layout/Main.svelte';
 
 import Text from '@/components/Text.svelte';
@@ -59,7 +60,10 @@ onMount(() => {
 	<title>Halvard Alvheim Vegum</title>
 </svelte:head>
 
-<Main background={false} padding={false}>
+
+<IllustratedBackground/>
+
+<Main background={false} padding={false} >
 	<div class="hero-copy">
 		<Text>
 			<h1>Halvard A<span class="middle-name">lvheim</span><span class="middle-name-dot">.</span> Vegum</h1>

@@ -29,7 +29,6 @@ const babelconfig = {
 }
 
 // Preprocessing
-import { mdsvex } from "mdsvex";
 import postcssImport from 'postcss-import';
 import postcssPresetEnv from 'postcss-preset-env';
 import autoPreprocess from 'svelte-preprocess';
@@ -45,6 +44,8 @@ const preprocessOptions = {
     ]
   }
 };
+
+import { mdsvex } from "mdsvex";
 const preprocess = [
 	autoPreprocess(preprocessOptions),
 	mdsvex({
@@ -55,20 +56,6 @@ const preprocess = [
 		}
 	})
 ];
-
-
-import fs from 'fs';
-// import sass from 'node-sass';
-const globalStyleExport = {
-  name: 'global-style-export',
-	renderStart () {
-		// let result = sass.renderSync({
-		// 	file: './src/global.scss',
-	  //   outFile: './static/global.css'
-	  // });
-		// result && fs.writeFile('./static/global.css', result.css, err => err && console.error(error));
-	}
-};
 
 
 const mode = process.env.NODE_ENV;
@@ -86,7 +73,6 @@ export default {
 		output: config.client.output(),
 		preserveEntrySignatures: false,
 		plugins: [
-			globalStyleExport,
 			replace({
 				'process.browser': true,
 				'process.env.NODE_ENV': JSON.stringify(mode)
