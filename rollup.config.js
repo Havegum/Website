@@ -10,7 +10,6 @@ import { terser } from 'rollup-plugin-terser';
 import config from 'sapper/config/rollup.js';
 import pkg from './package.json';
 
-
 const babelconfig = {
 	extensions: ['.js', '.mjs', '.html', '.svelte'],
 	runtimeHelpers: true,
@@ -28,26 +27,10 @@ const babelconfig = {
 	]
 }
 
-// Preprocessing
-import postcssImport from 'postcss-import';
-import postcssPresetEnv from 'postcss-preset-env';
 import autoPreprocess from 'svelte-preprocess';
-const preprocessOptions = {
-	postcss: {
-    plugins: [
-      postcssImport,
-      postcssPresetEnv({
-        stage: 0,
-        browsers: 'last 2 versions',
-        autoprefixer: { grid: true }
-      })
-    ]
-  }
-};
-
-import { mdsvex } from "mdsvex";
+import { mdsvex } from 'mdsvex';
 const preprocess = [
-	autoPreprocess(preprocessOptions),
+	autoPreprocess({ postcss: true }),
 	mdsvex({
 		layout: {
 			blog: "./src/components/layout/BlogLayout.svelte",

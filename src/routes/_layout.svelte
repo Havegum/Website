@@ -20,5 +20,5 @@ $: if (initialized) document.documentElement.setAttribute('lang', lang);
 
 
 <Nav {segment} {lang}/>
-<slot {lang} />
+<slot/>
 <Footer {lang}/>
