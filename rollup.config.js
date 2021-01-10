@@ -42,6 +42,8 @@ const preprocess = [
 
 
 const mode = process.env.NODE_ENV;
+console.log('@rollup ---- node_env', process.env.NODE_ENV);
+
 const dev = mode === 'development';
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
 if (dev) require('dotenv').config();
@@ -69,9 +71,11 @@ export default {
 			svelte({
 				extensions: ['.svelte', '.svx'],
 				preprocess,
-				dev,
-				hydratable: true,
-				emitCss: true
+				emitCss: true,
+				compilerOptions: {
+					dev,
+					hydratable: true,
+				},
 			}),
 			resolve({
 				browser: true,
@@ -103,8 +107,10 @@ export default {
 			svelte({
 				extensions: ['.svelte', '.svx'],
 				preprocess,
-				generate: 'ssr',
-				dev
+				compilerOptions: {
+					generate: 'ssr',
+					dev
+				}
 			}),
 			resolve({
 				dedupe

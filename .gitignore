@@ -3,6 +3,7 @@
 /src/node_modules/@sapper/
 yarn-error.log
 /cypress/screenshots/
+/static/global.css
 /__sapper__/
 static/integrations/*
 .env

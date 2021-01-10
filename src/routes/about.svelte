@@ -64,7 +64,7 @@ onMount(() => {
 <IllustratedBackground/>
 
 <Main background={false} padding={false} >
-	<div class="hero-copy">
+	<div class="hero-copy box-content p-4 pt-8">
 		<Text>
 			<h1>Halvard A<span class="middle-name">lvheim</span><span class="middle-name-dot">.</span> Vegum</h1>
 			<p>{@html body.hero}</p>
@@ -123,9 +123,6 @@ onMount(() => {
 }
 
 .hero-copy {
-	padding: 2em 1em 1em;
-	box-sizing: content-box;
-
 	color: var(--darker);
 }
 

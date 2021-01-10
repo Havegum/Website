@@ -1,0 +1,157 @@
+@import url("https://rsms.me/inter/inter.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --light: #e4f2f2;
+  --dark: #354e50;
+  --lightgray: #6d9b94;
+  --gray: #547879;
+  --primary: #2255e9;
+  --primary-dark: #0c32a7;
+  --secondary: #bfe8fc;
+  --secondary-dark: #90c5f9;
+  --tertiary: #da3125;
+  --lighter: #f9f9f1;
+  --darker: #1a2826;
+  --background: #e4f2f2;
+  --headline: #354e50;
+  --paragraph: #547879;
+  --button: #2255e9;
+  --button-text: #f9f9f1;
+  --link: #2255e9;
+  --link-hover: #0c32a7;
+  --background-dark: #1a2826;
+  --headline-dark: #f9f9f1;
+  --paragraph-dark: #6d9b94;
+  --red: #da3125;
+  --mobile: 400px;
+  --medium: 620px;
+  --sans: 'Inter', sans-serif;
+}
+
+html, body, *, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, button, input {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+}
+
+@supports (font-variation-settings: normal) {
+  body, button, input {
+    font-family: 'Inter var', sans-serif;
+  }
+  :root {
+    --sans: 'Inter var', sans-serif;
+  }
+}
+
+body {
+  font-size: 16.2px;
+  line-height: 1.7;
+  color: var(--paragraph);
+  background-color: var(--secondary);
+}
+
+@media (min-width: 400px) {
+  body {
+    font-size: calc(15.5px + .2vw);
+  }
+}
+
+#sapper {
+  display: grid;
+  grid-template-rows: [nav-start] auto [nav-end main-start] 1fr [main-end footer-start] auto [footer-end];
+  min-height: 100vh;
+  position: relative;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #354e50;
+  margin: 1.25em 0 0.25em;
+  font-weight: 650;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 1.8em;
+}
+
+h2 {
+  font-size: 1.4em;
+}
+
+h3 {
+  font-size: 1.2em;
+}
+
+h4 {
+  font-size: 1.15em;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+a {
+  color: var(--link);
+}
+
+a:hover, a:focus {
+  color: var(--link-hover);
+}
+
+a:active {
+  font-weight: 475;
+}
+
+button, input {
+  font-size: 1em;
+  color: var(--paragraph);
+  border: none;
+  background-color: transparent;
+}
+
+button {
+  cursor: pointer;
+  display: block;
+  border: none;
+}
+
+ul {
+  padding-left: 1em;
+  margin: 1em 0;
+}
+
+pre {
+  background-color: var(--lighter);
+}
+
+b {
+  font-weight: 650;
+}
+
+i {
+  font-style: oblique 15deg;
+}
+
+code {
+  border-radius: 2px;
+  padding: 0.2em 0.4em;
+}
+
+textarea {
+  font-size: 1em;
+  border: none;
+  width: 100%;
+  display: block;
+  min-height: 10em;
+  padding: .5em;
+  resize: vertical;
+}
