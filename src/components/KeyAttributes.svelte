@@ -1,79 +1,80 @@
 <script>
+import { onMount } from 'svelte';
 import { slide } from 'svelte/transition';
+import enterView from 'enter-view';
+
+import Lightning from './attributeIcons/lightning.svelte';
+import Overcast from './attributeIcons/overcast.svelte';
+import Rainy from './attributeIcons/rainy.svelte';
 import Text from '@/components/Text.svelte';
+
 export let body;
-let ccbyExpanded = false;
+
+onMount(() => {
+	enterView({
+		selector: '.--step',
+		enter: e => e.classList.add('active'),
+		offset: 0.1,
+		once: true
+	});
+});
 </script>
 
 
-<div class="key-attributes">
-  <Text>
-    <h2>{body.keyAttributesTitle}</h2>
-    <ul>
-    {#each ['overcast', 'rainy-shaded', 'lightning-shaded'] as img, i}
-      <li class="--step" class:active={false}>
-        <img src="{img}.svg" alt="" role="presentation"/>
-        <p>{@html body.keyAttributes[i]}</p>
+<Text>
+  <h2>{body.keyAttributesTitle}</h2>
+
+  <ul>
+    {#each [Overcast, Rainy, Lightning] as icon, i}
+      <li
+        class:active={false}
+        class="--step flex items-center flex-col sm:odd:flex-row sm:even:flex-row-reverse opacity-0 relative top-8 mb-12"
+      >
+        <figure class="{i % 2 === 0 ? 'sm:mr-4' : 'sm:ml-4'}">
+          <svelte:component this={icon} />
+        </figure>
+        <p class="m-0">{@html body.keyAttributes[i]}</p>
       </li>
     {/each}
-    </ul>
-    <button on:click={() => ccbyExpanded = !ccbyExpanded}>
-      {body.keyAttributesCCBY}
-    </button>
-    {#if ccbyExpanded}
-      <div class="cc-by" transition:slide>
-        {@html body.keyAttributesCCBYBody}
-      </div>
-    {/if}
-  </Text>
-</div>
+  </ul>
 
+  <details class="text-right">
+    <summary
+      class="text-sm inline-block italic cursor-pointer select-none hover:underline list-none">
+      {body.keyAttributesCCBY}
+    </summary>
+    <div class="cc-by text-sm opacity-0">
+      {@html body.keyAttributesCCBYBody}
+    </div>
+  </details>
+</Text>
 
 
 <style>
-.key-attributes :global(b) {
-	color: var(--primary);
+li p :global(b) {
+	color: var(--blue-DEFAULT);
+	font-weight: 400;
+	will-change: color, font-weight;
+	transition:
+		color 500ms 250ms,
+		font-weight 500ms 250ms;
 }
 
-button {
-	font-size: .65em;
-	font-style: italic;
-	margin-left: auto;
-}
-
-button:hover,
-button:focus {
-	text-decoration: underline;
-}
-
-button:focus,
-button:active {
-  font-weight: var(--bold);
+li.active p :global(b) {
+	color: var(--blue-800);
+	font-weight: 700;
 }
 
 .cc-by {
-	font-size: .8em;
-	overflow: hidden;
+  transition: opacity 400ms;
 }
 
-ul {
-	list-style: none;
-	padding: 0;
+[open] .cc-by {
+  opacity: 1;
 }
 
 li {
-	display: flex;
-	margin-bottom: 3em;
-
-	flex-direction: column;
-	align-items: center;
-
-	opacity: 0;
-	position: relative;
-	top: 2em;
-
 	will-change: top, opacity;
-
 	transition:
 		top 500ms,
 		opacity 500ms;
@@ -84,40 +85,14 @@ li.active {
 	top: 0;
 }
 
+figure {
+  flex-basis: 0;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
 li p {
-	margin: 0;
-}
-
-li p :global(b) {
-	color: var(--paragraph);
-	font-weight: 400;
-	will-change: color, font-weight;
-	transition:
-		color 500ms 250ms,
-		font-weight 500ms 250ms;
-}
-
-li.active p :global(b) {
-	color: var(--primary);
-	font-weight: 700;
-}
-
-img {
-	width: 5em;
-	height: 5em;
-	margin: 0 auto 1em;
-	object-fit: contain;
-	user-select: none;
-	flex-basis: 5em;
-}
-
-@media screen and (min-width: 400px) {
-	li:nth-child(2n-1) { flex-direction: row }
-  li:nth-child(2n-1) img { margin-left: 0 }
-
-	li:nth-child(2n) { flex-direction: row-reverse }
-	li:nth-child(2n) img { margin-right: 0 }
-
-	img { margin: 0 2em }
+  flex-basis: 0;
+  flex-grow: 1;
 }
 </style>

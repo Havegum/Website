@@ -1,13 +1,6 @@
 <!-- <script>
 </script> -->
 
-<section>
+<section class="mx-auto max-w-2xl">
   <slot></slot>
 </section>
-
-<style>
-section {
-  max-width: 39em;
-  margin: 0 auto;
-}
-</style>

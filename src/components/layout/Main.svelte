@@ -5,36 +5,14 @@ export let transitionIn = () => {};
 export let transitionOut = () => {};
 </script>
 
+
 <main
-  class:background
-  class:light={background === 'light'}
-  class:padding
+  class="mx-auto w-full h-full max-w-3xl row-start-2 row-end-3 col-span-full"
+  class:bg-white-100={background}
+  class:bg-white={background === 'light'}
+  class:p-4={padding}
   in:transitionIn
   out:transitionOut
 >
   <slot></slot>
 </main>
-
-
-<style>
-main {
-  grid-row: 2;
-  grid-column: 1;
-  height: 100%;
-  width: 100%;
-  max-width: 47em;
-  margin: 0 auto;
-}
-
-.background {
-  background-color: var(--light);
-}
-
-.light {
-  background-color: var(--lighter);
-}
-
-.padding {
-  padding: 1em;
-}
-</style>

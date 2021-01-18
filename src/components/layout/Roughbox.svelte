@@ -58,43 +58,14 @@ onMount(() => d = true );
 </script>
 
 
-<div class:roughed={!!d} bind:clientWidth={width} bind:clientHeight={height}>
-  <svg viewbox="0 0 {width} {height}">
-    <path {d}>
+<div
+  class="bg-gray-50 p-4 md:bg-transparent md:mb-4"
+  class:roughed={!!d}
+  bind:clientWidth={width}
+  bind:clientHeight={height}
+>
+  <svg class="text-transparent md:text-gray-50 absolute hidden md:block fill-gray-50 top-0 left-0 w-full h-full -z-1 overflow-visible" viewbox="0 0 {width} {height}">
+    <path class="fill-current" {d}>
   </svg>
   <slot/>
 </div>
-
-
-<style>
-svg {
-  position: absolute;
-  display: none;
-}
-
-div {
-  background-color: var(--lighter);
-  padding: 1em;
-}
-
-
-@media screen and (min-width: 720px) {
-  svg {
-    display: block;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    overflow: visible;
-  }
-
-  path {
-    fill: var(--lighter);
-  }
-
-  .roughed  {
-    background-color: transparent;
-  }
-}
-</style>

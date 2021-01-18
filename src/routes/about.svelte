@@ -1,12 +1,11 @@
 <script>
-import { onMount } from 'svelte';
-import { slide } from 'svelte/transition';
-
 import Roughbox from '@/components/layout/Roughbox.svelte';
 import IllustratedBackground from '@/components/IllustratedBackground.svelte';
 import Main from '@/components/layout/Main.svelte';
 
 import Text from '@/components/Text.svelte';
+import Experience from '@/components/Experience.svelte';
+import Showcase from '@/components/Showcase.svelte';
 import Skillmap from '@/components/Skillmap.svelte';
 import KeyAttributes from '@/components/KeyAttributes.svelte';
 
@@ -18,41 +17,11 @@ import Timeline from '@/components/Timeline.svelte';
 import timeline from '../../static/timeline.json';
 import skillmap from '../../static/skillmap.json';
 
-import enterView from 'enter-view';
-
 import about from './_about.yaml';
 
 
 export let lang = 'en';
 $: body = about[lang];
-
-
-function decorate (el) {
-	if (!el) return null;
-
-	el.id = el.place[lang] + el.title[lang] + el.start;
-	el.start = new Date(el.start);
-	el.end = el.end ? new Date(el.end) : null;
-
-	el.title = el.title || {};
-	el.place = el.place || {};
-	return el;
-}
-
-let workList = timeline.work.map(decorate).filter(e => !!e);
-let educationList = timeline.education.map(decorate).filter(e => !!e);
-
-let ccbyExpanded = false;
-
-onMount(() => {
-	enterView({
-		selector: '.--step',
-		enter: e => e.classList.add('active'),
-		offset: 0.1,
-		once: true
-	});
-});
-
 </script>
 
 
@@ -66,74 +35,33 @@ onMount(() => {
 <Main background={false} padding={false} >
 	<div class="hero-copy box-content p-4 pt-8">
 		<Text>
-			<h1>Halvard A<span class="middle-name">lvheim</span><span class="middle-name-dot">.</span> Vegum</h1>
+			<h1 class="bg-red text-2xl text-white inline-block mb-2 p-1 pl-2 pr-6 rounded-r-full">Halvard A<span class="middle-name">lvheim</span><span class="middle-name-dot">.</span> Vegum</h1>
 			<p>{@html body.hero}</p>
 		</Text>
 	</div>
 
-	<div>
-		<Roughbox>
-      <a class="lang-swap" href={lang === 'en' ? '/om-meg' : '/about'}>({lang === 'en' ? 'les på Norsk': 'view in English'})</a>
-			<div class="experience">
-				<Timeline title={body.workListTitle} class="timeline" list={workList} {lang} />
-				<Timeline title={body.educationListTitle} class="timeline" list={educationList} {lang} />
-			</div>
+	<Roughbox>
+    <a class="text-sm text-right text-blue text-blue-700 block h-0 no-underline hover:underline" href={lang === 'en' ? '/om-meg' : '/about'}>
+			({lang === 'en' ? 'les på Norsk': 'view in English'})
+		</a>
 
-			<KeyAttributes {body} />
+		<Experience timelines={[
+			{ list: timeline.work, title: body.workListTitle },
+			{ list: timeline.education, title: body.educationListTitle }
+		]}/>
 
+		<KeyAttributes {body} />
 
-			<div>
-				<Text>
-					<h2>{body.toolboxTitle}</h2>
-					{body.toolboxBody}
-					<Skillmap nodes={skillmap.skills} edges={skillmap.connections}/>
-				</Text>
-			</div>
+		<Skillmap title={body.toolboxTitle} body={body.toolboxBody} {...skillmap} />
 
-			<div class="showcase">
-				<h2>{body.showcaseTitle}</h2>
-				<div>
-					<Widget class="showcase-item" let:hover {...body.showcase.bybanestriden}>
-						<Bybane {hover} />
-					</Widget>
-
-					<Widget class="showcase-item" let:hover {...body.showcase.schoolmodels}>
-						<Schoolmodels {hover} />
-					</Widget>
-				</div>
-			</div>
-		</Roughbox>
-	</div>
+		<Showcase title={body.showcaseTitle} showcase={body.showcase} />
+	</Roughbox>
 </Main>
 
 
 <style>
-.lang-swap {
-  font-size: .85em;
-  text-align: right;
-  display: block;
-  height: 0;
-  font-weight: inherit;
-  text-decoration: none;
-}
-
-.lang-swap:hover,
-.lang-swap:focus {
-	text-decoration: underline;
-}
-
 .hero-copy {
 	color: var(--darker);
-}
-
-.hero-copy h1 {
-	background: var(--tertiary);
-	color: var(--lighter);
-	display: inline-block;
-	margin-bottom: .5em;
-	padding: .1em .25em;
-	padding-right: 0.75em;
-	border-radius: 0 5em 5em 0;
 }
 
 .hero-copy h1 .middle-name {
@@ -147,42 +75,6 @@ onMount(() => {
 
 	.hero-copy h1 .middle-name-dot {
 		display: none;
-	}
-}
-
-h2 {
-	max-width: 28em;
-	margin: 1.5em auto .5em;
-}
-
-.showcase div {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
-.showcase :global(.showcase-item) {
-	margin: 0 .5em 1.5em;
-}
-
-.experience {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin: 1.5em 0 .5em;
-}
-
-@media screen and (min-width: 620px) {
-	.showcase div {
-		flex-direction: row;
-		justify-content: space-around;
-		align-items: flex-start;
-	}
-
-	.experience {
-		flex-direction: row;
-		justify-content: space-around;
-		align-items: flex-start;
 	}
 }
 </style>

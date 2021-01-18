@@ -12,32 +12,22 @@ $: if (text) {
 </script>
 
 
-<circle cx={node.x} cy={node.y} r={node.size + 1} aria-hidden="true"/>
+<circle class="fill-blue-400 stroke-blue-800 stroke-1" cx={node.x} cy={node.y} r={node.size + 1} aria-hidden="true"/>
 <g style="
     font-size: {9 + node.size * 1.5}px;
     transform: translate({node.x}px, {node.y + 9 + node.size * 1.5}px">
-  <text style="font-weight: {300 + 50 * node.size}" class="shadow" aria-hidden="true">{node.name}</text>
-  <text style="font-weight: {300 + 50 * node.size}" bind:this={text}>{node.name}</text>
+  <text class="fill-blue-800 stroke-blue-800 stroke-2" style="font-weight: {300 + 50 * node.size}" aria-hidden="true">{node.name}</text>
+  <text class="fill-blue-100" style="font-weight: {300 + 50 * node.size}" bind:this={text}>{node.name}</text>
 </g>
 
 
 <style>
-circle {
-  stroke: var(--primary);
-  stroke-width: 1;
-  fill: var(--secondary);
-}
-
 text {
-  fill: var(--light);
-  color: var(--light);
   text-anchor: middle;
   user-select: none;
 }
-text.shadow {
-  fill: var(--primary);
-  stroke: var(--primary);
-  stroke-width: 2px;
+
+* {
   stroke-linecap: round;
   stroke-linejoin: round;
 }

@@ -24,8 +24,7 @@ function formatDate (date) {
 	return `
 		${date.toLocaleString('en-GB', {   day: 'numeric' })}
 		${date.toLocaleString('en-GB', { month: 'long'    })},
-		${date.toLocaleString('en-GB', {  year: 'numeric' })}
-	`;
+		${date.toLocaleString('en-GB', {  year: 'numeric' })}`;
 }
 
 function handleOutroStart () {
@@ -40,26 +39,26 @@ function handleOutroStart () {
 </svelte:head>
 
 <div
-	class="blog"
+	class="blog w-full max-w-3xl mx-auto overflow-visible relative z-1"
 	class:hidden={outroIsNotBlog}
 	out:fade={{ delay: 400, duration: 200 }}
 	on:outrostart={handleOutroStart}
 >
 	<Main background="light">
 		<div in:fade={{ duration: 200 }}>
-		  <div class="breadcrumb">
+		  <div class="breadcrumb mb-6 text-blue-800">
 				<a href="blog">blog</a> / <a href='blog/{slug}'>{title}</a>
 		  </div>
 
 			<Text>
-				<section class="meta">
-					<p class="timestamp">
+				<section class="mb-8">
+					<p class="m-0 text-sm">
 						Published <time>{formatDate(posted)}</time>
 						{#if modified > posted}
-							<span class="modified">(modified {formatDate(modified)})</span>
+							<span class="italic ml-2">(modified {formatDate(modified)})</span>
 						{/if}
 					</p>
-					<hr/>
+					<hr class="borded-0 border-t-1 border-dashed border-gray-400"/>
 
 					{#if lastYear > modified}
 						<div class="warn-outdate">
@@ -88,61 +87,25 @@ function handleOutroStart () {
 </div>
 
 
-<!-- NOTE: using sass results in weird behaviour -->
-<!-- It won't compile on `sapper dev`, -->
-<!-- but if file is originally pure css, then sass is added, it works ... -->
 <style>
 .blog {
 	grid-row: 2;
 	grid-column: 1;
-	width: 100%;
-	max-width: 47em;
-	margin: 0 auto;
-	overflow: visible;
-	position: relative;
-	z-index: 1;
 	clip-path: url(#clipper);
 }
 
-.blog.hidden {
-	display: none;
-}
-
-.breadcrumb {
-	margin-bottom: 1.5em;
-	color: var(--primary);
-}
-
 a {
-	color: var(--gray);
-	text-decoration: none;
+	@apply text-gray-600 no-underline;
 }
 
 a:hover,
 a:focus {
-	text-decoration: underline;
-}
-
-.meta {
-	margin-bottom: 2em;
-}
-
-.meta p {
-	margin-bottom: 0;
-}
-
-.timestamp {
-	font-size: .85em;
-}
-
-.timestamp .modified {
-	margin-left: 1em;
-	font-style: italic;
+	@apply underline;
 }
 
 hr {
-	border: none;
-	border-top: 1px dashed var(--lightgray);
+	/* border: none; */
+	/* border-top: 1px dashed var(--lightgray); */
 }
 
 .warn-outdate {

@@ -130,18 +130,15 @@ circle {
 	transition: transform 300ms cubic-bezier(0.65, 0, 0.35, 1);
 }
 
-.st0 { fill: var(--secondary) }
-.st1 { fill: #74A7EF }
-.st2 { fill: #4A79E0 }
-.st3 { fill: #204BD0 }
-.st4 { fill: #5888E5 }
-.st5 { fill: #3C6ADA }
+.st0 { fill: var(--blue-100) }
+.st1 { fill: var(--blue-500) }
+.st2 { fill: var(--blue-600) }
+.st3 { fill: var(--blue-700) }
+.st4 { fill: var(--blue-800) }
+.st5 { fill: var(--blue-900) }
 </style>
 
-<svg version="1.1"
-		xmlns="http://www.w3.org/2000/svg"
-		xmlns:xlink="http://www.w3.org/1999/xlink"
-		xml:space="preserve"
+<svg
 		aria-hidden="true"
 		x="0px"
 		y="0px"

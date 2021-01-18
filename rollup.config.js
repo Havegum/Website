@@ -42,7 +42,6 @@ const preprocess = [
 
 
 const mode = process.env.NODE_ENV;
-console.log('@rollup ---- node_env', process.env.NODE_ENV);
 
 const dev = mode === 'development';
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;

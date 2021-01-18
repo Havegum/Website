@@ -5,12 +5,12 @@ import { fade } from 'svelte/transition';
 import { onMount } from 'svelte';
 
 
-export let title = '';
 export let list = [];
+export let title = '';
 export let lang = 'no';
 
-let listElement;
 let svg
+let listElement;
 let svgWidth = 50;
 let radius = 7;
 
@@ -137,20 +137,20 @@ onMount(() => {
 
 
 
-<div class="timeline {$$props.class}">
-  <h2 id="{title}">{title}</h2>
+<div class="w-72 {$$props.class}">
+  <h2 id="{title}" class="mb-1">{title}</h2>
 
-  <div class="stack">
-    <svg bind:this={svg} width={svgWidth} aria-hidden=true>
+  <div class="flex">
+    <svg class="text-red mr-2 overflow-visible flex-shrink-0" bind:this={svg} width={svgWidth} aria-hidden=true>
       {#each list as el, i}
         {#if listElement}
           <g in:fade|local={{ delay: 75 * i, duration: 400 }}>
-            <circle r={radius} cx={svgWidth - radius} cy={el.y} />
-            <path d={el.path} />
+            <circle class="fill-current" r={radius} cx={svgWidth - radius} cy={el.y} />
+            <path class="stroke-current fill-none" d={el.path} />
 
             {#if !el.end}
               <path
-                class="filled"
+                class="fill-current"
                 d="m -4,0 l4,-7 l4,7 z"
                 transform="translate({getPathX(el.points[el.points.length - 1])} {getPathY(el.points[el.points.length - 1]) - 3})"
                 />
@@ -160,16 +160,16 @@ onMount(() => {
       {/each}
     </svg>
 
-    <ol bind:this={listElement} aria-labelledby="{title}">
+    <ol class="relative list-none" bind:this={listElement} aria-labelledby="{title}">
       {#each list as el (el.id)}
         {#if el.hidden}
-          <li class="abbreviated element">
+          <li class="leading-snug font-medium text-gray-700 my-1 text-sm">
             <Button outline=true class="reveal-button" on:click={reveal(el)}>{el.title[lang] || el.title.no}</Button>
           </li>
         {:else}
-          <li in:slide|local={{ offset: 1.45 * (16 + window.innerWidth * 2e-3)}}>
-            <p class="element">{el.place[lang] || el.place.no}</p>
-            <p class="detail">
+          <li class="leading-snug font-medium text-gray-700 my-4 text-sm" in:slide|local={{ offset: 1.45 * (16 + window.innerWidth * 2e-3)}}>
+            <p class="m-0">{el.place[lang] || el.place.no}</p>
+            <p class="text-gray-600 flex flex-col font-normal">
               <span>{el.title[lang] || el.title.no}</span>
               <span>{getDateString(el, lang)}</span>
             </p>
@@ -182,76 +182,13 @@ onMount(() => {
 
 
 <style>
-.timeline {
-  width: 18em;
-}
-
-.stack {
-  display: flex;
-}
-
-h2 {
-  margin-bottom: 0.2em;
-}
-
-svg {
-  margin-right: .666em;
-  overflow: visible;
-  flex-shrink: 0;
-}
-
-circle {
-  fill: var(--tertiary);
-}
-
 path {
-  fill: none;
-  stroke: var(--tertiary);
   stroke-linejoin: round;
   stroke-linecap: round;
   stroke-width: 3;
 }
 
-path.filled {
-  fill: var(--tertiary);
-  stroke: none;
-}
-
-ol {
-	list-style: none;
-  position: relative;
-}
-
-.abbreviated {
-  margin: .25em 0;
-}
-
 .abbreviated :global(.reveal-button) {
   font-size: .85em;
-}
-
-li {
-	margin: 1em 0;
-	line-height: 1.4em;
-  font-weight: 500;
-  color: var(--dark);
-}
-
-/* var(--mobile) */
-@media screen and (min-width: 400px) {
-  li {
-    font-size: .85em;
-  }
-}
-
-li .element {
-  margin: 0;
-}
-
-li .detail {
-  color: var(--gray);
-  font-weight: 375;
-  display: flex;
-  flex-direction: column;
 }
 </style>

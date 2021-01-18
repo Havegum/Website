@@ -1,38 +1,24 @@
-<div class="background">
-	<img role="presentation" alt="" class="sky" src="sky.png"/>
-	<img role="presentation" alt="" class="left shoulder" src="left-shoulder.png"/>
-	<img role="presentation" alt="" class="right shoulder" src="right-shoulder.png"/>
-	<img role="presentation" alt="" class="ground" src="ground.svg"/>
+<div class="background select-none -z-1">
+	<img class="sky bg-gray-100 object-top"            src="sky.png" role="presentation" alt="" />
+	<img class="left shoulder"  src="left-shoulder.png" role="presentation" alt="" />
+	<img class="right shoulder" src="right-shoulder.png" role="presentation" alt="" />
+	<img class="ground"         src="ground.svg" role="presentation" alt="" />
 </div>
 
 
 
 <style>
-.background {
-	user-select: none;
-	background: var(--secondary);
-	z-index: -1;
-
-}
-
 img {
-	width: 100%;
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 0;
-	object-fit: none;
+	@apply w-full absolute left-0 right-0 top-0 bottom-0 object-none;
 }
 
 .sky {
-	background-color: var(--light);
-	object-position: top center;
 	height: 27em;
 }
 
 .shoulder {
-	width: 40%;
-	height: 100%;
+	@apply w-2/5;
+	@apply h-full;
 }
 
 .shoulder.left {
@@ -48,7 +34,6 @@ img {
 .ground {
 	top: 543px;
 	object-position: center top;
-	height: 100%;
 	min-height: 5em;
 	max-height: 20em;
 	object-fit: cover;

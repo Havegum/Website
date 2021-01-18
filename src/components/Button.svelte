@@ -8,7 +8,7 @@ $: cat = category && category.toLowerCase();
 
 
 <button type="button"
-    class="{$$props.class}"
+    class="block border-0 bg-transparent no-underline px-1.5 py-0.5 rounded-sm cursor-pointer"
     on:click
     {disabled}
     class:primary={cat === 'primary'}
@@ -25,33 +25,22 @@ $: cat = category && category.toLowerCase();
 
 <style>
 button {
-  cursor: pointer;
   font-size: 1em;
-  font-family: var(--sans);
-
-  display: block;
-  border: none;
-  background: none;
-  text-decoration: none;
-
-  padding: .3em .5em .15em;
-  border-radius: 3px;
 }
 
 .primary {
-  background-color: var(--primary);
-  color: var(--button-text);
+  @apply bg-blue-600 text-white;
 }
 
 .primary.outline {
-  background-color: transparent;
-  border: 1px solid var(--primary);
-  color: var(--primary);
+  @apply
+    bg-transparent
+    border border-solid border-blue-600
+    text-blue-600;
 }
 
-.primary:hover, .primary:focus {
-  background-color: var(--primary);
-  color: var(--button-text);
+.primary:hover, .primary:focus, .primary:active {
+  @apply bg-blue-600 text-white;
 }
 
 

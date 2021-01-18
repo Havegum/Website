@@ -22,14 +22,14 @@ a {
   display: flex;
   flex-direction: column;
   text-decoration: none;
-  color: var(--dark);
+  color: var(--gray-900);
   line-height: 1.4em;
 
-  background-color: var(--light);
+  background-color: var(--white-100);
 
   width: 17em;
   margin-bottom: 1em;
-  border-bottom: 3px solid var(--secondary-dark);
+  border-bottom: 3px solid var(--blue-400);
 }
 
 div {

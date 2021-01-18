@@ -32,9 +32,9 @@ $: height = !init ? 'auto' : transition ? 0 : `${textHeight}px`;
 </svelte:head>
 
 <Main padding={!transition}>
-	<div style="margin-bottom: {height}">
+	<div class="relative" style="margin-bottom: {height}">
 		<ol
-			class="posts"
+			class="absolute pb-4 list-none w-full grid justify-center gap-4 top-4 posts"
 			class:transition
 			bind:clientHeight={textHeight}
 		>
@@ -43,7 +43,7 @@ $: height = !init ? 'auto' : transition ? 0 : `${textHeight}px`;
 					<BlogListing href="blog/{post.slug}">
 						<span slot="lead">{post.title}</span>
 						<div
-							class="background"
+							class="absolute inset-0 bg-gray-50 -z-1"
 							in:receive={{ key: post.slug }}
 							out:send={{ key: post.slug }}
 						/>
@@ -56,33 +56,11 @@ $: height = !init ? 'auto' : transition ? 0 : `${textHeight}px`;
 
 
 <style>
-div, ol {
-	position: relative;
-}
-
 .posts {
-	position: absolute;
-	width: 100%;
-	padding-bottom: 1em;
-	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(auto, 17em));
-	justify-content: center;
-	list-style: none;
-	gap: 1em;
-	top: 1em;
 }
 
 .posts.transition {
-	top: 2em;
-}
-
-.background {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	z-index: -1;
-	background-color: var(--lighter);
+	top: 2rem;
 }
 </style>

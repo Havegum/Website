@@ -38,15 +38,15 @@ const [send, receive] = crossfade({
 			easing: quintOut,
 			css: t => `
 				transform: ${transform} scaleX(${t});
-				opacity: ${t}
-			`
+				opacity: ${t};`
 		};
 	}
 });
 </script>
 
-<nav>
-	<ul on:mouseout={timeout}>
+
+<nav class="py-0">
+	<ul class="flex flex-row justify-center p-0 m-0" on:mouseout={timeout}>
 		<li>
 			<a
 				class:selected='{segment === "about" | segment === 'om-meg'}'
@@ -55,7 +55,8 @@ const [send, receive] = crossfade({
 				on:blur={timeout}
 				href='{lang === 'en' ? 'about' : 'om-meg'}'
 			>
-				{lang === 'en' ? 'About me' : 'Om meg'}
+				<p class="m-0 invisible font-extrabold">{lang === 'en' ? 'About me' : 'Om meg'}</p>
+				<p class="m-0 absolute top-1/2 left-0 right-0 text-center transform -translate-y-1/2">{lang === 'en' ? 'About me' : 'Om meg'}</p>
 			</a>
 			{#if target === "about" || target === 'om-meg'}
 				<div class="scrubber" in:receive={scrub} out:send={scrub}/>
@@ -70,7 +71,8 @@ const [send, receive] = crossfade({
 			 	on:blur={timeout}
 			 	href='blog'
 			>
-				Blog{lang === 'en' ? '' : 'g'}
+				<p class="m-0 invisible font-extrabold">{lang === 'en' ? 'Blog' : 'Blogg'}</p>
+				<p class="m-0 absolute top-1/2 left-0 right-0 text-center transform -translate-y-1/2">{lang === 'en' ? 'Blog' : 'Blogg'}</p>
 			</a>
 			{#if target === "blog"}
 				<div class="scrubber" in:receive={scrub} out:send={scrub}/>
@@ -79,34 +81,15 @@ const [send, receive] = crossfade({
 	</ul>
 </nav>
 
+
 <style>
-nav {
-	padding: 0 1em;
-}
-
-ul {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	margin: 0;
-	padding: 0;
-}
-
 li {
-	display: block;
-	position: relative;
+	@apply relative block;
 }
 
 a {
-	color: var(--darker);
-	text-decoration: none;
-	padding: 1em 0.5em;
-	display: block;
-
-	font-weight: 400;
-	transition:
-		font-weight 100ms ease-out,
-		color 50ms ease-out;
+	@apply text-gray-900 no-underline py-4 px-2 block font-normal relative;
+	transition: font-weight 100ms ease-out, color 50ms ease-out;
 }
 
 a.selected {
@@ -114,7 +97,7 @@ a.selected {
 }
 
 a:hover, a:focus {
-	color: var(--primary);
+	color: var(--blue-700);
 	font-weight: 850;
 	outline: none;
 
@@ -124,7 +107,7 @@ a:hover, a:focus {
 }
 
 a:active {
-	color: var(--primary-dark);
+	color: var(--blue-700);
 	font-weight: 700;
 
 	transition:
@@ -133,11 +116,11 @@ a:active {
 }
 
 .scrubber {
-	background-color: var(--gray);
+	background-color: var(--gray-700);
 }
 
 .selected::after {
-	background-color: var(--primary);
+	background-color: var(--blue-700);
 	z-index: 1;
 	content: '';
 }

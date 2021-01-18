@@ -3,40 +3,18 @@ export let href = '#';
 </script>
 
 
-<a {href}>
+<a {href} class="relative flex flex-col hover:underline bg-white leading-snug border-b-2 border-blue-300">
   <slot/>
-  <div>
-    <p><slot name="lead"/></p>
+  <div class="p-3 relative z-0">
+    <p class="m-0">
+      <slot name="lead"/>
+    </p>
   </div>
 </a>
 
 
 <style>
 a {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
-  color: var(--dark);
-  line-height: 1.4em;
-
-  background-color: var(--lighter);
-
-  border-bottom: 3px solid var(--secondary-dark);
-}
-
-div {
-  padding: .8em;
-  border-top: none;
-  position: relative;
-  z-index: 0;
-}
-
-a:hover p {
-  text-decoration: underline;
-}
-
-p {
-  margin: 0;
+  color: var(--text-gray-800);
 }
 </style>

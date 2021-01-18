@@ -72,24 +72,24 @@ svg {
 	height: auto;
 }
 
-.st0 { fill: var(--dark) }
+.st0 { fill: var(--green-800) }
 
-.st2 { fill: var(--lightgray) }
+.st2 { fill: var(--green-500) }
 
-.st3 { fill: var(--light) }
+.st3 { fill: var(--gray-100) }
 
-.st5 { fill: var(--tertiary) }
+.st5 { fill: var(--red-500) }
 
 .st6 {
 	fill: none;
-	stroke: var(--tertiary);
+	stroke: var(--red-500);
 	stroke-width: 8;
 	stroke-miterlimit: 10;
 }
 
 .st7 {
-	fill: var(--light);
-	stroke: var(--tertiary);
+	fill: var(--gray-100);
+	stroke: var(--red-500);
 	stroke-width: 4;
 	stroke-miterlimit: 10;
 }
