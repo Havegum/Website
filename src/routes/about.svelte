@@ -1,7 +1,7 @@
 <script>
 import Roughbox from '@/components/layout/Roughbox.svelte';
-import IllustratedBackground from '@/components/IllustratedBackground.svelte';
 import Main from '@/components/layout/Main.svelte';
+import DynamicBackground from '@/components/DynamicBackground.svelte';
 
 import Text from '@/components/Text.svelte';
 import Experience from '@/components/Experience.svelte';
@@ -19,7 +19,6 @@ import skillmap from '../../static/skillmap.json';
 
 import about from './_about.yaml';
 
-
 export let lang = 'en';
 $: body = about[lang];
 </script>
@@ -29,8 +28,7 @@ $: body = about[lang];
 	<title>Halvard Alvheim Vegum</title>
 </svelte:head>
 
-
-<IllustratedBackground/>
+<DynamicBackground/>
 
 <Main background={false} padding={false} >
 	<div class="hero-copy box-content p-4 pt-8">
@@ -61,7 +59,7 @@ $: body = about[lang];
 
 <style>
 .hero-copy {
-	color: var(--darker);
+	color: var(--gray-800);
 }
 
 .hero-copy h1 .middle-name {

@@ -46,7 +46,7 @@ function handleOutroStart () {
 >
 	<Main background="light">
 		<div in:fade={{ duration: 200 }}>
-		  <div class="breadcrumb mb-6 text-blue-800">
+		  <div class="breadcrumb mb-6 text-blue-500">
 				<a href="blog">blog</a> / <a href='blog/{slug}'>{title}</a>
 		  </div>
 
@@ -61,8 +61,8 @@ function handleOutroStart () {
 					<hr class="borded-0 border-t-1 border-dashed border-gray-400"/>
 
 					{#if lastYear > modified}
-						<div class="warn-outdate">
-							<strong>Note:</strong> This post is more than one year old.
+						<div class="warn-outdate rounded-sm">
+							<strong class="text-green-500">Note:</strong> This post is more than one year old.
 						</div>
 					{/if}
 				</section>
@@ -103,14 +103,11 @@ a:focus {
 	@apply underline;
 }
 
-hr {
-	/* border: none; */
-	/* border-top: 1px dashed var(--lightgray); */
-}
 
 .warn-outdate {
-	border: 1px solid var(--tertiary);
-	color: var(--tertiary);
+	border: 1px solid var(--green-200);
+	color: var(--gray-800);
+	background-color: var(--green-50);
 	padding: 1em;
 	margin-top: 1em;
 }

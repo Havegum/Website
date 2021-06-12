@@ -40,7 +40,7 @@ export let post;
 <style>
 .breadcrumb {
 	margin-bottom: 1.5em;
-	color: var(--primary);
+	color: var(--blue);
 }
 
 .breadcrumb a {

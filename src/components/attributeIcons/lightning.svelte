@@ -1,5 +1,5 @@
 <!-- Icon adapted from original by matfine https://thenounproject.com/matfine/, licensed under creative commons -->
-<svg class="w-20 h-20" viewBox="0 0 230.8 230.8" preserveAspectRatio="xMidYMid meet">
+<svg class="w-20 h-20 overflow-visible" viewBox="0 0 230.8 230.8" preserveAspectRatio="xMidYMid meet">
 <defs>
 </defs>
 <g>

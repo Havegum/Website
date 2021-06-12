@@ -110,19 +110,19 @@ function generate (dims = 1, max = null) {
 }
 
 .stack th {
-  color: var(--dark);
+  color: var(--gray-800);
   text-shadow:
-    0 0 0.5px var(--lighter),
-    0 0 1.0px var(--lighter),
-    0 0 1.5px var(--lighter),
-    0 0 2.0px var(--lighter),
-    0 0 2.5px var(--lighter),
-    0 0 3.0px var(--lighter),
-    0 0 3.5px var(--lighter),
-    0 0 4.0px var(--lighter),
-    0 0 4.5px var(--lighter),
-    0 0 5.0px var(--lighter),
-    0 0 5.5px var(--lighter);
+    0 0 0.5px var(--white),
+    0 0 1.0px var(--white),
+    0 0 1.5px var(--white),
+    0 0 2.0px var(--white),
+    0 0 2.5px var(--white),
+    0 0 3.0px var(--white),
+    0 0 3.5px var(--white),
+    0 0 4.0px var(--white),
+    0 0 4.5px var(--white),
+    0 0 5.0px var(--white),
+    0 0 5.5px var(--white);
   border: none;
 }
 
@@ -170,27 +170,27 @@ table {
 }
 
 th, td {
-  color: var(--paragraph);
+  color: var(--gray-800);
   font-weight: normal;
-  border: 1px solid var(--lighter);
+  border: 1px solid var(--white);
   text-align: center;
 }
 
 .dice-1,
 .dice-2,
 .dice-3 {
-  color: var(--lighter);
+  color: var(--white);
   background-color: var(--red);
 }
 
 .dice-4,
 .dice-5 {
-  color: var(--dark);
-  background-color: var(--secondary-dark);
+  color: var(--gray-800);
+  background-color: var(--gray-300);
 }
 
 .dice-6 {
-  color: var(--lighter);
-  background-color: var(--primary);
+  color: var(--white);
+  background-color: var(--blue);
 }
 </style>

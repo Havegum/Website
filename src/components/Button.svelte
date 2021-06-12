@@ -45,19 +45,19 @@ button {
 
 
 .tertiary {
-  background-color: var(--tertiary);
-  color: var(--button-text);
+  background-color: var(--red);
+  color: var(--white);
 }
 
 .tertiary.outline {
   background-color: transparent;
-  border: 1px solid var(--tertiary);
-  color: var(--tertiary);
+  border: 1px solid var(--red);
+  color: var(--red);
 }
 
 .tertiary:hover, .tertiary:focus {
-  background-color: var(--tertiary);
-  color: var(--button-text);
+  background-color: var(--red);
+  color: var(--white);
 }
 
 button:active {

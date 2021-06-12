@@ -22,22 +22,26 @@ a {
   display: flex;
   flex-direction: column;
   text-decoration: none;
-  color: var(--gray-900);
+  color: var(--gray-600);
   line-height: 1.4em;
 
-  background-color: var(--white-100);
+  background-color: var(--white);
 
   width: 17em;
   margin-bottom: 1em;
-  border-bottom: 3px solid var(--blue-400);
+  border-radius: 6px;
+  overflow: hidden;
 }
 
 div {
   padding: .8em;
+  border: 1px solid var(--blue-400);
+  border-radius: 0px 0 6px 6px;
   border-top: none;
 }
 
 .title {
+  color: var(--gray-900);
   font-weight: 475;
 }
 

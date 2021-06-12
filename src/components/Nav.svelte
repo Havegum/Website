@@ -116,7 +116,7 @@ a:active {
 }
 
 .scrubber {
-	background-color: var(--gray-700);
+	background-color: var(--blue-500);
 }
 
 .selected::after {

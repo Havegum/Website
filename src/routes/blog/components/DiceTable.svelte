@@ -3,9 +3,9 @@ import Row from './DiceRow.svelte';
 </script>
 
 
-<svg class="hidden">
+<svg>
 	<defs>
-		<line id="line" x1="5" y1="0" x2="5" y2="10" stroke="#2255e9" stroke-width="4.5"/>
+		<line id="line" x1="5" y1="0" x2="5" y2="10" stroke="var(--blue)" stroke-width="4.5"/>
 
 		<pattern id="hatch-left" x="0" y="0" height="10" width="10" patternTransform="rotate(-45, 5, 5) scale(.4, 1)" patternUnits="userSpaceOnUse">
 			<use href="#line"/>
@@ -46,12 +46,12 @@ tbody {
 }
 
 tbody:nth-child(2n) {
-	background-color: var(--light);
+	background-color: var(--gray-100);
 }
 
 th {
 	width: 100%;
-  color: var(--dark);
+  color: var(--gray-600);
   line-height: 1.2;
   vertical-align: bottom;
   padding-bottom: .5em;
@@ -70,7 +70,7 @@ th.span {
 	width: 200%;
 }
 
-svg.hidden {
+svg {
 	position: absolute;
 	width: 0;
 	height: 0;

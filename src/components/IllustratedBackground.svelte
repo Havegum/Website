@@ -1,5 +1,5 @@
 <div class="background select-none -z-1">
-	<img class="sky bg-gray-100 object-top"            src="sky.png" role="presentation" alt="" />
+	<img class="sky bg-gray-100 object-top" src="sky.png" role="presentation" alt="" />
 	<img class="left shoulder"  src="left-shoulder.png" role="presentation" alt="" />
 	<img class="right shoulder" src="right-shoulder.png" role="presentation" alt="" />
 	<img class="ground"         src="ground.svg" role="presentation" alt="" />

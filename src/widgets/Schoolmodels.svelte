@@ -130,12 +130,12 @@ circle {
 	transition: transform 300ms cubic-bezier(0.65, 0, 0.35, 1);
 }
 
-.st0 { fill: var(--blue-100) }
-.st1 { fill: var(--blue-500) }
+.st0 { fill: var(--blue-200) }
+.st1 { fill: var(--blue-400) }
 .st2 { fill: var(--blue-600) }
-.st3 { fill: var(--blue-700) }
-.st4 { fill: var(--blue-800) }
-.st5 { fill: var(--blue-900) }
+.st3 { fill: var(--blue-800) }
+.st4 { fill: var(--blue-700) }
+.st5 { fill: var(--blue-500) }
 </style>
 
 <svg

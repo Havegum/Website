@@ -62,7 +62,7 @@ $: good = data.filter(d => d.result >= 4).map(d => d.value).reduce(sum);
 	width: 100%;
 	align-items: baseline;
 	text-align: right;
-	color: var(--primary);
+	color: var(--blue);
 }
 
 .row * {
@@ -70,7 +70,7 @@ $: good = data.filter(d => d.result >= 4).map(d => d.value).reduce(sum);
 }
 
 .row .bad {
-	color: var(--tertiary);
+	color: var(--red);
 }
 
 .row .good {
@@ -94,12 +94,12 @@ $: good = data.filter(d => d.result >= 4).map(d => d.value).reduce(sum);
 
 .row .first::after {
 	visibility: visible;
-	color: var(--gray);
+	color: var(--gray-500);
 }
 
 .row .dice {
 	font-size: 1.4em;
-	color: var(--dark);
+	color: var(--gray-800);
 	text-align: center;
 }
 
@@ -117,11 +117,11 @@ $: good = data.filter(d => d.result >= 4).map(d => d.value).reduce(sum);
 .bar-inner .part {
 	flex: 0 0 0;
 	height: 1em;
-	background-color: var(--secondary-dark);
+	background-color: var(--gray-300);
 }
 
 .bar-inner .part.bad {
-	background-color: var(--tertiary);
+	background-color: var(--red);
 }
 
 .bar-inner .highlight {
