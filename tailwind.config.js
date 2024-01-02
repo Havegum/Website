@@ -1,9 +1,7 @@
-module.exports = {
-  purge: {
-    enabled: process.env.NODE_ENV === 'production',
-    content: ['./src/**/*.svelte', './src/**/*.html'],
-  },
-  darkMode: false, // or 'media' or 'class'
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./src/**/*.{html,js,svelte,ts}'],
+  darkMode: 'media',
   theme: {
     fontSize: {
       'xs': '0.64rem',
@@ -101,3 +99,4 @@ module.exports = {
   },
   plugins: [],
 }
+

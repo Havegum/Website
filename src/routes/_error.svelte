@@ -21,7 +21,7 @@ const dev = process.env.NODE_ENV === 'development';
 </div>
 
 
-<style>
+<style lang="postcss">
 h1, p {
 	margin: 0 auto;
 }

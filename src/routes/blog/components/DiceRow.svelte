@@ -56,7 +56,7 @@ $: good = data.filter(d => d.result >= 4).map(d => d.value).reduce(sum);
 </tr>
 
 
-<style>
+<style lang="postcss">
 .row {
 	height: 2em;
 	width: 100%;

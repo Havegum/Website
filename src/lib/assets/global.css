@@ -1,0 +1,226 @@
+@import url("https://rsms.me/inter/inter.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* --light: #e4f2f2; */
+  /* --dark: #354e50; */
+  /* --lightgray: #6d9b94; */
+  /* --gray: #547879; */
+  /* --primary: #2255e9; */
+  /* --primary-dark: #0c32a7; */
+  /* --secondary: #bfe8fc; */
+  /* --secondary-dark: #90c5f9; */
+  --tertiary: #da3125;
+  /* --lighter: #f9f9f1; */
+  /* --darker: #1a2826; */
+  --background: #e4f2f2;
+  --headline: #354e50;
+  /* --paragraph: #547879; */
+  --button: #2255e9;
+  --button-text: #f9f9f1;
+  --link: #2255e9;
+  --link-hover: #0c32a7;
+  --background-dark: #1a2826;
+  --headline-dark: #f9f9f1;
+  /* --paragraph-dark: #6d9b94; */
+  /* --red: #da3125; */
+  --mobile: 400px;
+  --medium: 620px;
+  --sans: 'Inter', sans-serif;
+  font-size: 16.2px;
+}
+
+:root {
+  --red-50: #fef3f0;
+  --red-100: #fce6e0;
+  --red-200: #ffc5bb;
+  --red-300: #f4928e;
+  --red-400: #ef6067;
+  --red-500: #e63946;
+  --red-600: #b02e3d;
+  --red-700: #7a2334;
+  --red-800: #5d1a2b;
+  --red-900: #3f1122;
+  --red-DEFAULT: var(--red-500);
+  --red: var(--red-DEFAULT);
+
+  --green-50: #e9ffec;
+  --green-100: #cdf9da;
+  --green-200: #92e0b7;
+  --green-300: #55c693;
+  --green-400: #23a573;
+  --green-500: #068c62;
+  --green-600: #047051;
+  --green-700: #065544;
+  --green-800: #033a34;
+  --green-900: #002023;
+  --green-DEFAULT: var(--green-400);
+  --green: var(--green-DEFAULT);
+
+  --blue-50: #e8f9f9;
+  --blue-100: #d7f6f7;
+  --blue-200: #a5dce4;
+  --blue-300: #73c2d1;
+  --blue-400: #40a7bd;
+  --blue-500: #0e8daa;
+  --blue-600: #116b86;
+  --blue-700: #144a61;
+  --blue-800: #17283d;
+  --blue-900: #0b1a2d;
+  --blue-DEFAULT: var(--blue-500);
+  --blue: var(--blue-DEFAULT);
+
+  --white-DEFAULT: #f9f9f1;
+  --white-100: #e4f2f2;
+  --white: var(--white-DEFAULT);
+
+  --gray-50: #f9f9f1;
+  --gray-100: #f2f2e9;
+  --gray-200: #e1e5e4;
+  --gray-300: #c2d3d1;
+  --gray-400: #92a5a4;
+  --gray-500: #687777;
+  --gray-600: #4c5958;
+  --gray-700: #394444;
+  --gray-800: #232828;
+  --gray-900: #181c1c;
+  --gray-DEFAULT: var(--gray-400);
+  --gray: var(--gray-DEFAULT);
+
+}
+
+html, body, *, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  min-height: 100vh;
+}
+body, button, input {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+}
+
+@supports (font-variation-settings: normal) {
+  body, button, input {
+    font-family: 'Inter var', sans-serif;
+  }
+  :root {
+    --sans: 'Inter var', sans-serif;
+  }
+}
+
+html {
+  font-size: 16.2px;
+}
+
+body {
+  font-size: 16.2px;
+  line-height: 1.7;
+  color: var(--gray-700);
+  background-color: var(--blue-200);
+}
+
+@media (min-width: 400px) {
+  :root, html, body {
+    font-size: calc(15.5px + .2vw);
+  }
+
+}
+
+#sapper {
+  display: grid;
+  grid-template-rows: [nav-start] auto [nav-end main-start] 1fr [main-end footer-start] auto [footer-end];
+  min-height: 100vh;
+  position: relative;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #354e50;
+  margin: 1.25em 0 0.25em;
+  font-weight: 650;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 1.8em;
+}
+
+h2 {
+  font-size: 1.4em;
+}
+
+h3 {
+  font-size: 1.2em;
+}
+
+h4 {
+  font-size: 1.15em;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+a {
+  color: var(--blue);
+}
+
+a:hover, a:focus {
+  color: var(--blue-700);
+}
+
+a:active {
+  font-weight: 475;
+}
+
+button, input {
+  font-size: 1em;
+  color: var(--gray-700);
+  border: none;
+  background-color: transparent;
+}
+
+button {
+  cursor: pointer;
+  display: block;
+  border: none;
+}
+
+ul {
+  padding-left: 1em;
+  margin: 1em 0;
+}
+
+pre {
+  background-color: var(--gray-200);
+}
+
+b {
+  font-weight: 650;
+}
+
+i {
+  font-style: oblique 15deg;
+}
+
+code {
+  border-radius: 2px;
+  padding: 0.2em 0.4em;
+}
+
+textarea {
+  font-size: 1em;
+  border: none;
+  width: 100%;
+  display: block;
+  min-height: 10em;
+  padding: .5em;
+  resize: vertical;
+}

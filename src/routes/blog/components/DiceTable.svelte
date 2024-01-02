@@ -34,7 +34,7 @@ import Row from './DiceRow.svelte';
 </table>
 
 
-<style>
+<style lang="postcss">
 table {
 	table-layout: fixed;
 	border-collapse: collapse;

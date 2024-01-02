@@ -86,7 +86,7 @@ function generate (dims = 1, max = null) {
   </div>
 {/if}
 
-<style>
+<style lang="postcss">
 .stack-stack {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
